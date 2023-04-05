@@ -4,7 +4,7 @@
 | -------------- | ------ |
 | Natasa Krco| 323018|
 | Ajkuna Seipi| 296870|
-| | |
+| Hongyi Shi| |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
