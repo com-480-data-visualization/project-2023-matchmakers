@@ -21,9 +21,9 @@ To be able to implement the visualizations, we used the following dataset from K
 [Link to Milestone 1](./Milestones/Milestone1.pdf)
 
 The Milestone contains:
-* a description and links to the datasets used
+* a description of the dataset used
 * an explanation to the problematic
-* an explanation to the explanatory analysis of the datasets
+* an explanation to the explanatory analysis of the dataset
 * some related works on the subject
 
 
