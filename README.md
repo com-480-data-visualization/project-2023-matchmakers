@@ -18,7 +18,7 @@
 To be able to implement the visualizations, we used the following dataset from Kaggle, containing data from twelve speed dating events held between 2002 and 2004:
 * [Kaggle Speed Dating](https://www.kaggle.com/datasets/ulrikthygepedersen/speed-dating)
 
-[Link to Milestone 1](./Milestones/Milestone1.pdf)
+[Link to Milestone 1](./Milestones/Mileston1.pdf)
 
 The Milestone contains:
 * a description of the dataset used
