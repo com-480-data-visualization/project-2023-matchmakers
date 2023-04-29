@@ -1,0 +1,6 @@
+- cleaned.csv:
+  - one row is one date, with all the info from the original dataset
+- poeple.csv:
+  - one row is one person who came to an event, with all of the information about that person (demographic, preferences, interests)
+- profiles.csv:
+  - one row is one person, just with their interests (mostly just for clustering)
