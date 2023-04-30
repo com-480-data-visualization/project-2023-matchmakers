@@ -1,12 +1,12 @@
 /*
-=============== 
+===============
 Fonts
 ===============
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
 
 /*
-=============== 
+===============
 Variables
 ===============
 */
@@ -55,7 +55,7 @@ Variables
   --fixed-width: 620px;
 }
 /*
-=============== 
+===============
 Global Styles
 ===============
 */
@@ -189,7 +189,7 @@ main {
   place-items: center;
 }
 /*
-=============== 
+===============
 Scroll
 ===============
 */
@@ -301,8 +301,8 @@ nav {
 /* hero */
 header {
   min-height: 100vh;
-  background: linear-gradient(rgba(63, 208, 212, 0.5), rgba(0, 0, 0, 0.7)),
-    url(./hero-bcg.jpeg) center/cover no-repeat;
+  background: linear-gradient(rgba(63, 208, 212, 0.5), rgba(0, 0, 0, 0.7)); /*,
+    url(./hero-bcg.jpeg) center/cover no-repeat; */
 }
 .banner {
   min-height: 100vh;
@@ -325,6 +325,19 @@ header {
     color: deeppink;
     font-style: italic;
 }
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.svg-container svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .container p {
     max-width: 40rem;
