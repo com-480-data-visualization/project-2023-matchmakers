@@ -29,7 +29,7 @@ The Milestone contains:
 
 ## Milestone 2 (7th May, 5pm)
 
-**10% of the final grade**
+[Here is the link to our website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
 
 
 ## Milestone 3 (4th June, 5pm)
