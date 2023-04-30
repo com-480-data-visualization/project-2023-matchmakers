@@ -121,6 +121,6 @@ svg.selectAll("path")
             .attr("opacity", 0.5)
     );
 
-d3.text("./data/people.csv").then(function(data) {
+d3.text("../data/people.csv").then(function(data) {
   console.log(data);
 })
