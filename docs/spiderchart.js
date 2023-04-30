@@ -16,19 +16,6 @@ d3.csv("../data/people.csv", {
       .attr('height', container_h);
     //  .attr('transform', "translate(1000, 0)");
 
-<<<<<<< HEAD
-  let data = [];
-  let features = ["attractive_important", "intelligence_important", "sincere_important", "funny_important", "ambition_important", "shared_interests_important"];
-  let avg_vals = {};
-  //generate the data
-  features.forEach(f => {
-    var colData = dataa.map(function(d){
-      return parseFloat(d[f]);
-    })
-    avg_vals[f] = d3.mean(colData);
-  });
-  data.push(avg_vals);
-=======
 const svg = container.append('svg')
     .attr('width', container_w)
     .attr('height', container_h);
