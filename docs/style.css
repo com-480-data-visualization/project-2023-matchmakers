@@ -359,6 +359,16 @@ header {
 #matching {
   background: var(--clr-white);
 }
+
+#team p {
+  color: black;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  margin-bottom: 0;
+  margin-left: 35px;
+  margin-top: 35px;
+}
+
 footer {
   background: var(--clr-grey-1);
   padding: 5rem 1rem;
