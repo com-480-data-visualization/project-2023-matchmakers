@@ -16,6 +16,7 @@ d3.csv(data_path, {
   const svg = container.append('svg')
       .attr('width', container_w)
       .attr('height', container_h);
+  //    .attr('transform', "translate(1000,0)");
     //  .attr('transform', "translate(1000, 0)");
 
     let data = [];
@@ -72,7 +73,8 @@ d3.csv(data_path, {
               .attr("fill", "none")
               .attr("stroke", "gray")
               .attr("r", d => radialScale(d))
-      );
+      )
+      .attr('transform', "translate(0, 0)");
 
   svg.selectAll(".ticklabel")
       .data(ticks)
@@ -121,8 +123,11 @@ d3.csv(data_path, {
 
   console.log(featureData);
 
+
+
   // draw axis line
-  svg.selectAll("line")
+  svg.append('g')
+    .selectAll("line")
       .data(featureData)
       .join(
           enter => enter.append("line")
@@ -134,7 +139,8 @@ d3.csv(data_path, {
       );
 
   // draw axis label
-  svg.selectAll(".axislabel")
+  svg.append('g')
+    .selectAll(".axislabel")
       .data(featureData)
       .join(
           enter => enter.append("text")
@@ -158,11 +164,19 @@ d3.csv(data_path, {
       return coordinates;
   }
 
+  function getLabelCoordinates(data_point){
+    let path_coordinates = getPathCoordinates(data_point);
+    return {'x': d3.max(path_coordinates, p => Math.abs(p.x)), 'y':d3.min(path_coordinates, p => Math.abs(p.y))}
+  }
+
+  const gender_labels = ['Women', 'Men'];
   // draw the path element
-  svg.selectAll("path")
+  svg.append('g')
+     .selectAll("path")
       .data(data)
       .join(
-          enter => enter.append("path")
+          enter => {
+            pp = enter.append("path")
               .datum(d => getPathCoordinates(d))
               .attr("d", line)
               .attr("stroke-width", 3)
@@ -170,6 +184,37 @@ d3.csv(data_path, {
               .attr("fill", (_, i) => colors[i])
               .attr("stroke-opacity", 1)
               .attr("opacity", 0.5)
+            enter.append('rect')
+              .attr('width', 100)
+              .attr('height', 20)
+              .attr('x', d => getLabelCoordinates(d).x-50)
+              .attr('y', d => getLabelCoordinates(d).y-15)
+              .attr('rx', 10)
+              .attr('ry', 10)
+              .attr('fill', 'white');
+
+            enter.append('text')
+          /*    .datum(d => getLabelCoordinates(d)) */
+              .attr('class', 'label')
+              .attr('x', d => getLabelCoordinates(d).x)
+              .attr('y', d => getLabelCoordinates(d).y)
+              .attr('text-anchor', 'middle')
+              .attr("stroke-width", 1)
+          //    .attr("stroke", (_, i) => colors[i])
+          //    .attr("stroke", "white")
+              .attr("fill", (_, i) => colors[i])
+            //  .attr("fill", "white")
+              .text((_, i) => gender_labels[i]);
+          }
       );
+/*
+    container.append('rect')
+      .attr('width', 200)
+      .attr('height' 200); */
+
+  const svg2 = container.append('rect')
+      .attr('width', 200)
+      .attr('height', 350)
+      .attr('transform', "translate(50,20)");
 
 })
