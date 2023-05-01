@@ -7,6 +7,7 @@ const width = 400;
 const height = 400;
 
 const data_path = "data/people.csv";
+
 // "https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/ac7c0f0d5833bf3e51eaca1331d45bef8d357767/data/people.csv";
 d3.csv(data_path, {
   delimiter: ",",
