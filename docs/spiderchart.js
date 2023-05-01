@@ -7,7 +7,7 @@ const width = 400;
 const height = 400;
 
 
-d3.csv("people.csv", {
+d3.csv("docs/people.csv", {
   delimiter: ",",
   header: true
 }).then(function(dataa){
