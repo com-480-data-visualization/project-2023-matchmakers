@@ -18,15 +18,42 @@ d3.csv("../data/people.csv", {
 
     let data = [];
     let features = ["attractive_important", "intelligence_important", "sincere_important", "funny_important", "ambition_important", "shared_interests_important"];
-    let avg_vals = {};
+    const label_keys = {
+      "attractive_important": "Attractiveness", "intelligence_important": "Intelligence",
+       "sincere_important": "Sincerity", "funny_important": "Sense of humour",
+       "ambition_important":"Ambition", "shared_interests_important": "Shared interests"
+    };
     //generate the data
-    features.forEach(f => {
-      var colData = dataa.map(function(d){
+/*    women = dataa.filter(function (el) {
+      return el["gender"] == "female"
+    });
+    men = dataa.filter(function(el){
+      return el["gender"] == "male"
+    }); */
+    genders = ["female", "male"];
+
+    genders.forEach(g => {
+      let avg_vals = {};
+      var df = dataa.filter(function(el){
+        return el["gender"] == g
+      });
+
+      features.forEach(f => {
+        var colData = df.map(function(d) {
+          return parseFloat(d[f]);
+        })
+        avg_vals[f] = d3.mean(colData);
+      });
+      data.push(avg_vals);
+    });
+
+/*    features.forEach(f => {
+      var colData = women.map(function(d){
         return parseFloat(d[f]);
       })
       avg_vals[f] = d3.mean(colData);
     });
-    data.push(avg_vals);
+    data.push(avg_vals); */
 
   let radialScale = d3.scaleLinear()
     .domain([0, 30])
@@ -72,7 +99,7 @@ d3.csv("../data/people.csv", {
     let coords = angleToCoordinate(angle, value);
 
     if (angle>Math.PI/2 && angle<3*Math.PI/2){
-      coords["x"] = coords["x"] - 150;
+      coords["x"] = coords["x"] - 80;
     }
 
     console.log(coords);
@@ -111,13 +138,13 @@ d3.csv("../data/people.csv", {
           enter => enter.append("text")
               .attr("x", d => d.label_coord.x)
               .attr("y", d => d.label_coord.y)
-              .text(d => d.name)
+              .text(d => label_keys[d.name])
       );
 
   let line = d3.line()
       .x(d => d.x)
       .y(d => d.y);
-  let colors = ["darkorange", "gray", "navy"];
+  let colors = ["deeppink", "blue", "darkorange", "gray", "navy"];
 
   function getPathCoordinates(data_point){
       let coordinates = [];
