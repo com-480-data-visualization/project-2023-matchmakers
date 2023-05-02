@@ -42,10 +42,14 @@
         <div class="container">
           <h1>how much do you <span>match</span> ?</h1>
           <p>
-            Love and dating takes quite a big part in our life.
-            We tend to try to find our other half or a partner to share a couple of days, nights, or years with.
+            Love and dating are a huge part of our lives, especially for young people.
+            Whether through dating apps or going out, we spend a lot of time searching for the perfect match.
+            One approach that some people use to seek a potential match is through <span>speed dating</span>.
+            To assist their students in their quest for love, a university arranged a sequence of speed dating gatherings.
+            Here, we examine who attended, their expectations, and the overall success of these events.
+          <!--  We tend to try to find our other half or a partner to share a couple of days, nights, or years with.
             One way to do so is through <span>Speed dating</span>.
-            To analyze this, we will focus on some couple of speed dating events.
+            To analyze this, we will focus on some couple of speed dating events. -->
           </p>
         </div>
       </div>
@@ -55,13 +59,25 @@
 
     <div class="slideshow-container">
 
-      <div class="plotSlides fade">
+      <div class="plotSlides fade justify-content-between align-items-center">
         <div class="title">
           <h2>What are people <span>looking for ?</span></h2>
         </div>
-        <svg id="spider" viewBox="0 -20 1200 420">
 
+        <svg id="spider" viewBox="0 -20 1200 420">
         </svg>
+
+        <div class="age-slider topLeft">
+          <div class="title">
+            <span>Min. age</span>
+          </div>
+          <input type="range" min="18" max="55" value="25" id="minAge" class="slider" oninput="rangeValue.innerText = this.value">
+          <p id="rangeValue">25</p>
+        </div>
+
+      <button id="btn-part1">Write the temperatures!</button>
+
+
      </div>
 
      <div class="plotSlides fade">
@@ -111,7 +127,7 @@
     <!-- services viewBox="-10 -10 1200 1200" -->
     <section id="matching" class="section">
       <div class="title">
-        <h2>matching <span>percentage</span></h2>
+        <h2>Will it be <span>a match ?</span></h2>
       </div>
     </section>
     <!-- contact -->
@@ -138,7 +154,7 @@
     </a>
     <!-- javascript -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
+<!--    <script src="https://d3js.org/d3.v4.js"></script> -->
     <script src="docs/app.js"></script>
     <script src="docs/slideshow.js"></script>
     <script src="docs/spiderchart2.js"></script>

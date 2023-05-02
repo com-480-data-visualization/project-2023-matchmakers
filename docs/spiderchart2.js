@@ -9,12 +9,12 @@ class SpiderBackground {
     this.container_h = container_h;
 
     this.radialScale = d3.scaleLinear()
-      .domain([0, 30])
+      .domain([0, 50])
       .range([0, width/2-25]);
 
-    this.ticks = [6, 12, 18, 24, 30];
+    this.ticks = [10, 20, 30, 40, 50];
 
-    this.update();
+    //this.update();
   }
 
   update() {
@@ -48,8 +48,8 @@ class SpiderBackground {
         return {
             "name": f,
             "angle": angle,
-            "line_coord": this.angleToCoordinate(angle, 30),
-            "label_coord": this.angleToCoordinateLabel(angle, 32)
+            "line_coord": this.angleToCoordinate(angle, 50),
+            "label_coord": this.angleToCoordinateLabel(angle, 53)
         };
     });
 
@@ -101,9 +101,10 @@ class SpiderBackground {
 
 }
 
-class SpiderPath {
-  constructor(svg, datapoint, plot_bg, color, features, label){
-    this.svg = svg;
+class SpiderPath extends SpiderBackground {
+  constructor(svg, datapoint, plot_bg, color, features, label, label_keys, container_w, container_h){
+
+    super(svg, null, features, label_keys, container_w, container_h);
     this.datapoint = datapoint;
     this.path = null;
     this.plot_bg = plot_bg;
@@ -114,8 +115,8 @@ class SpiderPath {
     this.label = label;
 
     this.radialScale = d3.scaleLinear()
-      .domain([0, 30])
-      .range([0, width/2-25]);
+      .domain([0, 50])
+      .range([0, 400/2-25]);
 
     this.update();
   }
@@ -127,7 +128,7 @@ class SpiderPath {
         .y(d => d.y);
 
 
-    const path = this.svg.append('path')
+    this.path = this.svg.append('path')
       .datum(this.getPathCoordinates(this.datapoint))
       .attr("d", line)
       .attr("stroke-width", 3)
@@ -136,28 +137,33 @@ class SpiderPath {
       .attr("stroke-opacity", 1)
       .attr("opacity", 0.5);
 
-    const tooltip = this.svg.append('g')
+  }
+
+  setLabels() {
+
+
+    let tooltip = this.svg.append('g')
       .attr('class', 'tooltip')
       .style('display', 'none');
 
     tooltip.append('rect')
-      .attr('width', 60)
-      .attr('height', 20)
-      .attr('fill', this.color)
-      .attr('stroke', this.color)
-      .attr('stroke-width', 2)
-      .attr('rx', 10);
+          .attr('width', 60)
+          .attr('height', 20)
+          .attr('fill', this.color)
+          .attr('stroke', this.color)
+          .attr('stroke-width', 2)
+          .attr('rx', 10);
 
     tooltip.append('text')
-      .attr('x', 30)
-      .attr('y', 14)
-      .attr('text-anchor', 'middle')
-      .attr('font-size', 12)
-      .attr('fill', 'white')
-      .text(this.label);
+          .attr('x', 30)
+          .attr('y', 14)
+          .attr('text-anchor', 'middle')
+          .attr('font-size', 12)
+          .attr('fill', 'white')
+          .text(this.label);
 
-    console.log(this.label);
-      // Define the mouseover event handler
+    //console.log(this.label);
+    // Define the mouseover event handler
     const handleMouseOver = function(d, i) {
       const mouseX = d.pageX;
       const mouseY = d.pageY;
@@ -173,9 +179,9 @@ class SpiderPath {
     };
 
     // Add the event listeners
-    path.on('mouseover', handleMouseOver)
+    this.path.on('mouseover', handleMouseOver)
       .on('mouseout', handleMouseOut);
-    console.log(this.datapoint);
+      console.log(this.datapoint);
   }
 
   getPathCoordinates(data_point) {
@@ -193,7 +199,7 @@ class SpiderPath {
     return {'x': d3.max(path_coordinates, p => Math.abs(p.x)), 'y':d3.min(path_coordinates, p => Math.abs(p.y))}
   }
 
-  angleToCoordinate(angle, value){
+/*  angleToCoordinate(angle, value){
     let x = Math.cos(angle) * this.radialScale(value);
     let y = Math.sin(angle) * this.radialScale(value);
 
@@ -207,7 +213,7 @@ class SpiderPath {
       coords["x"] = coords["x"] - 80;
     }
       return coords;
-  }
+  } */
 };
 
 const container = d3.select('#spider');
@@ -261,31 +267,38 @@ d3.csv(data_path, {
       return el["gender"] == "male"
     }); */
     const genders = ["female", "male"];
+    const label_names = ["Women", "Men"];
+    const min_age = 30;
+    const max_age = 100;
+
+/*    let avg_vals = get_avg_values(dataa, features);
+    data.push(avg_vals) */
+    var slider = document.getElementById("minAge");
+    console.log(slider.value);
 
 
     genders.forEach(g => {
       let avg_vals = {};
       var df = dataa.filter(function(el){
-        return el["gender"] == g
+        return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
       });
 
-/*      features.forEach(f => {
-        var colData = df.map(function(d) {
-          return parseFloat(d[f]);
-        })
-        avg_vals[f] = d3.mean(colData);
-      });
-      data.push(avg_vals); */
       avg_vals = get_avg_values(df, features);
       data.push(avg_vals);
     });
 
     let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
-    let colors = ["deeppink", "blue", "darkorange", "gray", "navy"];
+    spider_bg.update();
+    let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
+
+    let spiderPaths = [];
 
     data.forEach((d, i) => {
-      new SpiderPath(svg, d, spider_bg, colors[i], features, genders[i]);
+      spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i]));
     });
+
+    spiderPaths.forEach(sp => sp.setLabels());
+
 
 
 /*    features.forEach(f => {
