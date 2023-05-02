@@ -25,7 +25,9 @@ d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/b
   // X axis
   var x = d3.scaleBand()
     .range([ 0, width1 ])
-    .domain(data.map(function(d) { return d.interests; }))
+    .domain(data.map(function(d) {
+		console.log(d)
+		 return d.interests; }))
     .padding(0.2);
   svg.append("g")
     .attr("transform", "translate(0," + height1 + ")")
@@ -46,8 +48,12 @@ d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/b
     .data(data)
     .enter()
     .append("rect")
-      .attr("x", function(d) { return x(d.interests); })
-      .attr("y", function(d) { return y(d.female); })
+      .attr("x", function(d) { 
+		console.log(d.interests)
+		return x(d.interests); })
+      .attr("y", function(d) { 
+		console.log(d.female)
+		return y(d.female); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height1 - y(d.interests); })
       .attr("fill", "#b36989")
