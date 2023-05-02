@@ -25,7 +25,7 @@ d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/b
   // X axis
   var x = d3.scaleBand()
     .range([ 0, width1 ])
-    .domain(data.map(function(d) {
+    .domain(data.interests.map(function(d) {
 		console.log(d)
 		 return d.interests; }))
     .padding(0.2);
@@ -38,7 +38,7 @@ d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/b
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 13000])
+    .domain([0, 10])
     .range([ height1, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
