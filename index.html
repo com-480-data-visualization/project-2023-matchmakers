@@ -52,12 +52,37 @@
     </header>
     <!-- about -->
     <section id="viz" class="section">
-      <div class="title">
-        <h2>What are people <span>looking for ?</span></h2>
-      </div>
-      <svg id="spider" viewBox="0 -20 1200 420">
 
-      </svg>
+    <div class="slideshow-container">
+
+      <div class="plotSlides fade">
+        <div class="title">
+          <h2>What are people <span>looking for ?</span></h2>
+        </div>
+        <svg id="spider" viewBox="0 -20 1200 420">
+
+        </svg>
+     </div>
+
+     <div class="plotSlides fade">
+       <div class="title">
+         <h2>What are they <span>interested in ?</span></h2>
+       </div>
+       <svg id="barplot" viewBox="0 -20 1200 420">
+
+       </svg>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10094;</a>
+
+    </div>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
 
 
 
@@ -65,7 +90,7 @@
         <svg id="spider" x="10" y="10" width="200" length="200">
       </svg>
     </svg>-->
-    </section>
+    <!--     </section>
 
     <section id="viz2" class="section">
       <div class="title">
@@ -73,7 +98,7 @@
       </div>
       <svg id="barplot" viewBox="0 -20 1200 420">
 
-      </svg>
+      </svg>-->
 
 
 
@@ -113,6 +138,7 @@
     <!-- javascript -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="docs/app.js"></script>
+    <script src="docs/slideshow.js"></script>
     <script src="docs/spiderchart2.js"></script>
   </body>
 </html>
