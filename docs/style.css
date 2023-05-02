@@ -381,6 +381,10 @@ footer p {
   margin-bottom: 0;
 }
 
+.button {
+  position: relative;
+}
+
 .top-link {
   font-size: 1.25rem;
   position: fixed;

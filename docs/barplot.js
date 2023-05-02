@@ -32,14 +32,15 @@ var yAxis = svg.append("g")
 function update(selectedVar) {
 
 	// Parse the Data
-	d3.csv("data/average_interests.csv", 
-	{
-		delimiter: ",",
-		header: true
-	  }.then(function(data) {
+	d3.csv("data/average_interests.csv", function(data) {
+
+		for (var i = 0; i < data.length; i++) {
+			console.log(data[i].interests);
+			console.log(data[i].male);
+		}
 
 	// X axis
-	x.domain(data.map(function(d) { return d.group; }))
+	x.domain(data.map(function(d) { return d.interests; }))
 	xAxis.transition().duration(1000).call(d3.axisBottom(x))
 
 	// Add Y axis
@@ -57,19 +58,19 @@ function update(selectedVar) {
 	.merge(u)
 	.transition()
 	.duration(1000)
-		.attr("x", function(d) { return x(d.group); })
+		.attr("x", function(d) { return x(d.Interests); })
 		.attr("y", function(d) { return y(d[selectedVar]); })
 		.attr("width", x.bandwidth())
 		.attr("height", function(d) { return height - y(d[selectedVar]); })
 
-		if (selectedVar == 'var1') {
+		if (selectedVar == 'female') {
 			u.attr("fill", "#b36999")
 		} else {
 			u.attr("fill", "#6998b3")
 		}
-	}))
+	})
 
 }
 
 // Initialize plot
-update('var1')
+update('female')
