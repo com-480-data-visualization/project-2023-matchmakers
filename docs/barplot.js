@@ -1,11 +1,11 @@
- // set the dimensions and margins of the graph
- const container_w1 = 1200;
- const container_h1 = 400;
- 
- const width1 = 300;
- const height1 = 300;
+// set the dimensions and margins of the graph
+const container_w1 = 1200;
+const container_h1 = 400;
 
- const marginL = 80;
+const width1 = 300;
+const height1 = 300;
+
+const marginL = 80;
 const marginT = 30;
 
 // append the svg object to the body of the page
@@ -20,7 +20,12 @@ var svg = d3.select("#barplot")
 
 // Parse the Data
 // raw path "https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/data/average_interests.csv"
-d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/data/average_interests.csv", function(data) {
+// var data_path = "https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/data/average_interests.csv";
+var dpath = "data/average_interests.csv";
+d3.csv(dpath, {
+  delimiter: ",",
+  header: true
+}).then(function(data) {
 
   // X axis
   var x = d3.scaleBand()
@@ -48,10 +53,10 @@ d3.csv("https://github.com/com-480-data-visualization/project-2023-matchmakers/b
     .data(data)
     .enter()
     .append("rect")
-      .attr("x", function(d) { 
+      .attr("x", function(d) {
 		console.log(d.interests)
 		return x(d.interests); })
-      .attr("y", function(d) { 
+      .attr("y", function(d) {
 		console.log(d.female)
 		return y(d.female); })
       .attr("width", x.bandwidth())
