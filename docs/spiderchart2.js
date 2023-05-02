@@ -10,7 +10,7 @@ class SpiderBackground {
 
     this.radialScale = d3.scaleLinear()
       .domain([0, 50])
-      .range([0, width/2-25]);
+      .range([0, this.container_h/2-50]);
 
     this.ticks = [10, 20, 30, 40, 50];
 
@@ -36,7 +36,7 @@ class SpiderBackground {
           enter => enter.append("text")
               .attr("class", "ticklabel")
               .attr("x", this.container_w / 2 + 5)
-              .attr("y", d => this.container_h / 2 - this.radialScale(d))
+              .attr("y", d => this.container_h/2 - this.radialScale(d)) // this.container_h / 2 -
               .text(d => d.toString())
       );
 
@@ -95,6 +95,10 @@ class SpiderBackground {
 
     if (angle>Math.PI/2 && angle<3*Math.PI/2){
       coords["x"] = coords["x"] - 80;
+    } else if (angle==Math.PI/2) {
+      coords["y"] = coords["y"] - 10;
+    } else if (angle==3*Math.PI/2){
+      coords["y"] = coords["y"] + 10;
     }
       return coords;
   }
@@ -110,13 +114,13 @@ class SpiderPath extends SpiderBackground {
     this.plot_bg = plot_bg;
     this.color = color;
     this.features = features;
-    this.container_w = 1200;
-    this.container_h = 400;
+    this.container_w = container_w;
+    this.container_h = container_h;
     this.label = label;
 
     this.radialScale = d3.scaleLinear()
       .domain([0, 50])
-      .range([0, 400/2-25]);
+      .range([0, container_h/2 - 50]);
 
     this.update();
   }
@@ -216,13 +220,21 @@ class SpiderPath extends SpiderBackground {
   } */
 };
 
-const container = d3.select('#spider');
+// const container = d3.select('#spider');
 
-const container_w = 1200;
-const container_h = 400;
+// set the dimensions and margins of the graph
+var margin = {top: 60, right: 30, bottom: 70, left: 30},
+width1 = 1200 - margin.left - margin.right,
+height1 = 400 - margin.top - margin.bottom;
 
-const width = 400;
-const height = 400;
+// append the svg object to the body of the page
+
+
+const container_w = width1 + margin.left + margin.right;
+const container_h = height1 + margin.top + margin.bottom;
+
+const width = width1 + margin.left + margin.right;
+const height = height1 + margin.top + margin.bottom;
 
 const data_path = "data/people.csv";
 
@@ -245,9 +257,19 @@ d3.csv(data_path, {
   delimiter: ",",
   header: true
 }).then(function(dataa){
-  const svg = container.append('svg')
-      .attr('width', container_w)
-      .attr('height', container_h);
+
+  console.log("dimensions");
+  console.log(width1 + margin.left + margin.right);
+  console.log(height1 + margin.top + margin.bottom);
+
+  var svg = d3.select("#spider")
+      .append("svg")
+      .attr("width", width1 + margin.left + margin.right)
+      .attr("height", height1 + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+          "translate(0," + margin.top/2 + ")");
+    //      "translate(0," + margin.top + ")");
   //    .attr('transform', "translate(1000,0)");
     //  .attr('transform', "translate(1000, 0)");
 
@@ -268,16 +290,27 @@ d3.csv(data_path, {
     }); */
     const genders = ["female", "male"];
     const label_names = ["Women", "Men"];
-    const min_age = 30;
-    const max_age = 100;
+    let min_age = 18;
+    let max_age = 23;
 
 /*    let avg_vals = get_avg_values(dataa, features);
-    data.push(avg_vals) */
+    data.push(avg_vals)
     var slider = document.getElementById("minAge");
-    console.log(slider.value);
+    console.log(slider.value); */
 
+    let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
+    spider_bg.update();
+    let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
+
+    let spiderPaths = [];
+
+    // constructor(svg, datapoint, plot_bg, color, features, label, label_keys, container_w, container_h)
+
+
+    const btn = document.getElementById("spider-btn");
 
     genders.forEach(g => {
+
       let avg_vals = {};
       var df = dataa.filter(function(el){
         return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
@@ -287,17 +320,47 @@ d3.csv(data_path, {
       data.push(avg_vals);
     });
 
-    let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
-    spider_bg.update();
-    let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
-
-    let spiderPaths = [];
-
     data.forEach((d, i) => {
-      spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i]));
+      spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
     });
 
     spiderPaths.forEach(sp => sp.setLabels());
+
+    btn.addEventListener('click', function(event){
+
+      let min_age_input = document.getElementById("min-age");
+      let max_age_input = document.getElementById("max-age");
+
+      spiderPaths = [];
+
+      d3.selectAll("path").remove();
+
+      min_age = min_age_input.value;
+      max_age = max_age_input.value;
+
+      console.log(min_age);
+      console.log(max_age);
+
+      data = [];
+      avg_vals = {};
+
+      genders.forEach(g => {
+        avg_vals = {};
+        df = dataa.filter(function(el){
+          return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
+        });
+
+        avg_vals = get_avg_values(df, features);
+        data.push(avg_vals);
+      });
+
+      data.forEach((d, i) => {
+        spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
+      });
+
+      spiderPaths.forEach(sp => sp.setLabels());
+      console.log("done");
+    });
 
 
 

@@ -420,7 +420,7 @@ footer p {
 
 .slideshow-container {
   max-width: 1500px;
-  position: relative; 
+  position: relative;
   margin: auto;
 }
 
@@ -540,17 +540,44 @@ footer p {
   cursor: pointer; /* Cursor on hover */ /*
 }  */
 
-/* button style */
-.button {
+.age-input {
   appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
+  background-color: pink;
+  border: 2px solid pink;
   border-radius: 15px;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
   display:inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0 auto;
+  min-height: 30px;
+  min-width: 0;
+  outline: none;
+  padding: 6px 14px;
+  text-align: center;
+  text-decoration: none;
+  width: 4%;
+  font-family: var(--ff-secondary);
+}
+
+.age-input.label {
+  width: 10%;
+  cursor: auto;
+}
+
+/* button style */
+.button {
+  appearance: none;
+  background-color: deeppink;
+  border: 2px solid deeppink;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display:inline-block;
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
@@ -567,6 +594,13 @@ footer p {
   touch-action: manipulation;
   width: 10%;
   will-change: transform;
+  font-family: var(--ff-secondary);
+  /*
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+
 }
 
 .button:disabled {
