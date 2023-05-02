@@ -1,16 +1,21 @@
  // set the dimensions and margins of the graph
- var margin = {top: 30, right: 30, bottom: 70, left: 60},
- width = 460 - margin.left - margin.right,
- height = 400 - margin.top - margin.bottom;
+ const container_w = 1200;
+ const container_h = 400;
+ 
+ const width = 300;
+ const height = 300;
+
+ const marginL = 80;
+const marginT = 30;
 
 // append the svg object to the body of the page
 var svg = d3.select("#barplot")
 .append("svg")
- .attr("width", width + margin.left + margin.right)
- .attr("height", height + margin.top + margin.bottom)
+ .attr("width", container_w)
+ .attr("height", container_h)
 .append("g")
  .attr("transform",
-	   "translate(" + margin.left + "," + margin.top + ")");
+	   "translate(" + marginL + "," + marginT + ")");
 
 
 // Parse the Data
