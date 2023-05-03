@@ -24,13 +24,6 @@ var svg = d3.select("#barplot")
   var xAxis = svg.append("g")
     .attr("transform", "translate(0," + height1 + ")")
   
-  
-  //  svg.append("g")
-  //  .attr("transform", "translate(0," + height1 + ")")
-   // .call(d3.axisBottom(x))
-   // .selectAll("text")
-   //   .attr("transform", "translate(-10,0)rotate(-45)")
-  //    .style("text-anchor", "end");
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -47,6 +40,10 @@ var svg = d3.select("#barplot")
       header: true
     }).then(function(data) {
 
+    
+    // groups label 
+    var groups = d3.map(data, function(d){return d.interests}).keys()
+
       // X axis
     x.domain(data.map(function(d) { return d.interests; }))
     xAxis.transition().duration(1000).call(d3.axisBottom(x))
@@ -55,9 +52,43 @@ var svg = d3.select("#barplot")
     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
+    // ----------------
+  // Create a tooltip
+  // ----------------
+  let tooltip = this.svg.append('g')
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "1px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+
+// Three function that change the tooltip when user hover / move / leave a cell
+var handleMouseOver = function(d) {
+  tooltip
+    .style("opacity", 1)
+  d3.select(this)
+    .style("stroke", "black")
+    .style("opacity", 1)
+}
+var handleMouseMove = function(d) {
+  tooltip
+    .html("The exact value of<br>this cell is: " + d.value)
+    .style("left", (d3.mouse(this)[0]+70) + "px")
+    .style("top", (d3.mouse(this)[1]) + "px")
+}
+var handleMouseOut = function(d) {
+  tooltip
+    .style("opacity", 0)
+  d3.select(this)
+    .style("stroke", "none")
+    .style("opacity", 0.8)
+}
+
     // variable u: map data to existing bars
     var u = svg.selectAll("rect")
-      .data(data)
+      .data(data, function(d) {return d.interests+':'+d[selectedVar];})
 
     // update bars
     var color = "#e84388"
@@ -79,6 +110,9 @@ var svg = d3.select("#barplot")
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height1 - y(d[selectedVar]); })
         .attr("fill", color)
+      .on("mouseover", handleMouseOver)
+      .on("mousemove", handleMouseMove)
+      .on("mouseout", handleMouseOut)
   })
 
 }
