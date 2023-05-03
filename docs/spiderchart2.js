@@ -309,6 +309,7 @@ d3.csv(data_path, {
       min: 18,
       max: 55,
       values: [ 20, 35 ],
+  
       slide: function( event, ui ) {
         $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 
