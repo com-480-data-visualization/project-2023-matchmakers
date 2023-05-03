@@ -10,7 +10,7 @@ class SpiderBackground {
 
     this.radialScale = d3.scaleLinear()
       .domain([0, 50])
-      .range([0, width/2-25]);
+      .range([0, this.container_h/2-50]);
 
     this.ticks = [10, 20, 30, 40, 50];
 
@@ -36,7 +36,7 @@ class SpiderBackground {
           enter => enter.append("text")
               .attr("class", "ticklabel")
               .attr("x", this.container_w / 2 + 5)
-              .attr("y", d => this.container_h / 2 - this.radialScale(d))
+              .attr("y", d => this.container_h/2 - this.radialScale(d)) // this.container_h / 2 -
               .text(d => d.toString())
       );
 
@@ -95,6 +95,10 @@ class SpiderBackground {
 
     if (angle>Math.PI/2 && angle<3*Math.PI/2){
       coords["x"] = coords["x"] - 80;
+    } else if (angle==Math.PI/2) {
+      coords["y"] = coords["y"] - 10;
+    } else if (angle==3*Math.PI/2){
+      coords["y"] = coords["y"] + 10;
     }
       return coords;
   }
@@ -110,13 +114,13 @@ class SpiderPath extends SpiderBackground {
     this.plot_bg = plot_bg;
     this.color = color;
     this.features = features;
-    this.container_w = 1200;
-    this.container_h = 400;
+    this.container_w = container_w;
+    this.container_h = container_h;
     this.label = label;
 
     this.radialScale = d3.scaleLinear()
       .domain([0, 50])
-      .range([0, 400/2-25]);
+      .range([0, container_h/2 - 50]);
 
     this.update();
   }
@@ -181,7 +185,6 @@ class SpiderPath extends SpiderBackground {
     // Add the event listeners
     this.path.on('mouseover', handleMouseOver)
       .on('mouseout', handleMouseOut);
-      console.log(this.datapoint);
   }
 
   getPathCoordinates(data_point) {
@@ -199,30 +202,23 @@ class SpiderPath extends SpiderBackground {
     return {'x': d3.max(path_coordinates, p => Math.abs(p.x)), 'y':d3.min(path_coordinates, p => Math.abs(p.y))}
   }
 
-/*  angleToCoordinate(angle, value){
-    let x = Math.cos(angle) * this.radialScale(value);
-    let y = Math.sin(angle) * this.radialScale(value);
-
-    return {"x": this.container_w / 2 + x, "y": this.container_h / 2 - y};
-  }
-
-  angleToCoordinateLabel(angle, value){
-    let coords = this.angleToCoordinate(angle, value);
-
-    if (angle>Math.PI/2 && angle<3*Math.PI/2){
-      coords["x"] = coords["x"] - 80;
-    }
-      return coords;
-  } */
 };
 
-const container = d3.select('#spider');
+// const container = d3.select('#spider');
 
-const container_w = 1200;
-const container_h = 400;
+// set the dimensions and margins of the graph
+var margin = {top: 60, right: 30, bottom: 70, left: 30},
+width1 = 1200 - margin.left - margin.right,
+height1 = 400 - margin.top - margin.bottom;
 
-const width = 400;
-const height = 400;
+// append the svg object to the body of the page
+
+
+const container_w = width1 + margin.left + margin.right;
+const container_h = height1 + margin.top + margin.bottom;
+
+const width = width1 + margin.left + margin.right;
+const height = height1 + margin.top + margin.bottom;
 
 const data_path = "data/people.csv";
 
@@ -240,189 +236,126 @@ function get_avg_values(data, column_names) {
 
 }
 
+function drawPaths(svg, data, features, gender, ){
+
+}
+
 // "https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/ac7c0f0d5833bf3e51eaca1331d45bef8d357767/data/people.csv";
 d3.csv(data_path, {
   delimiter: ",",
   header: true
 }).then(function(dataa){
-  const svg = container.append('svg')
-      .attr('width', container_w)
-      .attr('height', container_h);
-  //    .attr('transform', "translate(1000,0)");
-    //  .attr('transform', "translate(1000, 0)");
 
-    let data = [];
-    let features = ["attractive_important", "intelligence_important", "sincere_important", "funny_important", "ambition_important", "shared_interests_important"];
-    const label_keys = {
-      "attractive_important": "Attractiveness", "intelligence_important": "Intelligence",
-       "sincere_important": "Sincerity", "funny_important": "Sense of humour",
-       "ambition_important":"Ambition", "shared_interests_important": "Shared interests"
-    };
+  const og_dataframe = dataa;
 
-    //generate the data
-/*    women = dataa.filter(function (el) {
-      return el["gender"] == "female"
-    });
-    men = dataa.filter(function(el){
-      return el["gender"] == "male"
-    }); */
-    const genders = ["female", "male"];
-    const label_names = ["Women", "Men"];
-    const min_age = 30;
-    const max_age = 100;
+  console.log("dimensions");
+  console.log(width1 + margin.left + margin.right);
+  console.log(height1 + margin.top + margin.bottom);
 
-/*    let avg_vals = get_avg_values(dataa, features);
-    data.push(avg_vals) */
-    var slider = document.getElementById("minAge");
-    console.log(slider.value);
+  var svg = d3.select("#spider")
+      .append("svg")
+      .attr("width", width1 + margin.left + margin.right)
+      .attr("height", height1 + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+          "translate(0," + margin.top/2 + ")");
 
+  let data = [];
+  const features = ["attractive_important", "intelligence_important", "sincere_important", "funny_important", "ambition_important", "shared_interests_important"];
+  const label_keys = {
+    "attractive_important": "Attractiveness", "intelligence_important": "Intelligence",
+     "sincere_important": "Sincerity", "funny_important": "Sense of humour",
+     "ambition_important":"Ambition", "shared_interests_important": "Shared interests"
+  };
 
-    genders.forEach(g => {
-      let avg_vals = {};
-      var df = dataa.filter(function(el){
-        return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
-      });
+  const genders = ["female", "male"];
+  const label_names = ["Women", "Men"];
+  let min_age = 18;
+  let max_age = 25;
 
-      avg_vals = get_avg_values(df, features);
-      data.push(avg_vals);
-    });
+  let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
+  spider_bg.update();
+  let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
 
-    let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
-    spider_bg.update();
-    let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
+  let spiderPaths = [];
 
-    let spiderPaths = [];
+  const btn = document.getElementById("spider-btn");
 
-    data.forEach((d, i) => {
-      spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i]));
+  genders.forEach(g => {
+
+    let avg_vals = {};
+    let df = dataa.filter(function(el){
+      return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
     });
 
-    spiderPaths.forEach(sp => sp.setLabels());
-
-
-
-/*    features.forEach(f => {
-      var colData = women.map(function(d){
-        return parseFloat(d[f]);
-      })
-      avg_vals[f] = d3.mean(colData);
-    });
+    avg_vals = get_avg_values(df, features);
     data.push(avg_vals);
-
-  let radialScale = d3.scaleLinear()
-    .domain([0, 30])
-    .range([0, width/2-25]);
-
-  let ticks = [6, 12, 18, 24, 30];
-
-  svg.selectAll("circle")
-      .data(ticks)
-      .join(
-          enter => enter.append("circle")
-              .attr("cx", container_w / 2)
-              .attr("cy", container_h / 2)
-              .attr("fill", "none")
-              .attr("stroke", "gray")
-              .attr("r", d => radialScale(d))
-      )
-      .attr('transform', "translate(0, 0)");
-
-  svg.selectAll(".ticklabel")
-      .data(ticks)
-      .join(
-          enter => enter.append("text")
-              .attr("class", "ticklabel")
-              .attr("x", container_w / 2 + 5)
-              .attr("y", d => container_h / 2 - radialScale(d))
-              .text(d => d.toString())
-      );
-
-  const pi_half = Math.PI / 2;
-  console.log(pi_half);
-
-  const pi_threeq = 3 * Math.PI / 2;
-  console.log(pi_threeq);
-
-  function angleToCoordinate(angle, value){
-      let x = Math.cos(angle) * radialScale(value);
-      let y = Math.sin(angle) * radialScale(value);
-
-      return {"x": container_w / 2 + x, "y": height / 2 - y};
-  }
-
-  function angleToCoordinateLabel(angle, value){
-    let coords = angleToCoordinate(angle, value);
-
-    if (angle>Math.PI/2 && angle<3*Math.PI/2){
-      coords["x"] = coords["x"] - 80;
-    }
-
-    console.log(coords);
-    //return angleToCoordinate(angle, value);
-    return coords;
-  }
-
-  let featureData = features.map((f, i) => {
-      let angle = (Math.PI / 2) + (2 * Math.PI * i / features.length);
-      return {
-          "name": f,
-          "angle": angle,
-          "line_coord": angleToCoordinate(angle, 30),
-          "label_coord": angleToCoordinateLabel(angle, 32)
-      };
   });
 
-  console.log(featureData);
+
+  data.forEach((d, i) => {
+    spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
+  });
+
+  spiderPaths.forEach(sp => sp.setLabels());
+  console.log("done");
+
+  $( function() {
+    $( "#slider-range" ).slider({
+      classes: {
+        "ui-slider": "my-pink-slider"
+      },
+      range: true,
+      min: 18,
+      max: 55,
+      values: [ 20, 35 ],
+  
+      slide: function( event, ui ) {
+        $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+
+        d3.selectAll("path").remove();
+
+        min_age = ui.values[0];
+        max_age = ui.values[1];
+
+        console.log("slider moved");
+        let data = [];
+
+       genders.forEach(g => {
+
+          let avg_vals = {};
+          let df = dataa.filter(function(el){
+            return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
+          });
+
+          avg_vals = get_avg_values(df, features);
+          data.push(avg_vals);
+        });
 
 
+        data.forEach((d, i) => {
+          spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
+        });
 
-  // draw axis line
-  svg.append('g')
-    .selectAll("line")
-      .data(featureData)
-      .join(
-          enter => enter.append("line")
-              .attr("x1", container_w / 2)
-              .attr("y1", height / 2)
-              .attr("x2", d => d.line_coord.x)
-              .attr("y2", d => d.line_coord.y)
-              .attr("stroke","black")
-      );
+        spiderPaths.forEach(sp => sp.setLabels());
 
-  // draw axis label
-  svg.append('g')
-    .selectAll(".axislabel")
-      .data(featureData)
-      .join(
-          enter => enter.append("text")
-              .attr("x", d => d.label_coord.x)
-              .attr("y", d => d.label_coord.y)
-              .text(d => label_keys[d.name])
-      );
-
-  let line = d3.line()
-      .x(d => d.x)
-      .y(d => d.y);
-  let colors = ["deeppink", "blue", "darkorange", "gray", "navy"];
-
-  function getPathCoordinates(data_point){
-      let coordinates = [];
-      for (var i = 0; i < features.length; i++){
-          let ft_name = features[i];
-          let angle = (Math.PI / 2) + (2 * Math.PI * i / features.length);
-          coordinates.push(angleToCoordinate(angle, data_point[ft_name]));
       }
-      return coordinates;
-  }
+    });
+    $( "#age-box" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+      " - " + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
 
-  function getLabelCoordinates(data_point){
-    let path_coordinates = getPathCoordinates(data_point);
-    return {'x': d3.max(path_coordinates, p => Math.abs(p.x)), 'y':d3.min(path_coordinates, p => Math.abs(p.y))}
-  }
-
-  const gender_labels = ['Women', 'Men'];
-  data.forEach(d => {
-    new SpiderPath(svg, d);
-  }); */
+//  $("slider-range").on('slidechange', function(event, ui){ console.log("slider used");})
+/*
+  ( function() {
+    $( "#slider-range" ).slider({
+      slide: function( event, ui ) {
+        $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+        console.log("slider moved");
+      }
+    });
+    $( "#age-box" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+      " - " + $( "#slider-range" ).slider( "values", 1 ) );
+  } ); */
 
 })

@@ -420,7 +420,7 @@ footer p {
 
 .slideshow-container {
   max-width: 1500px;
-  position: relative; 
+  position: relative;
   margin: auto;
 }
 
@@ -435,7 +435,7 @@ footer p {
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: deeppink;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -540,17 +540,44 @@ footer p {
   cursor: pointer; /* Cursor on hover */ /*
 }  */
 
-/* button style */
-.button {
+.age-input {
   appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
+  background-color: pink;
+  border: 2px solid pink;
   border-radius: 15px;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
   display:inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0 auto;
+  min-height: 30px;
+  min-width: 0;
+  outline: none;
+  padding: 6px 14px;
+  text-align: center;
+  text-decoration: none;
+  width: 4%;
+  font-family: var(--ff-secondary);
+}
+
+.age-input.label {
+  width: 10%;
+  cursor: auto;
+}
+
+/* button style */
+.button {
+  appearance: none;
+  background-color: deeppink;
+  border: 2px solid deeppink;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display:inline-block;
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
@@ -567,6 +594,13 @@ footer p {
   touch-action: manipulation;
   width: 10%;
   will-change: transform;
+  font-family: var(--ff-secondary);
+  /*
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+
 }
 
 .button:disabled {
@@ -581,4 +615,62 @@ footer p {
 .button:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+form  {
+    margin: 60px 0 0 0 !important;
+ }
+
+#slider-range {
+    margin: -20px 30px;
+    background: deeppink;
+    width: 18em;
+    background-color: pink;
+    color: deeppink;
+    border: none;
+    padding: 4px 4px 0 0;
+}
+
+#slider-range .ui-slider-handle {
+  background: transparent url("../docs/pink-heart.svg") 50% 50% no-repeat;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+#slider-range .ui-slider-range {
+    background: deeppink; 
+}
+
+#slider-range .my-pink-slider {
+  width: 18em;
+  background: #FFC0CB;
+  background-color: pink;
+  color: deeppink;
+  padding: 400px 0 0 0;
+}
+
+#slider-range .ui-slider-horizontal .ui-btn-inner {
+  width: 18em;
+  background-color: pink;
+  color: deeppink;
+  padding: 400px 0 0 0;
+
+}
+
+#slider-range .ui-widget-handle {
+  background: url("../docs/pink-heart.svg");
+}
+
+#slider-range .ui-slider-popup {
+    background-color: pink;
+    color: deeppink;
+    width: 18em;
+    position: absolute;
+    height: 64px;
+    text-align: center;
+    font-size: 36px;
+    padding-top: 10px;
+    z-index: 100;
+    opacity: 0.8;
 }
