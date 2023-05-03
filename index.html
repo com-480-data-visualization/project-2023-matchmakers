@@ -6,6 +6,10 @@
     <title>Speed Dating</title>
     <!-- styles -->
     <link rel="stylesheet" href="docs/style.css" />
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
   </head>
   <body>
     <header id="home">
@@ -66,11 +70,21 @@
 
         <svg id="spider" viewBox="0 40 1200 420">
         </svg>
-       <div class="age-input label">Age Range: </div>
-       <input type="text" class="age-input" id="min-age" placeholder="18"/>
-       <input type="text" class="age-input" id="max-age" placeholder="55"/>
 
-       <button class="button" id="spider-btn">Show</button>
+        <p>
+          <label for="age-box">Age Range:</label>
+          <input type="text" id="age-box" readonly style="border:0; color:deeppink; font-weight:bold;">
+       </p>
+
+       <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" ></div>
+
+    <!--   <div class="age-input label">Age Range: </div> -->
+
+    <!--     <input type="text" class="age-input" id="min-age" placeholder="18"/></input>
+       <input type="text" class="age-input" id="max-age" placeholder="5"/></input>
+       <input type="range" min="18" max="55" value="25" id="ageSlider" class="slider" oninput="rangeValue.innerText = this.value"></input>-->
+
+    <!--     <button class="button" id="spider-btn">Show</button> -->
     <!--      <button class="button" onclick="update('female')">Female</button>
        <button class="button" onclick="update('male')">Male</button> -->
 
@@ -98,7 +112,7 @@
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
     </div>
 
@@ -167,5 +181,23 @@
     <script src="docs/slideshow.js"></script>
     <script src="docs/spiderchart2.js"></script>
     <script src="docs/barplot.js"></script>
+<!--    <script>
+      $( function() {
+        $( "#slider-range" ).slider({
+          classes: {
+            "ui-slider": "my-pink-slider"
+          },
+          range: true,
+          min: 18,
+          max: 55,
+          values: [ 20, 35 ],
+          slide: function( event, ui ) {
+            $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+          }
+        });
+        $( "#age-box" ).val( $( "#slider-range" ).slider( "values", 0 ) +
+          " - " + $( "#slider-range" ).slider( "values", 1 ) );
+      } );
+  </script> -->
   </body>
 </html>

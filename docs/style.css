@@ -435,7 +435,7 @@ footer p {
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: deeppink;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -615,4 +615,41 @@ footer p {
 .button:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+form  {
+    margin: 60px 0 0 0 !important;
+ }
+
+#slider {
+    margin: 10px;
+    color: deeppink;
+    background-color: deeppink;
+    background: url("../docs/heart.png");
+}
+
+.my-pink-slider {
+  color: deeppink;
+  padding: 4px 0 0 0 !important;
+}
+
+.ui-slider-horizontal .ui-btn-inner {
+  color: deeppink;
+  padding: 4px 0 0 0 !important;
+}
+
+.ui-slider-handle {
+  background: url("../docs/heart.png");
+}
+
+.ui-slider-popup {
+    position: absolute !important;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    font-size: 36px;
+    padding-top: 14px;
+    z-index: 100;
+    opacity: 0.8;
+    background: url("../docs/heart.png");
 }
