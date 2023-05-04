@@ -63,15 +63,15 @@
             // Initialize the circle: all located at the center of the svg area
 
                 var color = "#e84388"
-                var textColor = "#b5024d"
+                //var textColor = "#b5024d"
                 var cx = width / 2
                 var cy = height / 2
                 if (g == "female") {
                     color = "#e84388"
                 } else {
                     color = "#4349e8"
-                    cx = cx + width / 4
-                    textColor = "#0c14e8"
+                    cx = cx + width / 4 
+                    //textColor = "#0c14e8"
                     //cy = cy + height / 2
                 }
 
@@ -83,7 +83,7 @@
                 const mousemove = function(event, d) {
                     console.log("move")
                     Tooltip
-                    .html((Math.round(d[g] * 100) / 100).toFixed(2))
+                    .html((Math.round(d[g] * 100) / 10).toFixed(1) + " %")
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px")
                     .style("font-weight", "bold")
@@ -111,12 +111,13 @@
                 .on("mouseover", mouseover) // What to do when hovered
                 .on("mousemove", mousemove)
                 .on("mouseleave", mouseleave)
-                .call(d3.drag() // call specific function when circle is dragged
-                    .on("start", dragstarted)
-                    .on("drag", dragged)
-                    .on("end", dragended));
+                //.call(d3.drag() // call specific function when circle is dragged
+                    //.on("start", dragstarted)
+                    //.on("drag", dragged)
+                    //.on("end", dragended));
 
-
+                
+                //var labels = []
                 var label = svg.append("g")
                     .selectAll("text")
                     .data(data)
@@ -127,7 +128,7 @@
                       .style("font-size", "11px")
                       .style("font-weight", "bold")
                       .style("text-transform", "capitalize")
-                      .style("fill", textColor)
+                      .style("fill", "white")
                       .attr("x", width / 2)
                       .attr("y", height / 2);
 
@@ -135,8 +136,8 @@
                  // Features of the forces applied to the nodes:
                 const simulation = d3.forceSimulation()
                 .force("center", d3.forceCenter().x(cx).y(cy)) // Attraction to the center of the svg area
-                .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
-                .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(d[g])+4) }).iterations(1)) // Force that avoids circle overlapping
+                .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+                .force("collide", d3.forceCollide().strength(.01).radius(function(d){ return (size(d[g])) }).iterations(1)) // Force that avoids circle overlapping
 
                 // Apply these forces to the nodes and update their positions.
                 // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.

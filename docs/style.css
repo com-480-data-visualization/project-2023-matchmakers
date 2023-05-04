@@ -678,6 +678,7 @@ form  {
 }
 
 .node:hover{
-  stroke-width: 7px !important;
+  stroke-width: 3px !important;
+  /*stroke: white !important; */
   opacity: 1 !important;
 }
