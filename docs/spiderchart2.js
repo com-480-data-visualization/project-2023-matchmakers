@@ -143,14 +143,46 @@ class SpiderPath extends SpiderBackground {
 
   }
 
-  setLabels() {
+  setLabels(g, c) {
 
+    const Tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "black")
+    //.style("border", "solid")
+    .style("border-width", "5px")
+    .style("border-radius", "9px")
+    .style("padding", "5px")
+    .style("text-transform", "capitalize")
 
+    const mouseover = function(event, d) {
+        Tooltip
+        .style("opacity", 1)
+    }
+    const mousemove = function(event, d) {
+        Tooltip
+        .attr('width', 25)
+        .attr('height', 25)
+        .html(`${g}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 28) + "px")
+        .style("font-weight", "bold")
+        .style("color", "white")
+        .style("opacity", 1)
+        .style("background-color", c)
+
+    }
+    var mouseleave = function(event, d) {
+        Tooltip
+        .style("opacity", 0)
+    }
+
+/*
     let tooltip = this.svg.append('g')
       .attr('class', 'tooltip')
       .style('display', 'none');
-
-      console.log("heeee")
 
     tooltip.append('rect')
           .attr('width', 60)
@@ -170,7 +202,7 @@ class SpiderPath extends SpiderBackground {
 
     //console.log(this.label);
     // Define the mouseover event handler
-    const handleMouseOver = function(d, i) {
+  /*  const handleMouseOver = function(d, i) {
       const mouseX = d.pageX;
       const mouseY = d.pageY;
       tooltip.style('display', null)
@@ -182,11 +214,12 @@ class SpiderPath extends SpiderBackground {
     // Define the mouseout event handler
     const handleMouseOut = function(d, i) {
       tooltip.style('display', 'none');
-    };
+    }; */
 
     // Add the event listeners
-    this.path.on('mouseover', handleMouseOver)
-      .on('mouseout', handleMouseOut);
+    this.path.on("mouseover", mouseover) // What to do when hovered
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave)
   }
 
   getPathCoordinates(data_point) {
@@ -250,9 +283,8 @@ d3.csv(data_path, {
 
   const og_dataframe = dataa;
 
-  console.log("dimensions");
-  console.log(width1 + margin.left + margin.right);
-  console.log(height1 + margin.top + margin.bottom);
+//  console.log(width1 + margin.left + margin.right);
+//  console.log(height1 + margin.top + margin.bottom);
 
   var svg = d3.select("#spider")
       .append("svg")
@@ -299,8 +331,7 @@ d3.csv(data_path, {
     spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
   });
 
-  spiderPaths.forEach(sp => sp.setLabels());
-  console.log("done");
+  spiderPaths.forEach((sp, i) => sp.setLabels(label_names[i], colors[i]));
 
   $( function() {
     $( "#slider-range" ).slider({
@@ -311,7 +342,7 @@ d3.csv(data_path, {
       min: 18,
       max: 55,
       values: [ 20, 35 ],
-  
+
       slide: function( event, ui ) {
         $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 
@@ -320,8 +351,9 @@ d3.csv(data_path, {
         min_age = ui.values[0];
         max_age = ui.values[1];
 
-        console.log("slider moved");
         let data = [];
+
+        spiderPaths = []
 
        genders.forEach(g => {
 
@@ -339,7 +371,11 @@ d3.csv(data_path, {
           spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
         });
 
-        spiderPaths.forEach(sp => sp.setLabels());
+        spiderPaths.forEach((sp, i) => {
+          sp.setLabels(label_names[i], colors[i]);
+          console.log(label_names[i]);
+          console.log(colors[i]);
+        });
 
       }
     });
