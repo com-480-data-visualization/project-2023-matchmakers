@@ -352,9 +352,11 @@ header {
   color: var(--clr-secondary);
 }
 #viz,
-#matching,
-#team {
+#matching {
   height: 80vh;
+}
+#team {
+  height: 40vh;
 }
 #matching {
   background: var(--clr-white);
@@ -673,4 +675,9 @@ form  {
     padding-top: 10px;
     z-index: 100;
     opacity: 0.8;
+}
+
+.node:hover{
+  stroke-width: 7px !important;
+  opacity: 1 !important;
 }

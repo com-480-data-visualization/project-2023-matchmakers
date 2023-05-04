@@ -150,6 +150,8 @@ class SpiderPath extends SpiderBackground {
       .attr('class', 'tooltip')
       .style('display', 'none');
 
+      console.log("heeee")
+
     tooltip.append('rect')
           .attr('width', 60)
           .attr('height', 20)

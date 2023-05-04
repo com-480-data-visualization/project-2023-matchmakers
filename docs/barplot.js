@@ -118,5 +118,4 @@ var handleMouseOut = function(d) {
 }
 
 // This function is called by the buttons on top of the plot
-
 update('female')
