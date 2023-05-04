@@ -35,45 +35,42 @@
 
 
         // Size scale for countries
-        const size = d3.scaleLinear()
+    const size = d3.scaleLinear()
         .domain([0, 10])
         .range([1,65])  // circle will be between 7 and 55 px wide
 
+    var cx = width / 2 - 200
+    var cy = height / 2
 
-        // create a tooltip
-        const Tooltip = d3.select("body")
-        .append("div")
-        .style("position", "absolute")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("background-color", "black")
-        //.style("border", "solid")
-        .style("border-width", "5px")
-        .style("border-radius", "9px")
-        .style("padding", "5px")
-        .style("text-transform", "capitalize")
 
 
 
     const genders = ["female", "male"];
         // Three function that change the tooltip when user hover / move / leave a cell
     genders.forEach(g => {
-        const genders = ["female", "male"];
 
             // Initialize the circle: all located at the center of the svg area
 
                 var color = "#e84388"
-                //var textColor = "#b5024d"
-                var cx = width / 2
-                var cy = height / 2
                 if (g == "female") {
                     color = "#e84388"
                 } else {
                     color = "#4349e8"
-                    cx = cx + width / 4 
-                    //textColor = "#0c14e8"
-                    //cy = cy + height / 2
+                    cx = cx + 400
                 }
+
+                // create a tooltip
+                const Tooltip = d3.select("body")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("opacity", 0)
+                    .attr("class", "tooltip")
+                    .style("background-color", color)
+                    //.style("border", "solid")
+                    .style("border-width", "5px")
+                    .style("border-radius", "9px")
+                    .style("padding", "5px")
+                    .style("text-transform", "capitalize")
 
                 const mouseover = function(event, d) {
                     console.log("over")
@@ -112,9 +109,10 @@
                 .on("mousemove", mousemove)
                 .on("mouseleave", mouseleave)
                 //.call(d3.drag() // call specific function when circle is dragged
-                    //.on("start", dragstarted)
-                    //.on("drag", dragged)
-                    //.on("end", dragended));
+                //    .on("start", dragstarted)
+                  //  .on("drag", dragged)
+                   // .on("end", dragended))
+                //.each(function(d) { d.active = false; });
 
                 
                 //var labels = []
@@ -136,8 +134,8 @@
                  // Features of the forces applied to the nodes:
                 const simulation = d3.forceSimulation()
                 .force("center", d3.forceCenter().x(cx).y(cy)) // Attraction to the center of the svg area
-                .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
-                .force("collide", d3.forceCollide().strength(.01).radius(function(d){ return (size(d[g])) }).iterations(1)) // Force that avoids circle overlapping
+                .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
+                .force("collide", d3.forceCollide().strength(.1).radius(function(d){ return (size(d[g]) + 2) }).iterations(1)) // Force that avoids circle overlapping
 
                 // Apply these forces to the nodes and update their positions.
                 // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
@@ -154,18 +152,28 @@
 
                 // What happens when a circle is dragged?
                 function dragstarted(event, d) {
-                if (!event.active) simulation.alphaTarget(.03).restart();
-                d.fx = d.x;
-                d.fy = d.y;
+                    // stop the simulation
+                    simulation.alphaTarget(0.1).restart();
+
+                    // set the dragged circle as active
+                    d.active = true;
+
+                    if (!event.active) simulation.alphaTarget(.03).restart();
+                    event.subject.fx = event.subject.x;
+                    event.subject.fy = event.subject.y;
                 }
+
                 function dragged(event, d) {
-                d.fx = event.x;
-                d.fy = event.y;
+                    if (d.active) {
+                        d.fx = event.x;
+                        d[g].fy = event.y;
+                    }
                 }
                 function dragended(event, d) {
-                if (!event.active) simulation.alphaTarget(.03);
-                d.fx = null;
-                d.fy = null;
+                    if (!event.active) simulation.alphaTarget(.03);
+                        d.active = false;
+                        d.fx = null;
+                        d.fy = null;
                 }
             })
 
