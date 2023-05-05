@@ -1,7 +1,9 @@
+ 
  // set the dimensions and margins of the graph
  var margin = {top: 60, right: 30, bottom: 70, left: 50},
  width1 = 1200 
  height1 = 400
+
 
 
  // add a legend 
@@ -94,7 +96,7 @@
 
                 
             var node = svg.append("g")
-            .selectAll("circle")
+            .selectAll("square")
             .data(data)
             .join("circle")
                 .attr("class", "node")
