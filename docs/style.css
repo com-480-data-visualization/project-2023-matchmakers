@@ -488,7 +488,7 @@ footer p {
 /* age range */
 
 .age-slider {
-  width = 100%;
+  width: 100%;
 }
 
 .age-slider.topLeft {
