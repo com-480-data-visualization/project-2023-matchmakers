@@ -12,21 +12,26 @@ class SpiderBackground {
       .domain([0, 50])
       .range([0, this.container_h/2-50]);
 
-    this.ticks = [10, 20, 30, 40, 50];
+    //this.ticks = [10, 20, 30, 40, 50];
+    this.ticks = [50, 40, 30, 20, 10];
 
     //this.update();
   }
 
   update() {
+
+    var circle_colors = {10: '#FE6480', 20:'#FD92A5', 30:'#FFC0CB', 40:'#FFE0E6', 50:'#FFFFFF'};
+
     this.svg.selectAll("circle")
       .data(this.ticks)
       .join(
           enter => enter.append("circle")
               .attr("cx", this.container_w / 2)
               .attr("cy", this.container_h / 2)
-              .attr("fill", "none")
+              .attr("fill", d => circle_colors[d])
               .attr("stroke", "gray")
               .attr("r", d => this.radialScale(d))
+              .attr("fill-opacity", 0.3)
       )
       .attr('transform', "translate(0, 0)");
 
@@ -178,43 +183,6 @@ class SpiderPath extends SpiderBackground {
         Tooltip
         .style("opacity", 0)
     }
-
-/*
-    let tooltip = this.svg.append('g')
-      .attr('class', 'tooltip')
-      .style('display', 'none');
-
-    tooltip.append('rect')
-          .attr('width', 60)
-          .attr('height', 20)
-          .attr('fill', this.color)
-          .attr('stroke', this.color)
-          .attr('stroke-width', 2)
-          .attr('rx', 10);
-
-    tooltip.append('text')
-          .attr('x', 30)
-          .attr('y', 14)
-          .attr('text-anchor', 'middle')
-          .attr('font-size', 12)
-          .attr('fill', 'white')
-          .text(this.label);
-
-    //console.log(this.label);
-    // Define the mouseover event handler
-  /*  const handleMouseOver = function(d, i) {
-      const mouseX = d.pageX;
-      const mouseY = d.pageY;
-      tooltip.style('display', null)
-        .attr('transform', `translate(${mouseX*0.7},${mouseY/6})`);
-      tooltip.select('text');
-      //  .text(`val: ${this.label}`);
-    };
-
-    // Define the mouseout event handler
-    const handleMouseOut = function(d, i) {
-      tooltip.style('display', 'none');
-    }; */
 
     // Add the event listeners
     this.path.on("mouseover", mouseover) // What to do when hovered
