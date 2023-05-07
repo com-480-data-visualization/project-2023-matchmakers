@@ -30,6 +30,7 @@ The Milestone contains:
 ## Milestone 2 (7th May, 5pm)
 
 [Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
+
 [Link to Milestone 2](./Milestones/Milestone2.pdf)
 
 
