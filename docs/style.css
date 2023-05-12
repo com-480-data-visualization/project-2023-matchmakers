@@ -570,6 +570,10 @@ footer p {
   cursor: auto;
 }
 
+/* Check boxes */
+.
+
+
 /* button style */
 .button {
   appearance: none;
@@ -623,6 +627,8 @@ form  {
     margin: 60px 0 0 0 !important;
  }
 
+/* slider */
+
 #slider-range {
     margin: -20px 30px;
     background: deeppink;
@@ -641,7 +647,7 @@ form  {
 }
 
 #slider-range .ui-slider-range {
-    background: deeppink; 
+    background: deeppink;
 }
 
 #slider-range .my-pink-slider {

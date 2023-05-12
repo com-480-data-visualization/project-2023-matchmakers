@@ -23,7 +23,7 @@ var svg = d3.select("#barplot")
 
   var xAxis = svg.append("g")
     .attr("transform", "translate(0," + height1 + ")")
-  
+
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -40,8 +40,8 @@ var svg = d3.select("#barplot")
       header: true
     }).then(function(data) {
 
-    
-    // groups label 
+
+    // groups label
     var groups = d3.map(data, function(d){return d.interests}).keys()
 
       // X axis

@@ -1,3 +1,20 @@
+const colors_map = {"female":"deeppink", "male":"blue", "all":"darkorange"};
+const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
+
+// set the dimensions and margins of the graph
+var margin = {top: 60, right: 30, bottom: 70, left: 30},
+width1 = 1200 - margin.left - margin.right,
+height1 = 400 - margin.top - margin.bottom;
+
+
+const container_w = width1 + margin.left + margin.right;
+const container_h = height1 + margin.top + margin.bottom;
+
+const width = width1 + margin.left + margin.right;
+const height = height1 + margin.top + margin.bottom;
+
+const data_path = "data/people.csv";
+
 class SpiderBackground {
 
   constructor(svg, data, features, label_keys, container_w, container_h) {
@@ -187,7 +204,7 @@ class SpiderPath extends SpiderBackground {
     // Add the event listeners
     this.path.on("mouseover", mouseover) // What to do when hovered
     .on("mousemove", mousemove)
-    .on("mouseleave", mouseleave)
+    .on("mouseleave", mouseleave);
   }
 
   getPathCoordinates(data_point) {
@@ -207,24 +224,6 @@ class SpiderPath extends SpiderBackground {
 
 };
 
-// const container = d3.select('#spider');
-
-// set the dimensions and margins of the graph
-var margin = {top: 60, right: 30, bottom: 70, left: 30},
-width1 = 1200 - margin.left - margin.right,
-height1 = 400 - margin.top - margin.bottom;
-
-// append the svg object to the body of the page
-
-
-const container_w = width1 + margin.left + margin.right;
-const container_h = height1 + margin.top + margin.bottom;
-
-const width = width1 + margin.left + margin.right;
-const height = height1 + margin.top + margin.bottom;
-
-const data_path = "data/people.csv";
-
 function get_avg_values(data, column_names) {
   let avg_vals = {};
 
@@ -239,11 +238,51 @@ function get_avg_values(data, column_names) {
 
 }
 
-function drawPaths(svg, data, features, gender, ){
+function drawPaths(svg, dataa, features, draw_women, draw_men, draw_all, min_age, max_age, spider_bg){
 
+  d3.selectAll("path").remove();
+
+  let spiderPaths = {};
+
+
+  if (draw_all) {
+    let sp_all = draw_one_path(dataa, "all", min_age, max_age, features, spider_bg, svg, container_w, container_h);
+    spiderPaths["all"] = sp_all;
+  }
+
+  if (draw_men) {
+    let sp_men = draw_one_path(dataa, "male", min_age, max_age, features, spider_bg, svg, container_w, container_h);
+    spiderPaths["men"] = sp_men;
+  }
+
+  if (draw_women) {
+    let sp_women = draw_one_path(dataa, "female", min_age, max_age, features, spider_bg, svg, container_w, container_h);
+    spiderPaths["women"] = sp_women;
+  }
 }
 
-// "https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/ac7c0f0d5833bf3e51eaca1331d45bef8d357767/data/people.csv";
+function draw_one_path(dataa, g, min_age, max_age, features, spider_bg, svg, container_w, container_h){
+  let avg_vals = {};
+  let df = dataa;
+  if (g!="all"){
+    df = dataa.filter(function(el){
+      return (el["gender"]==g)  && (el["age"]>=min_age) && (el["age"]<=max_age);
+    })
+  } else {
+    df = dataa.filter(function(el){
+      return (el["age"]>=min_age) && (el["age"]<=max_age);
+    })
+  }
+
+  avg_vals = get_avg_values(df, features);
+  sp = new SpiderPath(svg, avg_vals, spider_bg, colors_map[g], features, labels_map[g], null, container_w, container_h);
+  sp.setLabels(labels_map[g], colors_map[g]);
+  console.log(labels_map[g]);
+  console.log(colors_map[g]);
+  console.log(g);
+  return sp;
+}
+
 d3.csv(data_path, {
   delimiter: ",",
   header: true
@@ -251,8 +290,6 @@ d3.csv(data_path, {
 
   const og_dataframe = dataa;
 
-//  console.log(width1 + margin.left + margin.right);
-//  console.log(height1 + margin.top + margin.bottom);
 
   var svg = d3.select("#spider")
       .append("svg")
@@ -277,29 +314,51 @@ d3.csv(data_path, {
 
   let spider_bg = new SpiderBackground(svg, data, features, label_keys, container_w, container_h);
   spider_bg.update();
-  let colors = ["deeppink", "blue", "gray", "darkorange", "navy"];
+  let colors = ["deeppink", "blue", "orange", "navy"];
 
-  let spiderPaths = [];
+  let spiderPaths = {};
 
   const btn = document.getElementById("spider-btn");
 
+  let avg_vals = get_avg_values(dataa, features);
+  sp = new SpiderPath(svg, avg_vals, spider_bg, colors_map["all"], features, labels_map["all"], null, container_w, container_h);
+  sp.setLabels(labels_map["all"], colors_map["all"]);
+  spiderPaths["all"] = sp;
+
   genders.forEach(g => {
 
-    let avg_vals = {};
+    avg_vals = {};
     let df = dataa.filter(function(el){
       return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
     });
 
     avg_vals = get_avg_values(df, features);
-    data.push(avg_vals);
+    let sp = new SpiderPath(svg, avg_vals, spider_bg, colors_map[g], features, labels_map[g], null, container_w, container_h);
+    sp.setLabels(labels_map[g], colors_map[g]);
+    spiderPaths[g] = sp;
+
+  });
+
+  let checkboxes = {"female": document.getElementById("women-check"), "male": document.getElementById("men-check"), "all": document.getElementById("all-check")};
+
+  checkboxes["female"].addEventListener("change", function(){
+    drawPaths(svg, dataa, features, checkboxes["female"].checked, checkboxes["male"].checked, checkboxes["all"].checked, min_age, max_age, spider_bg);
   });
 
 
-  data.forEach((d, i) => {
-    spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
+  checkboxes["male"].addEventListener("change", function(){
+    drawPaths(svg, dataa, features, checkboxes["female"].checked, checkboxes["male"].checked, checkboxes["all"].checked, min_age, max_age, spider_bg);
   });
 
-  spiderPaths.forEach((sp, i) => sp.setLabels(label_names[i], colors[i]));
+
+  checkboxes["all"].addEventListener("change", function(){
+    drawPaths(svg, dataa, features, checkboxes["female"].checked, checkboxes["male"].checked, checkboxes["all"].checked, min_age, max_age, spider_bg);
+  });
+
+
+
+
+
 
   $( function() {
     $( "#slider-range" ).slider({
@@ -314,54 +373,15 @@ d3.csv(data_path, {
       slide: function( event, ui ) {
         $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 
-        d3.selectAll("path").remove();
-
         min_age = ui.values[0];
         max_age = ui.values[1];
 
-        let data = [];
-
-        spiderPaths = []
-
-       genders.forEach(g => {
-
-          let avg_vals = {};
-          let df = dataa.filter(function(el){
-            return (el["gender"] == g) && (el["age"]>=min_age) && (el["age"]<=max_age);
-          });
-
-          avg_vals = get_avg_values(df, features);
-          data.push(avg_vals);
-        });
-
-
-        data.forEach((d, i) => {
-          spiderPaths.push(new SpiderPath(svg, d, spider_bg, colors[i], features, label_names[i], null, container_w, container_h));
-        });
-
-        spiderPaths.forEach((sp, i) => {
-          sp.setLabels(label_names[i], colors[i]);
-          console.log(label_names[i]);
-          console.log(colors[i]);
-        });
+        drawPaths(svg, dataa, features, checkboxes["female"].checked, checkboxes["male"].checked, checkboxes["all"].checked, min_age, max_age, spider_bg);
 
       }
     });
     $( "#age-box" ).val( $( "#slider-range" ).slider( "values", 0 ) +
       " - " + $( "#slider-range" ).slider( "values", 1 ) );
   } );
-
-//  $("slider-range").on('slidechange', function(event, ui){ console.log("slider used");})
-/*
-  ( function() {
-    $( "#slider-range" ).slider({
-      slide: function( event, ui ) {
-        $( "#age-box" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-        console.log("slider moved");
-      }
-    });
-    $( "#age-box" ).val( $( "#slider-range" ).slider( "values", 0 ) +
-      " - " + $( "#slider-range" ).slider( "values", 1 ) );
-  } ); */
 
 })
