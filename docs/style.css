@@ -570,8 +570,6 @@ footer p {
   cursor: auto;
 }
 
-/* Check boxes */
-.
 
 
 /* button style */
@@ -633,10 +631,12 @@ form  {
     margin: -20px 30px;
     background: deeppink;
     width: 18em;
+    height: 1em;
     background-color: pink;
     color: deeppink;
     border: none;
     padding: 4px 4px 0 0;
+    transform: translate(20px, -90px);
 }
 
 #slider-range .ui-slider-handle {

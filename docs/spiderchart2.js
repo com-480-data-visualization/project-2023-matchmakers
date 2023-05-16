@@ -7,7 +7,7 @@ width1 = 1200 - margin.left - margin.right,
 height1 = 400 - margin.top - margin.bottom;
 
 
-const container_w = width1 + margin.left + margin.right;
+const container_w =  width1 + margin.left + margin.right;
 const container_h = height1 + margin.top + margin.bottom;
 
 const width = width1 + margin.left + margin.right;
@@ -157,7 +157,7 @@ class SpiderPath extends SpiderBackground {
     this.path = this.svg.append('path')
       .datum(this.getPathCoordinates(this.datapoint))
       .attr("d", line)
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 6)
       .attr("stroke", this.color)
       .attr("fill", this.color)
       .attr("stroke-opacity", 1)
@@ -277,9 +277,6 @@ function draw_one_path(dataa, g, min_age, max_age, features, spider_bg, svg, con
   avg_vals = get_avg_values(df, features);
   sp = new SpiderPath(svg, avg_vals, spider_bg, colors_map[g], features, labels_map[g], null, container_w, container_h);
   sp.setLabels(labels_map[g], colors_map[g]);
-  console.log(labels_map[g]);
-  console.log(colors_map[g]);
-  console.log(g);
   return sp;
 }
 
@@ -307,7 +304,7 @@ d3.csv(data_path, {
      "ambition_important":"Ambition", "shared_interests_important": "Shared interests"
   };
 
-  const genders = ["female", "male"];
+  const genders = ["male", "female"];
   const label_names = ["Women", "Men"];
   let min_age = 18;
   let max_age = 25;
