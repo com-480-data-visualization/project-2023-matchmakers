@@ -1,6 +1,8 @@
-import * as tf from 'https://cdn.skypack.dev/@tensorflow/tfjs';
-import * as sk from 'https://cdn.skypack.dev/scikitjs';
-sk.setBackend(tf);
+import * as tfcore from "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core";
+import * as tfcpu from "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-cpu";
+import * as tfconv from "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter";
+import * as tfdf from "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tfdf/dist/tf-tfdf.min.js";
+
 
 const colors_map = {"female":"deeppink", "male":"blue", "all":"darkorange"};
 const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
@@ -12,7 +14,19 @@ height1 = 400 - margin.top - margin.bottom;
 
 const data_path = "data/people.csv";
 
-let lr = new sk.LinearRegression()
+tfdfModel
+
+//const tfdfModel = await tfdf.loadTFDFModel('match_model');
+
+/*clf2 = DecisionTreeClassifier()
+clf3 = GaussianNB()
+
+
+clf = VotingClassifier(estimators=[
+        ('lr', clf1), ('dt', clf2), ('gnb', clf3)],
+        voting='soft',
+        flatten_transform=True)
+clf = clf.fit(X_train, y_train, train_weights) */
 
 
 console.log('match predictor script');
