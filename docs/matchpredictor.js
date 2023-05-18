@@ -5,7 +5,7 @@ const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
 const button = document.getElementById("predict-button");
 
 button.addEventListener("click", async() => {
-  const model = await tfdf.loadTFDFModel('project-2023-matchmakers/matchmodel/model.json');
+  const model = await tfdf.loadTFDFModel('https://com-480-data-visualization.github.io/project-2023-matchmakers/matchmodel/model.json');
   
   //const model = await tfdf.loadTFDFModel('http://127.0.0.1:8080/project-2023-matchmakers/matchmodel/model.json');
 
