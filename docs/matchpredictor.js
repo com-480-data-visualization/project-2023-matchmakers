@@ -5,8 +5,8 @@ const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
 const button = document.getElementById("predict-button");
 
 button.addEventListener("click", async() => {
+  const model = await tfdf.loadTFDFModel('https://project-2023-matchmakers/docs/matchmodel/model.json');
   //const model = await tfdf.loadTFDFModel('http://127.0.0.1:8080/project-2023-matchmakers/matchmodel/model.json');
-  const model = await tfdf.loadTFDFModel('http://project-2023-matchmakers/docs/matchmodel/model.json');
 
   let age = parseFloat(document.getElementById("age").value);
   let age_o = parseFloat(document.getElementById("age_o").value);
@@ -53,4 +53,27 @@ button.addEventListener("click", async() => {
   let matchproba = await model.executeAsync(inp);
 
   console.log(matchproba.arraySync()[0][0]);
+
+  var bodyMeasurements = [
+  	{ weight: 63, height: 1.65 },
+  	{ weight: 64, height: 1.67 },
+  	{ weight: 74, height: 1.80 },
+  	{ weight: 79, height: 1.82 },
+  	{ weight: 82, height: 1.86 },
+  	{ weight: 66, height: 1.70 },
+  	{ weight: 91, height: 1.83 },
+  	{ weight: 72, height: 1.76 },
+  	{ weight: 85, height: 1.89 },
+  	{ weight: 68, height: 1.68 }
+  ];
+
+  var bodyVars = {
+  	weight: 'metric',
+  	height: 'metric'
+  };
+
+  var stats = new Statistics(bodyMeasurements, bodyVars);
+  var r = stats.correlationCoefficient('weight', 'height');
+
+  console.log(r.correlationCoefficient);
 })
