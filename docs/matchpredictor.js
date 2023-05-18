@@ -6,6 +6,7 @@ const button = document.getElementById("predict-button");
 
 button.addEventListener("click", async() => {
   const model = await tfdf.loadTFDFModel('project-2023-matchmakers/matchmodel/model.json');
+  
   //const model = await tfdf.loadTFDFModel('http://127.0.0.1:8080/project-2023-matchmakers/matchmodel/model.json');
 
   let age = parseFloat(document.getElementById("age").value);
