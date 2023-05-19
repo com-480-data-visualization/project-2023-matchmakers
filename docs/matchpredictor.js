@@ -6,7 +6,10 @@ const button = document.getElementById("predict-button");
 
 button.addEventListener("click", async() => {
   const model = await tfdf.loadTFDFModel('https://com-480-data-visualization.github.io/project-2023-matchmakers/matchmodel_current_js/model.json');
+  console.log(model);
   //const model = await tfdf.loadTFDFModel('http://127.0.0.1:8080/project-2023-matchmakers/matchmodel_current_js/model.json');
+
+  // Input to model directly from website (users input the values, pass them to the model directly):
 
   let age = 23;
   let age_o = 30;//parseFloat(document.getElementById("age_o").value);
@@ -25,11 +28,10 @@ button.addEventListener("click", async() => {
   let ambit_o = 0;//parseFloat(document.getElementById("ambit_o").value);
   let shared_o = 100;//parseFloat(document.getElementById("shared_o").value);
 
+  // race: has to preprocessed (1-hot encoded for the model):
+
   let race = document.getElementById("race").value;
   let race_o = document.getElementById("race_o").value;
-
-  //let interests_corr = 1.462403;
-  let interests_corr = -0.01;
 
   let wh = race=="white" ? 1 : 0;
   let bl = race=="black" ? 1 : 0;
@@ -41,35 +43,60 @@ button.addEventListener("click", async() => {
   let lat_o = race=="latinx" ? 1 : 0;
   let o_o = race=="asian" ? 1 : 0;
 
-  let inp = tf.tensor([[
-    age, age_o, interests_corr,
-    att_o, sincere_o, intell_o, fun_o, ambit_o, shared_o,
-    att, sincere, intell, fun, ambit, shared,
-  //  -1.002973,
-    wh, bl, lat, asian,
-    wh_o, bl_o, lat_o, o_o
-  ]]);
+  // interests: model takes the correlation between the two peoples' interests,
+  // not the actual scores for each separate thing
+  // => calculate correlation first, then pass it to the model
 
-  let matchproba = await model.executeAsync(inp);
+  const interests = ['sports', 'museums', 'tvsports', 'exercise', 'dining', 'art', 'hiking',
+       'gaming', 'clubbing', 'reading', 'tv', 'theater', 'movies', 'concerts',
+       'shopping', 'music', 'yoga'];
 
-  console.log(matchproba.arraySync()[0][0]);
+  // collect my scores (Person 1) for each possible interest into a dictionary:
 
-  var interests = [
-  	{ me: att, partner: att_o },
-  	{ me: sincere, partner: sincere_o },
-    { me: intell, partner: intell_o },
-  	{ me: fun, partner: fun_o },
-    { me: ambit, partner: ambit_o},
-  	{ me: shared, partner: shared_o },
-  ];
+  let my_interests_map = {};
+  interests.forEach((item, i) => {
+    my_interests_map[item] = i*10;
+  });
+
+  // collect Person 2's scores for each possible interest into a dictionary:
+
+  let their_interests_map = {};
+  interests.forEach((item, i) => {
+    their_interests_map[item] = i*10;
+  });
+
+  // make a list in the format necessary to calculate the correlation:
+
+  let int_map = [];
+  interests.forEach((item, i) => {
+    int_map.push({
+      me: my_interests_map[item],
+      partner: their_interests_map[item]
+    })
+  });
 
   var interestsVars = {
   	me: 'metric',
   	partner: 'metric'
   };
 
-  var stats = new Statistics(interests, interestsVars);
-  var r = stats.correlationCoefficient('me', 'partner');
+  var stats = new Statistics(int_map, interestsVars);
+  var interests_corr = stats.correlationCoefficient('me', 'partner').correlationCoefficient;
 
-//  console.log(r.correlationCoefficient);
+  // construct input tensor :
+
+  let inp = tf.tensor([[
+    age, age_o, interests_corr,
+    att_o, sincere_o, intell_o, fun_o, ambit_o, shared_o,
+    att, sincere, intell, fun, ambit, shared,
+    wh, bl, lat, asian,
+    wh_o, bl_o, lat_o, o_o
+  ]]);
+
+  // predict:
+
+  let matchproba = await model.executeAsync(inp);
+
+  console.log(matchproba.arraySync()[0][0]);
+
 })
