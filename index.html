@@ -132,55 +132,6 @@
     </div>
 
 
-
-    <!--      <svg viewBox="0 0 600 300" width="600" height="400">
-        <svg id="spider" x="10" y="10" width="200" length="200">
-      </svg>
-    </svg>-->
-    <!--     </section>
-
-    <section id="viz2" class="section">
-      <div class="title">
-        <h2>What are <span>their interests ?</span></h2>
-        <button onclick="update('Female')">Female</button>
-        <button onclick="update('Male')">Male</button>
-      </div>
-      <svg id="barplot" viewBox="0 -20 1200 420">
-
-      </svg>-->
-
-
-
-    <!--      <svg viewBox="0 0 600 300" width="600" height="400">
-        <svg id="spider" x="10" y="10" width="200" length="200">
-      </svg>
-    </svg>-->
-    <!--
-    "age":tf.tensor([1.063188]),
-    "age_o":tf.tensor([1.338902]),
-    "interests_correlate":tf.tensor([1.462403]),
-    "pref_o_attractive":tf.tensor([-1.041122]),
-    "pref_o_sincere":tf.tensor([0.354547]),
-    "pref_o_intelligence":tf.tensor ([2.598385]),
-    "pref_o_funny":tf.tensor([-1.103712]),
-    "pref_o_ambitious":tf.tensor([0.046427]),
-    "pref_o_shared_interests":tf.tensor([-0.166184]),
-    "attractive_important":tf.tensor([-1.058580]),
-    "sincere_important":tf.tensor([0.370554]),
-    "intellicence_important":tf.tensor([-0.085502]),
-    "funny_important":tf.tensor([-1.108400]),
-    "ambtition_important":tf.tensor([0.041454]),
-    "shared_interests_important":tf.tensor([2.742832]),
-    "gender_male":tf.tensor([-1.002973]),
-    "race_Black":tf.tensor([-0.226430]),
-    "race_Caucasian" :tf.tensor([-1.099029]),
-    "race_Latinx"   :tf.tensor([-0.320378]),
-    "race_Other"  :tf.tensor([-0.271607]),
-    "race_o_Black"  :tf.tensor([-0.226947]),
-    "race_o_Caucasian"  :tf.tensor([0.931119]),
-    "race_o_Latinx":tf.tensor([-0.316744]),
-    "race_o_Other":tf.tensor([-0.271607]),
-    -->
     </section>
     <!-- services viewBox="-10 -10 1200 1200" -->
     <section id="matching" class="section">
@@ -191,7 +142,7 @@
         <!-- Age -->
         <label for="age" style="margin: 0px 30px;color:deeppink;
          font-weight:bold; font-family:var(--ff-secondary); width: 1px">Age:</label>
-        <input type="text" id="age" value="1.063188" style="border:0; color:deeppink;
+        <input type="text" id="age" value="23" style="border:0; color:deeppink;
          font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
          background: transparent;
          ">
@@ -199,103 +150,7 @@
         <!-- Age of partner -->
         <label for="age_o" style="margin: 0px 30px;color:deeppink;
         font-weight:bold; font-family:var(--ff-secondary); width: 1px">Age of partner:</label>
-        <input type="text" id="age_o" value="1.338902" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: attractive -->
-        <label for="att" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Attractiveness importance:</label>
-        <input type="text" id="att" value="-1.058580" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: sincere -->
-        <label for="sincere" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Sincerity importance:</label>
-        <input type="text" id="sincere" value="0.370554" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: intelligent -->
-        <label for="intell" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Intelligence importance:</label>
-        <input type="text" id="intell" value="-0.085502" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: funny -->
-        <label for="fun" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Sense of humous importance:</label>
-        <input type="text" id="fun" value="-1.108400" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: ambitious -->
-        <label for="ambit" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Ambition importance:</label>
-        <input type="text" id="ambit" value="0.041454" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important: shared interests -->
-        <label for="shared" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Shared interests importance:</label>
-        <input type="text" id="shared" value="2.742832" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: attractive -->
-        <label for="att_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Attractiveness importance to partner:</label>
-        <input type="text" id="att_o" value="-1.041122" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: sincere -->
-        <label for="sincere_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Sincerity importance to partner:</label>
-        <input type="text" id="sincere_o" value="0.354547" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: intelligent -->
-        <label for="intell_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Intelligence importance to partner:</label>
-        <input type="text" id="intell_o" value="2.598385" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: funny -->
-        <label for="fun_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Sense of humour importance to partner:</label>
-        <input type="text" id="fun_o" value="-1.103712" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: ambitious -->
-        <label for="ambit_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Ambition importance to partner:</label>
-        <input type="text" id="ambit_o" value="0.046427" style="border:0; color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
-        background: transparent;
-        ">
-
-        <!-- important to partner: shared interests -->
-        <label for="shared_o" style="margin: 0px 30px;color:deeppink;
-        font-weight:bold; font-family:var(--ff-secondary); width: 1px">Shared interests importance to partner:</label>
-        <input type="text" id="shared_o" value="-0.166184" style="border:0; color:deeppink;
+        <input type="text" id="age_o" value="24" style="border:0; color:deeppink;
         font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
         background: transparent;
         ">
@@ -309,6 +164,7 @@
           <option value="asian">Asian</option>
           <option value="black">Black</option>
           <option value="latinx">Latinx</option>
+          <option value="other">Other</option>
         </select>
 
         <!-- race of partner -->
@@ -320,6 +176,7 @@
           <option value="asian">Asian</option>
           <option value="black">Black</option>
           <option value="latinx">Latinx</option>
+          <option value="other">Other</option>
         </select>
 
         <button id="predict-button">
