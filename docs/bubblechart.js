@@ -4,21 +4,47 @@
  width1 = 1200 
  height1 = 400
 
-var cx = width / 2 - 200
-var cy = height / 2
+var cx = width1 / 2 - 200
+var cy = height1 / 2
 
- const colors_gender = {"female":"deeppink", "male":"blue"};
+function generateRangeColors() {
+    const colors = ["#85C1E9", "#3498DB", "#2874A6", "#1B4F72", "#FFC4DD", "#FF85A8", "#FF527D", "#FF1B47"];
+    let index = 0;
+  
+    return function () {
+      const color = colors[index % colors.length];
+      index++;
+      return color;
+    };
+  }
+
+const colorScale = generateRangeColors();
+
+ const colors_gender = {"female":"#ed68e9", "male":"#2937f2"};
  const labels_gender = {"female":"Women", "male":"Men"};
 
- const colors_race = {"European/Caucasian-American":"#70b4ba", "Asian/Pacific Islander/Asian-American":"#f7c154", "Latino/Hispanic American": "#d6834b", "Black/African American":"#d63838"};
- const labels_race = {"European/Caucasian-American":"White", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black"};
+ const labels_race = {"European/Caucasian-American":"Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"African American"};
 
- const colors_field = {"Law":"#eb8e54", "Social Work":"#e37f68", "Business":"#458996"};
  const labels_field = {"Law":"Law", "Social Work":"Social", "Business": "Business"};
 
  const genders = ["female", "male"];
  const race = ["European/Caucasian-American", "Asian/Pacific Islander/Asian-American", "Latino/Hispanic American", "Black/African American"];
  const field = ["Law", "Social Work", "Business"];
+
+ const colors_race = {
+    "European/Caucasian-American": colorScale(),
+    "Asian/Pacific Islander/Asian-American": colorScale(),
+    "Latino/Hispanic American": colorScale(),
+    "Black/African American": colorScale()
+  };
+  
+  const colors_field = {
+    "Law": colorScale(),
+    "Social Work": colorScale(),
+    "Business": colorScale()
+  };
+
+const label_type = {"gender": "white", "race": "black", "field": "black"}
 
  const cxs_gender = {"female":cx, "male":cx+350};
  const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
@@ -41,14 +67,14 @@ const size = d3.scaleLinear()
     .domain([0, 10])
     .range([1,55])
 
-const min_y = 17;
-const max_y = 20;
+const min_y = 18;
+const max_y = 25;
 
-const min_m = 21;
+const min_m = 26;
 const max_m = 35;
 
-const min_o = 26;
-const max_o = 36;
+const min_o = 36;
+const max_o = 55;
 
 
 function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old) {
@@ -103,7 +129,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 28) + "px")
             .style("font-weight", "bold")
-            .style("color", "white")
+            .style("color", label_type[type])
             .style("opacity", 1)
         };
 
@@ -140,7 +166,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
             .style("font-size", "11px")
             .style("font-weight", "bold")
             .style("text-transform", "capitalize")
-            .style("fill", "white")
+            .style("fill", label_type[type])
             .attr("x", d => d.x)
             .attr("y", d => d.y);
 
@@ -164,7 +190,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
 }
 
 function updateChart() {
-    var type = getSelectedRadioValue();
+    var type = getSelectedRadioValue1();
 
     if (type === "gender") {
         svg.selectAll(".label").remove();
@@ -197,11 +223,11 @@ let checkboxes = {
   });
 
 
-function getSelectedRadioValue() {
-    var radioButtons = document.getElementsByName("typeButton");
-    for (var i = 0; i < radioButtons.length; i++) {
-      if (radioButtons[i].checked) {
-        var selectedValue = radioButtons[i].value;
+function getSelectedRadioValue1() {
+    var radioButtons2 = document.getElementsByName("typeButton");
+    for (var i = 0; i < radioButtons2.length; i++) {
+      if (radioButtons2[i].checked) {
+        var selectedValue = radioButtons2[i].value;
         console.log(selectedValue);
         return selectedValue;
       }
@@ -209,25 +235,25 @@ function getSelectedRadioValue() {
 };
 
   // Add event listener to the radio buttons
-var radioButtons = document.getElementsByName("typeButton");
-for (var i = 0; i < radioButtons.length; i++) {
-  radioButtons[i].addEventListener("change", updateChart);
+var radioButtons2 = document.getElementsByName("typeButton");
+for (var i = 0; i < radioButtons2.length; i++) {
+  radioButtons2[i].addEventListener("change", updateChart);
 };
   
 
-const svg = d3.select("#bubblechart")
+var svg = d3.select("#bubblechart")
     .append("svg")
     .attr("width", width1)
     .attr("height", height1)
 
 // Initial chart setup
-var initialType = getSelectedRadioValue();
+var initialType = getSelectedRadioValue1();
 var dpath = "data/people.csv";
 
 d3.csv(dpath, {
 delimiter: ",",
 header: true
 }).then(function(dataa) {
-    data = dataa
+    data = dataa;
     chartplot(svg, data, genders, initialType, colors_gender, labels_gender, cxs_gender, checkboxes["young"].checked, checkboxes["middle"].checked, checkboxes["old"].checked);
 });
