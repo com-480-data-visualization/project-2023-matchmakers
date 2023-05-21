@@ -20,7 +20,7 @@ function generateRangeColors() {
 
 const colorScale = generateRangeColors();
 
- const colors_gender = {"female":"#ed68e9", "male":"#2937f2"};
+ const colors_gender = {"female":"#eb65b3", "male":"#2937f2"};
  const labels_gender = {"female":"Women", "male":"Men"};
 
  const labels_race = {"European/Caucasian-American":"Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"African American"};
