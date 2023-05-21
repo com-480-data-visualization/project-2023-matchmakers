@@ -114,13 +114,34 @@
        <div class="title">
          <h2>What are they <span>interested in ?</span></h2>
        </div>
-       <svg id="barplot" viewBox="0 -20 1200 420">
+       <svg id="bubblechart" viewBox="0 -20 1200 420">
        </svg>
 
-       <div id="typeButton">
+      <div id="typeButton">
         <input type="radio" name="typeButton" value="gender" checked> Gender <br>
         <input type="radio" name="typeButton" value="race"> Ethnicity <br>
+        <input type="radio" name="typeButton" value="field"> Field <br>
       </div>
+
+      <div id="age-check" style="transform: translate(450px, -45px)">
+        <legend style="color:black; font-size: larger; font-weight:bold; font-family:var(--ff-secondary); margin-left: 140px">Age Range</legend>
+
+        <input type="checkbox" id="young-check" name="Young" style="accent-color: deeppink;  margin: 0px 30px" checked>
+        <label for="young-check" style="color:black;
+        font-size: larger;
+         font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">18-25</label>
+
+        <input type="checkbox" id="middle-check" name="Middle" style="accent-color: deeppink; margin: 0px 30px" checked>
+        <label for="middle-check" style="color:black;
+        font-size: larger;
+         font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">26-35</label>
+
+        <input type="checkbox" id="old-check" name="Old" style="accent-color: deeppink; margin: 0px 30px" checked>
+        <label for="old-check" style="color:black;
+        font-size: larger;
+         font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">36-45</label>
+
+     </div>
 
     </div>
 

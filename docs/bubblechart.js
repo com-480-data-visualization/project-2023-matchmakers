@@ -10,13 +10,18 @@ var cy = height / 2
  const colors_gender = {"female":"deeppink", "male":"blue"};
  const labels_gender = {"female":"Women", "male":"Men"};
 
- const colors_race = {"European/Caucasian-American":"#78a1ab", "Asian/Pacific Islander/Asian-American":"#73ba73", "Latino/Hispanic American": "#d48a4a", "Black/African American":"#d44a4a"};
+ const colors_race = {"European/Caucasian-American":"#70b4ba", "Asian/Pacific Islander/Asian-American":"#f7c154", "Latino/Hispanic American": "#d6834b", "Black/African American":"#d63838"};
  const labels_race = {"European/Caucasian-American":"White", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black"};
+
+ const colors_field = {"Law":"#eb8e54", "Social Work":"#e37f68", "Business":"#458996"};
+ const labels_field = {"Law":"Law", "Social Work":"Social", "Business": "Business"};
 
  const genders = ["female", "male"];
  const race = ["European/Caucasian-American", "Asian/Pacific Islander/Asian-American", "Latino/Hispanic American", "Black/African American"];
+ const field = ["Law", "Social Work", "Business"];
 
  const cxs_gender = {"female":cx, "male":cx+350};
+ const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
  const cxs_race = {"European/Caucasian-American":cx-250, "Asian/Pacific Islander/Asian-American":cx+50, "Latino/Hispanic American": cx+350, "Black/African American":cx+650};
 
  const interests = ["sports", "museums", "tvsports", "exercise", "dining", "art", "hiking", "gaming", "clubbing", "reading", "tv", "theater", "movies", "concerts", "shopping", "music", "yoga"];
@@ -29,27 +34,53 @@ var cy = height / 2
       let temp = { interest: f, avg: d3.mean(colData) };
       avg_vals.push(temp);
     });
-  
     return avg_vals;
   }
 
 const size = d3.scaleLinear()
-.domain([0, 10])
-.range([1,55])
+    .domain([0, 10])
+    .range([1,55])
 
-function chartplot(svg, data, tab, type, colors, labels, cxs) {
-    // Remove existing circles
+const min_y = 17;
+const max_y = 20;
+
+const min_m = 21;
+const max_m = 35;
+
+const min_o = 26;
+const max_o = 36;
+
+
+function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old) {
     svg.selectAll(".node").remove();
-    // Remove existing labels
     svg.selectAll(".label").remove();
 
     tab.forEach(g => {
-    //console.log(data)
         var color = colors[g];
         cx = cxs[g];
 
-        var dataa = data.filter(el => (el[type] === g) && (el["age"]>=min_age) && (el["age"]<=max_age));
+        var dataa = data.filter(function(el){
+            let mask = false;
+
+            if (young) {
+                mask = mask || ((el["age"]>=min_y) && (el["age"]<=max_y));
+            }
+
+            if (middle) {
+                mask = mask || ((el["age"]>=min_m) && (el["age"]<=max_m));
+            }
+
+            if (old) {
+                mask = mask || ((el["age"]>=min_o) && (el["age"]<=max_o));
+            }
+
+            return (el[type] === g) && mask;
+        })
+
         var df = get_avg_interest(dataa, interests)
+        if (df.length === 0 || df.some(d => typeof d.avg === 'undefined')) {
+            return;
+        } 
 
         const Tooltip = d3.select("body")
             .append("div")
@@ -63,8 +94,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs) {
             .style("text-transform", "capitalize")
 
         const mouseover = function(event, d) {
-            Tooltip
-            .style("opacity", 1)
+            Tooltip.style("opacity", 1)
         };
 
         const mousemove = function(event, d) {
@@ -78,8 +108,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs) {
         };
 
         var mouseleave = function(event, d) {
-            Tooltip
-            .style("opacity", 0)
+            Tooltip.style("opacity", 0)
         };
 
         var node = svg.append("g")
@@ -87,11 +116,13 @@ function chartplot(svg, data, tab, type, colors, labels, cxs) {
         .data(df)
         .join("circle")
             .attr("class", "node")
-            .attr("r", d => size(d.avg))
+            .attr("r", function(d) {
+                return size(d.avg);
+            })
             .attr("cx", cx)
             .attr("cy", cy)
             .style("fill", color)
-            .style("fill-opacity", 0.8)
+            .style("fill-opacity", 0.9)
             .attr("stroke", "black")
             .style("stroke-width", 1)
             .on("mouseover", mouseover) // What to do when hovered
@@ -135,13 +166,35 @@ function chartplot(svg, data, tab, type, colors, labels, cxs) {
 function updateChart() {
     var type = getSelectedRadioValue();
 
-    console.log(type)
-    if (type == "gender") {
-        chartplot(svg, data, genders, type, colors_gender, labels_gender, cxs_gender);
+    if (type === "gender") {
+        svg.selectAll(".label").remove();
+        chartplot(svg, data, genders, type, colors_gender, labels_gender, cxs_gender, checkboxes["young"].checked, checkboxes["middle"].checked, checkboxes["old"].checked);
+    } else if (type === "race") {
+        svg.selectAll(".label").remove();
+        chartplot(svg, data, race, type, colors_race, labels_race, cxs_race, checkboxes["young"].checked, checkboxes["middle"].checked, checkboxes["old"].checked);
     } else {
-        chartplot(svg, data, race, type, colors_race, labels_race, cxs_race);
+        svg.selectAll(".label").remove();
+        chartplot(svg, data, field, type, colors_field, labels_field, cxs_field, checkboxes["young"].checked, checkboxes["middle"].checked, checkboxes["old"].checked);
     }
 };
+
+let checkboxes = {
+    "young": document.getElementById("young-check"),
+    "middle": document.getElementById("middle-check"),
+    "old": document.getElementById("old-check")
+  };
+  
+  checkboxes["young"].addEventListener("change", function () {
+    updateChart();
+  });
+  
+  checkboxes["middle"].addEventListener("change", function () {
+    updateChart();
+  });
+  
+  checkboxes["old"].addEventListener("change", function () {
+    updateChart();
+  });
 
 
 function getSelectedRadioValue() {
@@ -162,7 +215,7 @@ for (var i = 0; i < radioButtons.length; i++) {
 };
   
 
-const svg = d3.select("#barplot")
+const svg = d3.select("#bubblechart")
     .append("svg")
     .attr("width", width1)
     .attr("height", height1)
@@ -171,15 +224,10 @@ const svg = d3.select("#barplot")
 var initialType = getSelectedRadioValue();
 var dpath = "data/people.csv";
 
-let min_age = 18;
-let max_age = 25;
-
 d3.csv(dpath, {
 delimiter: ",",
 header: true
 }).then(function(dataa) {
-    //const btn = document.getElementById("spider-btn");
     data = dataa
-    chartplot(svg, data, genders, initialType, colors_gender, labels_gender, cxs_gender, min_age, max_age);
-
+    chartplot(svg, data, genders, initialType, colors_gender, labels_gender, cxs_gender, checkboxes["young"].checked, checkboxes["middle"].checked, checkboxes["old"].checked);
 });

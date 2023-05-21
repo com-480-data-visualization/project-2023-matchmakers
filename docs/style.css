@@ -693,6 +693,7 @@ form  {
   margin-left: 45px;
   margin-top: -55px;
   font-family: system-ui, sans-serif;
+  font-size: large;
   /*font-size: 2rem;*/
   font-weight: bold;
   line-height: 1.1;
@@ -724,7 +725,7 @@ input[type="radio"]::before {
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em black;
+  box-shadow: inset 1em 1em deeppink;
 }
 
 input[type="radio"]:checked::before {
