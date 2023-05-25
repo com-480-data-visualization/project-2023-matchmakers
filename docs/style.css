@@ -890,7 +890,7 @@ MATCHING PREDICTOR RELATED
   font-size: 48px;
   padding-bottom: 3%;
   cursor: pointer;
-  animation: bounce2 2s ease-in-out infinite;
+  animation: bounce2 2.5s ease-in-out infinite;
   transition: text-shadow 1s;
 }
 
