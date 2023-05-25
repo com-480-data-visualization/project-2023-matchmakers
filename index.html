@@ -204,153 +204,237 @@
     <div class="title">
         <h2>Will it be <span>a match?</span></h2>
     </div>
-    <div id="predictor">
-        <!--style="transform: translate(20px, 100px)"-->
+    <form>
+        <div id="predictor">
+            <!--style="transform: translate(20px, 100px)"-->
 
-        <!-- profile -->
-        <div class="profile">
-            <div class="profileHeader">
-                <img src="docs/profile_pic.webp" alt="Profile picture" />
-                <div class="profileTitle">You</div>
+            <!-- profile -->
+            <div class="profile">
+                <div class="profileHeader">
+                    <img src="docs/profile_pic.webp" alt="Profile picture" />
+                    <div class="profileTitle">You</div>
+                </div>
+
+                <div class="profileId">
+                    <!-- name -->
+                    <div>
+                        <label for="name">Name:</label>
+                        <input name="name" id="name">
+                    </div>
+
+                    <!-- race -->
+                    <div>
+                        <label for="race">Race:</label>
+                        <select name="race" id="race">
+                            <option value="white">White / Caucasian</option>
+                            <option value="asian">Asian</option>
+                            <option value="black">Black</option>
+                            <option value="latinx">Latinx</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- gender -->
+                    <div>
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                            <option value="undefined">Not specified</option>
+                            <option value="man">&#9794; Man</option>
+                            <option value="woman">&#9792; Woman</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="profileInterests">
+                    <div>
+                        <input type="checkbox" id="sports" name="sports" value="sports">
+                        <label for="sports"> Sports</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="museums" name="museums" value="museums">
+                        <label for="museums"> Museums</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tvsports" name="tvsports" value="tvsports">
+                        <label for="tvsports"> TV Sports</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="exercise" name="exercise" value="exercise">
+                        <label for="exercise"> Exercise</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dining" name="dining" value="dining">
+                        <label for="dining"> Dining</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="art" name="art" value="art">
+                        <label for="art"> Art</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="hiking" name="hiking" value="hiking">
+                        <label for="hiking"> Hiking</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="gaming" name="gaming" value="gaming">
+                        <label for="gaming"> Gaming</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="clubbing" name="clubbing" value="clubbing">
+                        <label for="clubbing"> Clubbing</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="reading" name="reading" value="reading">
+                        <label for="reading"> Reading</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tv" name="tv" value="tv">
+                        <label for="tv"> TV</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="theater" name="theater" value="theater">
+                        <label for="theater"> Theater</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="movies" name="movies" value="movies">
+                        <label for="movies"> Movies</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="concerts" name="concerts" value="concerts">
+                        <label for="concerts"> Concerts</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="shopping" name="shopping" value="shopping">
+                        <label for="shopping"> Shopping</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="music" name="music" value="music">
+                        <label for="music"> Music</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="yoga" name="yoga" value="yoga">
+                        <label for="yoga"> Yoga</label>
+                    </div>
+                </div>
             </div>
 
-            <div class="profileId">
-                <!-- name -->
-                <div>
-                    <label for="name">Name:</label>
-                    <input name="name" id="name">
-                </div>
-
-                <!-- race -->
-                <div>
-                    <label for="race">Race:</label>
-                    <select name="race" id="race">
-                        <option value="white">White / Caucasian</option>
-                        <option value="asian">Asian</option>
-                        <option value="black">Black</option>
-                        <option value="latinx">Latinx</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <!-- gender -->
-                <div>
-                    <label for="gender">Gender:</label>
-                    <select name="gender" id="gender">
-                        <option value="undefined">Not specified</option>
-                        <option value="man">Man</option>
-                        <option value="woman">Woman</option>
-                    </select>
-                </div>
-
+            <!-- prediction -->
+            <div id="prediction">
+                <button id="predict-button">
+                    Predict
+                </button>
             </div>
 
-            <div class="profileInterests">
-                <div>
-                    <input type="checkbox" id="sports" name="sports" value="sports">
-                    <label for="sports"> Sports</label>
+            <!-- partner profile -->
+            <div class="profile">
+                <div class="profileHeader">
+                    <img src="docs/profile_pic.webp" alt="Profile picture" />
+                    <div class="profileTitle">Them</div>
                 </div>
-                <div>
-                    <input type="checkbox" id="museums" name="museums" value="museums">
-                    <label for="museums"> Museums</label>
+
+                <div class="profileId">
+                    <!-- name -->
+                    <div>
+                        <label for="name_o">Name:</label>
+                        <input name="name_o" id="name_o">
+                    </div>
+
+                    <!-- race -->
+                    <div>
+                        <label for="race_o">Race:</label>
+                        <select name="race_o" id="race_o">
+                            <option value="white">White / Caucasian</option>
+                            <option value="asian">Asian</option>
+                            <option value="black">Black</option>
+                            <option value="latinx">Latinx</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- gender -->
+                    <div>
+                        <label for="gender_o">Gender:</label>
+                        <select name="gender_o" id="gender_o">
+                            <option value="undefined">Not specified</option>
+                            <option value="man">&#9794; Man</option>
+                            <option value="woman">&#9792; Woman</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <input type="checkbox" id="tvsports" name="tvsports" value="tvsports">
-                    <label for="tvsports"> TV Sports</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="exercise" name="exercise" value="exercise">
-                    <label for="exercise"> Exercise</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="dining" name="dining" value="dining">
-                    <label for="dining"> Dining</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="art" name="art" value="art">
-                    <label for="art"> Art</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="hiking" name="hiking" value="hiking">
-                    <label for="hiking"> Hiking</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="gaming" name="gaming" value="gaming">
-                    <label for="gaming"> Gaming</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="clubbing" name="clubbing" value="clubbing">
-                    <label for="clubbing"> Clubbing</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="reading" name="reading" value="reading">
-                    <label for="reading"> Reading</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="tv" name="tv" value="tv">
-                    <label for="tv"> TV</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="theater" name="theater" value="theater">
-                    <label for="theater"> Theater</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="movies" name="movies" value="movies">
-                    <label for="movies"> Movies</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="concerts" name="concerts" value="concerts">
-                    <label for="concerts"> Concerts</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="shopping" name="shopping" value="shopping">
-                    <label for="shopping"> Shopping</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="music" name="music" value="music">
-                    <label for="music"> Music</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="yoga" name="yoga" value="yoga">
-                    <label for="yoga"> Yoga</label>
+
+                <div class="profileInterests">
+                    <div>
+                        <input type="checkbox" id="sports_o" name="sports_o" value="sports">
+                        <label for="sports_o"> Sports</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="museums_o" name="museums_o" value="museums">
+                        <label for="museums_o"> Museums</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tvsports_o" name="tvsports_o" value="tvsports">
+                        <label for="tvsports_o"> TV Sports</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="exercise_o" name="exercise_o" value="exercise">
+                        <label for="exercise_o"> Exercise</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="dining_o" name="dining_o" value="dining">
+                        <label for="dining_o"> Dining</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="art_o" name="art_o" value="art">
+                        <label for="art_o"> Art</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="hiking_o" name="hiking_o" value="hiking">
+                        <label for="hiking_o"> Hiking</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="gaming_o" name="gaming_o" value="gaming">
+                        <label for="gaming_o"> Gaming</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="clubbing_o" name="clubbing_o" value="clubbing">
+                        <label for="clubbing_o"> Clubbing</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="reading_o" name="reading_o" value="reading">
+                        <label for="reading_o"> Reading</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tv_o" name="tv_o" value="tv">
+                        <label for="tv_o"> TV</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="theater_o" name="theater_o" value="theater">
+                        <label for="theater_o"> Theater</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="movies_o" name="movies_o" value="movies">
+                        <label for="movies_o"> Movies</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="concerts_o" name="concerts_o" value="concerts">
+                        <label for="concerts_o"> Concerts</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="shopping_o" name="shopping_o" value="shopping">
+                        <label for="shopping_o"> Shopping</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="music_o" name="music_o" value="music">
+                        <label for="music_o"> Music</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="yoga_o" name="yoga_o" value="yoga">
+                        <label for="yoga_o"> Yoga</label>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- prediction -->
-        <div id="prediction">
-            <button id="predict-button">
-                Predict !
-            </button>
-        </div>
-
-        <!-- partner profile -->
-        <div class="profile">
-            <div class="profileTitle">
-
-            </div>
-
-            <div class="profileId">
-            <!-- race of partner -->
-            <label for="race_o" style="margin: 0px 30px;color:deeppink;
-            font-weight:bold; font-family:var(--ff-secondary); width: 1px">Race of partner:</label>
-            <select name="race_o" id="race_o" style="margin: 0px 30px;color:deeppink;
-            font-weight:bold; font-family:var(--ff-secondary); width: 100px">
-                <option value="white">White / Caucasian</option>
-                <option value="asian">Asian</option>
-                <option value="black">Black</option>
-                <option value="latinx">Latinx</option>
-                <option value="other">Other</option>
-            </select>
-
-            </div>
-
-            <div class="profileInterests">
-
-            </div>
-        </div>
-
-    </div>
+    </form>
 </section>
 
 <!-- SECTION: Contact -->

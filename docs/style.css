@@ -776,7 +776,6 @@ MATCHING PREDICTOR RELATED
 
 #predictor {
   display: flex;
-  gap: 10px;
   flex-direction: row;
   justify-content: center;
   width: 95%;
@@ -788,7 +787,8 @@ MATCHING PREDICTOR RELATED
   gap: 10px;
   flex-direction: column;
   background: pink;
-  flex-grow: 1;
+  flex-shrink: 1;
+  flex-shrink: 1;
   padding: 15px 15px 15px 15px;
 }
 
@@ -803,7 +803,7 @@ MATCHING PREDICTOR RELATED
   width: auto !important;}
 
 .profileTitle {
-  color:deeppink;
+  color: deeppink;
   font-family: 'Pacifico', cursive;
   font-size: 42px;
   overflow: visible;
@@ -819,7 +819,7 @@ MATCHING PREDICTOR RELATED
   flex-direction: row;}
 
 .profileId label, select, input {
-  color:deeppink;
+  color: deeppink;
   font-weight:bold;
   font-size: 12px;
   font-family:var(--ff-secondary);}
@@ -834,7 +834,7 @@ MATCHING PREDICTOR RELATED
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 330px;}
+  width: 270px;}
 
 .profileInterests input {
   accent-color: deeppink;
@@ -847,9 +847,29 @@ MATCHING PREDICTOR RELATED
   font-family:var(--ff-secondary);}
 
 .profileInterests div {
-  width: 100px;}
+  width: 90px;}
 
 #prediction {
-  background: pink;
+  background-image: url('cables_test.jpg');
+  background-size: cover;
   flex-grow: 3;
+  display: flex;
+  align-content: center;
+  position: relative;
+}
+
+#predict-button {
+  background: transparent url('fancy_heart.svg') no-repeat center;
+  background-size: contain;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  padding: 0;
+  border: none;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 21px;
+  cursor: pointer;}
+
+#predict-button:hover {
 }
