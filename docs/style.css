@@ -799,8 +799,8 @@ MATCHING PREDICTOR RELATED
 }
 
 .profileHeader img {
-  height: 60px;
-  width: auto;}
+  height: 60px !important;
+  width: auto !important;}
 
 .profileId {
   display: flex;
