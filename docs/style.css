@@ -4,8 +4,7 @@ Fonts
 ===============
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
-
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 /*
 ===============
@@ -790,6 +789,7 @@ MATCHING PREDICTOR RELATED
   flex-direction: column;
   background: pink;
   flex-grow: 1;
+  padding: 15px 15px 15px 15px;
 }
 
 .profileHeader {
@@ -799,8 +799,15 @@ MATCHING PREDICTOR RELATED
 }
 
 .profileHeader > img {
-  height: 60px !important;
+  height: 80px !important;
   width: auto !important;}
+
+.profileTitle {
+  color:deeppink;
+  font-family: 'Pacifico', cursive;
+  font-size: 42px;
+  overflow: visible;
+  margin-left: 30px;}
 
 .profileId {
   display: flex;
@@ -809,8 +816,7 @@ MATCHING PREDICTOR RELATED
 
 .profileId div {
   display: flex;
-  flex-direction: row;
-  margin-left: 30px;}
+  flex-direction: row;}
 
 .profileId label, select, input {
   color:deeppink;
@@ -822,7 +828,26 @@ MATCHING PREDICTOR RELATED
   width: 100px;}
 
 .profileId select, input {
-  width: 200px;}
+  width: 180px;}
+
+.profileInterests {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 330px;}
+
+.profileInterests input {
+  accent-color: deeppink;
+  width: auto;}
+
+.profileInterests label {
+  color: deeppink;
+  font-weight:bold;
+  font-size: 12px;
+  font-family:var(--ff-secondary);}
+
+.profileInterests div {
+  width: 100px;}
 
 #prediction {
   background: pink;
