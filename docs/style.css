@@ -5,6 +5,7 @@ Fonts
 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 /*
 ===============
@@ -418,6 +419,17 @@ footer p {
     transform: scale(1);}
 }
 
+@keyframes bounce2 {
+  0% {
+    transform: scale(1);}
+
+  50% {
+    transform: scale(1.2);}
+
+  100% {
+    transform: scale(1);}
+}
+
 /* slideshow */
 
 * {box-sizing:border-box}
@@ -779,12 +791,13 @@ MATCHING PREDICTOR RELATED
   flex-direction: row;
   justify-content: center;
   width: 95%;
+  max-width: 1000px;
   margin: auto;
 }
 
 .profile {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex-direction: column;
   background: pink;
   flex-shrink: 1;
@@ -804,10 +817,12 @@ MATCHING PREDICTOR RELATED
 
 .profileTitle {
   color: deeppink;
-  font-family: 'Pacifico', cursive;
-  font-size: 42px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 52px;
+  text-shadow: 4px 0px 0px white;
   overflow: visible;
-  margin-left: 30px;}
+  text-align: center;
+  width: 100%;}
 
 .profileId {
   display: flex;
@@ -856,20 +871,29 @@ MATCHING PREDICTOR RELATED
   display: flex;
   align-content: center;
   position: relative;
+  overflow: visible;
 }
+
 
 #predict-button {
   background: transparent url('fancy_heart.svg') no-repeat center;
   background-size: contain;
-  width: 80%;
-  height: 80%;
+  width: 75%;
+  aspect-ratio: 1;
   margin: auto;
   padding: 0;
   border: none;
   color: white;
-  font-family: 'Pacifico', cursive;
-  font-size: 21px;
-  cursor: pointer;}
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 48px;
+  padding-bottom: 3%;
+  cursor: pointer;
+  animation: bounce2 2s ease-in-out infinite;
+  transition: text-shadow 1s;
+}
 
 #predict-button:hover {
+    text-shadow: 0 0 10px white;
 }
