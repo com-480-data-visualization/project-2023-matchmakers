@@ -798,7 +798,7 @@ MATCHING PREDICTOR RELATED
   gap: 10px;
 }
 
-.profileHeader img {
+.profileHeader > img {
   height: 60px !important;
   width: auto !important;}
 
