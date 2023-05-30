@@ -13,6 +13,27 @@
 </head>
 <body>
 <header id="home">
+    <!-- banner -->
+    <div class="banner">
+        <div class="container">
+            <h1>how much do you <span>match</span> ?</h1>
+            <p>
+                Love and dating are a huge part of our lives, especially for young people.
+                Whether through dating apps or going out, we spend a lot of time searching for the perfect match.
+                One approach that some people use to seek a potential match is through <span>speed dating</span>.
+                To assist their students in their quest for love, a university arranged a sequence of speed dating
+                gatherings.
+                Here, we examine who attended, their expectations, and the overall success of these events.
+                <!--  We tend to try to find our other half or a partner to share a couple of days, nights, or years with.
+                  One way to do so is through <span>Speed dating</span>.
+                  To analyze this, we will focus on some couple of speed dating events. -->
+            </p>
+        </div>
+    </div>
+</header>
+
+<!-- SECTION: Visualizations -->
+<section id="viz" class="section">
     <!-- navbar -->
     <nav id="nav">
         <div class="nav-center">
@@ -47,33 +68,11 @@
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
                       </div>
-                  </li>
+                  </li> 
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- banner -->
-    <div class="banner">
-        <div class="container">
-            <h1>how much do you <span>match</span> ?</h1>
-            <p>
-                Love and dating are a huge part of our lives, especially for young people.
-                Whether through dating apps or going out, we spend a lot of time searching for the perfect match.
-                One approach that some people use to seek a potential match is through <span>speed dating</span>.
-                To assist their students in their quest for love, a university arranged a sequence of speed dating
-                gatherings.
-                Here, we examine who attended, their expectations, and the overall success of these events.
-                <!--  We tend to try to find our other half or a partner to share a couple of days, nights, or years with.
-                  One way to do so is through <span>Speed dating</span>.
-                  To analyze this, we will focus on some couple of speed dating events. -->
-            </p>
-        </div>
-    </div>
-</header>
-
-<!-- SECTION: Visualizations -->
-<section id="viz" class="section">
     <div class="slideshow-container">
 
         <!-- spider chart -->
@@ -82,13 +81,20 @@
                 <h2>What are people <span>looking for ?</span></h2>
             </div>
             <p>
+                To find a match, individuals express the key traits they seek in a potential partner. 
+                To illustrate these preferences, we used a spider chart. 
+                To view the preferences of a specific gender, simply click the corresponding button and deselect the others. 
+                To observe preferences within a particular age range, adjust the slider accordingly. 
+                Notably, the results indicate that women prioritize qualities like sincerity, intelligence, and shared interests. 
+                Conversely, men tend to place a greater emphasis on attractiveness compared to other traits.
             </p>
 
             <!-- graph -->
-            <svg id="spider" viewBox="0 40 1200 420">
+            <svg id="spider" viewBox="0 10 1200 400">
             </svg>
 
             <!-- options -->
+            <!--style="transform: translate(-30px, -100px)-->
             <div id="gender-check" style="transform: translate(-30px, -100px)">
                 <input type="checkbox" id="women-check" name="Women" style="accent-color: deeppink;  margin: 0px 0px; outline: white" checked>
                 <label for="women-check" style="color:deeppink;
@@ -105,11 +111,11 @@
 
             <!-- <span style="display:inline-block;width:20px;height:20px;background-color:${color};margin-right:5px;margin-left:24px;"></span>${colors[color]}&nbsp;&nbsp; -->
 
-            <p style="transform: translate(20px, -100px)">
+            <p style="transform: translate(-450px, -170px)">
                 <label for="age-box" style="margin: 0px 30px;color:deeppink;
              font-weight:bold; font-family:var(--ff-secondary); width: 1px">Age Range:</label>
                 <input type="text" id="age-box" readonly style="border:0; color:deeppink;
-             font-weight:bold; font-family:var(--ff-secondary); margin:0px 0px; width:50px;
+             font-weight:bold; font-family:var(--ff-secondary); margin: 65px 0px; width:50px;
              background: transparent;
              ">
             </p>
@@ -124,6 +130,17 @@
                 <h2>What are they <span>interested in ?</span></h2>
             </div>
 
+            <p>
+                One crucial aspect that individuals seek in a partner is shared interests, both for dating and everyday life. 
+                To represent the average ratings given to these interests, we opted for a bubble chart. 
+                Participants provided ratings ranging from 0 to 100, where 0 signifies no interest at all and 100 represents total interest. 
+                By selecting the respective buttons, you can view the average interests per gender, ethnicity, or main field of study/work. 
+                Additionally, you can choose specific age ranges by checking the corresponding boxes. 
+                The bubbles are color-coded and hovering the mouse over them reveals the group names. 
+                Notably, there are substantial differences in interests such as gaming and shopping among the various groups. 
+                Interestingly, music and movies receive high ratings across all groups.
+            </p>
+
             <!-- graph -->
             <svg id="bubblechart" viewBox="0 -20 1200 420">
             </svg>
@@ -137,20 +154,20 @@
 
             <div id="age-check">
                 <legend style="color:black; font-size:large; font-weight:bold; font-family:var(--ff-secondary); margin-left: 140px">
-                    Age Range
+                    Age Range :
                 </legend>
 
-                <input type="checkbox" id="young-check" name="Young" style="accent-color: deeppink;  margin: 0px 30px" checked>
+                <input type="checkbox" id="young-check" name="Young" style="accent-color: deeppink;  margin: 0px -50px" checked>
                 <label for="young-check" style="color:black;
           font-size: large;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">18-25</label>
 
-                <input type="checkbox" id="middle-check" name="Middle" style="accent-color: deeppink; margin: 0px 30px" checked>
+                <input type="checkbox" id="middle-check" name="Middle" style="accent-color: deeppink; margin: 0px -50px" checked>
                 <label for="middle-check" style="color:black;
           font-size: large;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">26-35</label>
 
-                <input type="checkbox" id="old-check" name="Old" style="accent-color: deeppink; margin: 0px 30px" checked>
+                <input type="checkbox" id="old-check" name="Old" style="accent-color: deeppink; margin: 0px -50px" checked>
                 <label for="old-check" style="color:black;
           font-size: large;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">36-55</label>
@@ -162,6 +179,15 @@
             <div class="title">
                 <h2>Who <span>matched ?</span></h2>
             </div>
+
+            <p>
+                To determine the individuals who match the most, we present a sankey diagram with four columns: gender, ethnicity, highest characteristic, and average matches or dates (depending on the selected button). 
+                However, some of the links may appear unclear when all three columns are checked simultaneously. 
+                To enhance clarity and view proportions more distinctly, you can uncheck certain columns to remove them from the sankey diagram.
+                One intriguing finding is that a significant proportion of individuals prioritize sincerity as their highest characteristic. 
+                Surprisingly, sincerity has the lowest average number of matches. 
+                On the other hand, attractiveness and intelligence are associated with the highest average number of matches. 
+            </p>
 
             <!-- graph -->
             <svg id="sankeydiagram" viewBox="0 -20 1200 420">
@@ -178,19 +204,19 @@
                     Display :
                 </legend>
 
-                <input type="checkbox" id="gen-check" name="Gender" style="accent-color: deeppink;  margin: 0px 30px" checked>
+                <input type="checkbox" id="gen-check" name="Gender" style="accent-color: deeppink;  margin: 0px -50px" checked>
                 <label for="gen-check" style="color:black;
-          font-size: large;
+          font-size: medium;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Gender</label>
 
-                <input type="checkbox" id="race-check" name="Race" style="accent-color: deeppink;  margin: 0px 30px" checked>
+                <input type="checkbox" id="race-check" name="Race" style="accent-color: deeppink;  margin: 0px -50px" checked>
                 <label for="race-check" style="color:black;
-          font-size: large;
+          font-size: medium;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Ethnicity</label>
 
-                <input type="checkbox" id="chara-check" name="Chara" style="accent-color: deeppink; margin: 0px 30px" checked>
+                <input type="checkbox" id="chara-check" name="Chara" style="accent-color: deeppink; margin: 0px -50px" checked>
                 <label for="chara-check" style="color:black;
-          font-size: large;
+          font-size: medium;
            font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Highest Characteristic</label>
             </div>
         </div>
@@ -215,6 +241,13 @@
     <div class="title">
         <h2>Will it be <span>a match?</span></h2>
     </div>
+
+    <p>
+        <span style="color: deeppink">Would you like to determine your compatibility with someone? </span> <br>
+        We have developed a matching predictor that calculates the probability of a successful match based on factors such as age, ethnicity, gender, characteristics, and interests. 
+        Simply fill in the required fields and check the corresponding boxes for each person. 
+        Afterward, click on the predict button, and the magic will unfold, providing you with the result. 
+    </p>
     <form>
         <div id="predictor">
             <!--style="transform: translate(20px, 100px)"-->

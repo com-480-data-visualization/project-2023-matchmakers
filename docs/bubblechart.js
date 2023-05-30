@@ -23,7 +23,7 @@ const colorScale = generateRangeColors();
  const colors_gender = {"female":"#eb65b3", "male":"#2937f2"};
  const labels_gender = {"female":"Women", "male":"Men"};
 
- const labels_race = {"European/Caucasian-American":"White/Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black/African American"};
+ const labels_race = {"European/Caucasian-American":"White/Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black"};
 
  const labels_field = {"Law":"Law", "Social Work":"Social Science", "Business": "Business"};
 
@@ -48,7 +48,7 @@ const label_type = {"gender": "white", "race": "white", "field": "white"}
 
  const cxs_gender = {"female":cx, "male":cx+350};
  const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
- const cxs_race = {"European/Caucasian-American":cx-250, "Asian/Pacific Islander/Asian-American":cx+50, "Latino/Hispanic American": cx+350, "Black/African American":cx+650};
+ const cxs_race = {"European/Caucasian-American":cx-250, "Asian/Pacific Islander/Asian-American":cx+20, "Latino/Hispanic American": cx+310, "Black/African American":cx+610};
 
  const interests = ["sports", "museums", "tvsports", "exercise", "dining", "art", "hiking", "gaming", "clubbing", "reading", "tv", "theater", "movies", "concerts", "shopping", "music", "yoga"];
 
@@ -125,7 +125,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
 
         const mousemove = function(event, d) {
             Tooltip
-            .html(labels[g] + " : " + (Math.round(d.avg * 100) / 10).toFixed(1) + " %")
+            .html(labels[g] + " : " + (Math.round(d.avg * 100) / 10).toFixed(1))
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 28) + "px")
             .style("font-weight", "bold")

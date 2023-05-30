@@ -3,8 +3,8 @@ var margin = {top: 0, right: 10, bottom: 10, left: 85},
     width2 = 1100 - margin.left - margin.right,
     height2 = 370 - margin.top - margin.bottom;  
 
-var name_map = {"male": "Male", "female": "Female", "European/Caucasian-American": "Caucasian", "Other ethnicity": "Other", 
-            "Asian/Pacific Islander/Asian-American": "Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American": "African American",
+var name_map = {"male": "Male", "female": "Female", "European/Caucasian-American": "White/Caucasian", "Other ethnicity": "Other", 
+            "Asian/Pacific Islander/Asian-American": "Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American": "Black/African American",
             "intelligence": "Intelligence", "sincere":"Sincerity", "attractive": "Attractiveness", 
             "funny": "Sense of humour", "ambition": "Ambition", "date": "Average of Dates", "match": "Average of Matches"}
 
