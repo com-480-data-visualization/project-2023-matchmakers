@@ -15,19 +15,19 @@ button.addEventListener("click", async() => {
   let age = parseFloat(document.getElementById("age").value);
   let age_o = parseFloat(document.getElementById("age_o").value);
 
-  let att = 22;//parseFloat(document.getElementById("att").value);
-  let sincere = 44;//parseFloat(document.getElementById("sincere").value);
-  let intell = 10;//parseFloat(document.getElementById("intell").value);
-  let fun = 4;//parseFloat(document.getElementById("fun").value);
-  let ambit = 10;//parseFloat(document.getElementById("ambit").value);
-  let shared = 10;//parseFloat(document.getElementById("shared").value);
+  let att = parseFloat(document.getElementById("att").value);
+  let sincere = parseFloat(document.getElementById("sinc").value);
+  let intell = parseFloat(document.getElementById("intell").value);
+  let fun = parseFloat(document.getElementById("fun").value);
+  let ambit = parseFloat(document.getElementById("ambit").value);
+  let shared = parseFloat(document.getElementById("shared").value);
 
-  let att_o = 0;//parseFloat(document.getElementById("att_o").value);
-  let sincere_o = 0;//parseFloat(document.getElementById("sincere_o").value);
-  let intell_o = 0;//parseFloat(document.getElementById("intell_o").value);
-  let fun_o = 0;//parseFloat(document.getElementById("fun_o").value);
-  let ambit_o = 0;//parseFloat(document.getElementById("ambit_o").value);
-  let shared_o = 100;//parseFloat(document.getElementById("shared_o").value);
+  let att_o = parseFloat(document.getElementById("att_o").value);
+  let sincere_o = parseFloat(document.getElementById("sinc_o").value);
+  let intell_o = parseFloat(document.getElementById("intell_o").value);
+  let fun_o = parseFloat(document.getElementById("fun_o").value);
+  let ambit_o = parseFloat(document.getElementById("ambit_o").value);
+  let shared_o = parseFloat(document.getElementById("shared_o").value);
 
   // race: has to preprocessed (1-hot encoded for the model):
 
