@@ -8,7 +8,7 @@ var cx = width1 / 2 - 200
 var cy = height1 / 2
 
 function generateRangeColors() {
-    const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#1B4F72", "#FFC4DD", "#3498DB", "#FF527D"];
+    const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#1B4F72", "#f59ac1", "#3498DB", "#FF527D"];
     let index = 0;
 
     return function () {
@@ -44,7 +44,7 @@ const colorScale = generateRangeColors();
     "Business": colorScale()
   };
 
-const label_type = {"gender": "white", "race": "white", "field": "black"}
+const label_type = {"gender": "white", "race": "white", "field": "white"}
 
  const cxs_gender = {"female":cx, "male":cx+350};
  const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
@@ -63,10 +63,9 @@ const label_type = {"gender": "white", "race": "white", "field": "black"}
     return avg_vals;
   }
 
-  const size = d3.scalePow()
-              .exponent(1.5) 
-              .domain([0, 9])
-              .range([5, 50])
+  const size = d3.scaleLinear()
+    .domain([0, 10])
+    .range([1,55])
 
 const min_y = 18;
 const max_y = 25;

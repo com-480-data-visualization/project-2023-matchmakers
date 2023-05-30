@@ -15,9 +15,7 @@ var formatNumber = d3.format(",.0f"), // zero decimal places
 
 // Define the pastel color scale
 color = d3.scaleOrdinal()
-    .range(["#85C1E9","#FFC4DD", "#3498DB", "#2874A6", "#1B4F72", "#FF85A8", "#FF527D", "#FF1B47"]);
-//.range(["#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#ffffcc", "#e5d8bd", "#fddaec", "#f2f2f2", "#bdbdbd"]);
-//.range(["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]);
+    .range(["#FF85A8", "#85C1E9", "#1B4F72", "#fc607e", "#2874A6", "#3498DB", "#e66383", "#f59ac1", "#256a99"]);
 
 function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
     svg.selectAll(".node2").remove();
