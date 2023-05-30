@@ -1,7 +1,7 @@
- 
+
  // set the dimensions and margins of the graph
  var margin = {top: 60, right: 30, bottom: 70, left: 50},
- width1 = 1200 
+ width1 = 1200
  height1 = 400
 
 var cx = width1 / 2 - 200
@@ -10,7 +10,7 @@ var cy = height1 / 2
 function generateRangeColors() {
     const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#1B4F72", "#FFC4DD", "#3498DB", "#FF527D"];
     let index = 0;
-  
+
     return function () {
       const color = colors[index % colors.length];
       index++;
@@ -25,7 +25,7 @@ const colorScale = generateRangeColors();
 
  const labels_race = {"European/Caucasian-American":"White/Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black/African American"};
 
- const labels_field = {"Law":"Law", "Social Work":"Social", "Business": "Business"};
+ const labels_field = {"Law":"Law", "Social Work":"Social Science", "Business": "Business"};
 
  const genders = ["female", "male"];
  const race = ["European/Caucasian-American", "Asian/Pacific Islander/Asian-American", "Latino/Hispanic American", "Black/African American"];
@@ -37,7 +37,7 @@ const colorScale = generateRangeColors();
     "Latino/Hispanic American": colorScale(),
     "Black/African American": colorScale()
   };
-  
+
   const colors_field = {
     "Law": colorScale(),
     "Social Work": colorScale(),
@@ -54,7 +54,7 @@ const label_type = {"gender": "white", "race": "white", "field": "black"}
 
  function get_avg_interest(data, column_names) {
     let avg_vals = [];
-  
+
     column_names.forEach(f => {
       let colData = data.map(d => parseFloat(d[f]));
       let temp = { interest: f, avg: d3.mean(colData) };
@@ -107,7 +107,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
         var df = get_avg_interest(dataa, interests)
         if (df.length === 0 || df.some(d => typeof d.avg === 'undefined')) {
             return;
-        } 
+        }
 
         const Tooltip = d3.select("body")
             .append("div")
@@ -176,7 +176,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
         .force("center", d3.forceCenter().x(cx).y(cy)) // Attraction to the center of the svg area
         .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
         .force("collide", d3.forceCollide().strength(.1).radius(d => size(d.avg) + 2).iterations(1)) // Force that avoids circle overlapping
-        
+
         simulation
         .nodes(df)
         .on("tick", function(d){
@@ -210,15 +210,15 @@ let checkboxes = {
     "middle": document.getElementById("middle-check"),
     "old": document.getElementById("old-check")
   };
-  
+
   checkboxes["young"].addEventListener("change", function () {
     updateChart();
   });
-  
+
   checkboxes["middle"].addEventListener("change", function () {
     updateChart();
   });
-  
+
   checkboxes["old"].addEventListener("change", function () {
     updateChart();
   });
@@ -240,7 +240,7 @@ var radioButtons2 = document.getElementsByName("typeButton");
 for (var i = 0; i < radioButtons2.length; i++) {
   radioButtons2[i].addEventListener("change", updateChart);
 };
-  
+
 
 var svg = d3.select("#bubblechart")
     .append("svg")
