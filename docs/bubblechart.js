@@ -8,7 +8,7 @@ var cx = width1 / 2 - 200
 var cy = height1 / 2
 
 function generateRangeColors() {
-    const colors = ["#85C1E9", "#3498DB", "#2874A6", "#1B4F72", "#FFC4DD", "#FF85A8", "#FF527D", "#FF1B47"];
+    const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#1B4F72", "#FFC4DD", "#3498DB", "#FF527D"];
     let index = 0;
   
     return function () {
@@ -23,7 +23,7 @@ const colorScale = generateRangeColors();
  const colors_gender = {"female":"#eb65b3", "male":"#2937f2"};
  const labels_gender = {"female":"Women", "male":"Men"};
 
- const labels_race = {"European/Caucasian-American":"Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"African American"};
+ const labels_race = {"European/Caucasian-American":"White/Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black/African American"};
 
  const labels_field = {"Law":"Law", "Social Work":"Social", "Business": "Business"};
 
@@ -44,7 +44,7 @@ const colorScale = generateRangeColors();
     "Business": colorScale()
   };
 
-const label_type = {"gender": "white", "race": "black", "field": "black"}
+const label_type = {"gender": "white", "race": "white", "field": "black"}
 
  const cxs_gender = {"female":cx, "male":cx+350};
  const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
@@ -63,9 +63,10 @@ const label_type = {"gender": "white", "race": "black", "field": "black"}
     return avg_vals;
   }
 
-const size = d3.scaleLinear()
-    .domain([0, 10])
-    .range([1,55])
+  const size = d3.scalePow()
+              .exponent(1.5) 
+              .domain([0, 9])
+              .range([5, 50])
 
 const min_y = 18;
 const max_y = 25;
@@ -113,7 +114,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
             .style("position", "absolute")
             .style("opacity", 0.3)
             .attr("class", "tooltip")
-            .style("background-color", color)
+            .style("background-color", "deeppink")
             .style("border-width", "5px")
             .style("border-radius", "9px")
             .style("padding", "5px")
@@ -130,7 +131,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
             .style("top", (event.pageY - 28) + "px")
             .style("font-weight", "bold")
             .style("color", label_type[type])
-            .style("opacity", 1)
+            .style("opacity", 1);
         };
 
         var mouseleave = function(event, d) {

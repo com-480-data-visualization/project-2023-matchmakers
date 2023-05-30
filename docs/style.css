@@ -670,7 +670,7 @@ form {
 
 .node:hover {
   stroke-width: 3px !important;
-  /*stroke: white !important; */
+  stroke: deeppink !important; 
   opacity: 1 !important;}
 
 #typeButton {
@@ -717,11 +717,15 @@ input[type="radio"]:checked::before {
 
 /* sankey diagram node */
 
-.node rect {
+.node2 rect {
   fill-opacity: .9;
   shape-rendering:crispEdges;}
 
-.node text {
+.node2:hover {
+    stroke-width: 3px !important;
+    opacity: 1 !important;}
+
+.node2 text {
   pointer-events: none;
   font-weight:bold;
   font-family:var(--ff-secondary); 

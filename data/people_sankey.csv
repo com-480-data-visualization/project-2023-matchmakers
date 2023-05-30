@@ -1,460 +1,198 @@
-,source,target,value,check
-0,female,European/Caucasian-American,100.0,GE
-1,female,Other ethnicity,14.0,GE
-2,female,Asian/Pacific Islander/Asian-American,51.0,GE
-3,female,Latino/Hispanic American,21.0,GE
-4,female,Black/African American,10.0,GE
-5,male,European/Caucasian-American,118.0,GE
-6,male,Other ethnicity,16.0,GE
-7,male,Asian/Pacific Islander/Asian-American,51.0,GE
-8,male,Latino/Hispanic American,14.0,GE
-9,male,Black/African American,9.0,GE
-10,female,Other,160.0,GF
-11,female,Law,10.0,GF
-12,female,Business,4.0,GF
-13,female,Social Work,22.0,GF
-14,male,Other,169.0,GF
-15,male,Law,18.0,GF
-16,male,Business,20.0,GF
-17,male,Social Work,1.0,GF
-18,female,intelligence,22.0,GC
-19,female,sincere,106.0,GC
-20,female,funny,19.0,GC
-21,female,attractive,36.0,GC
-22,female,ambition,13.0,GC
-23,male,intelligence,33.0,GC
-24,male,sincere,90.0,GC
-25,male,funny,49.0,GC
-26,male,attractive,24.0,GC
-27,male,ambition,12.0,GC
-28,European/Caucasian-American,Other,81.0,GEF
-29,European/Caucasian-American,Law,4.0,GEF
-30,European/Caucasian-American,Social Work,15.0,GEF
-31,Other ethnicity,Other,11.0,GEF
-32,Other ethnicity,Law,1.0,GEF
-33,Other ethnicity,Social Work,2.0,GEF
-34,Asian/Pacific Islander/Asian-American,Other,44.0,GEF
-35,Asian/Pacific Islander/Asian-American,Law,2.0,GEF
-36,Asian/Pacific Islander/Asian-American,Business,3.0,GEF
-37,Asian/Pacific Islander/Asian-American,Social Work,2.0,GEF
-38,Latino/Hispanic American,Other,16.0,GEF
-39,Latino/Hispanic American,Law,1.0,GEF
-40,Latino/Hispanic American,Business,1.0,GEF
-41,Latino/Hispanic American,Social Work,3.0,GEF
-42,Black/African American,Other,8.0,GEF
-43,Black/African American,Law,2.0,GEF
-44,European/Caucasian-American,Other,92.0,GEF
-45,European/Caucasian-American,Law,11.0,GEF
-46,European/Caucasian-American,Business,14.0,GEF
-47,European/Caucasian-American,Social Work,1.0,GEF
-48,Other ethnicity,Other,11.0,GEF
-49,Other ethnicity,Law,3.0,GEF
-50,Other ethnicity,Business,2.0,GEF
-51,Asian/Pacific Islander/Asian-American,Other,47.0,GEF
-52,Asian/Pacific Islander/Asian-American,Law,1.0,GEF
-53,Asian/Pacific Islander/Asian-American,Business,3.0,GEF
-54,Latino/Hispanic American,Other,12.0,GEF
-55,Latino/Hispanic American,Law,2.0,GEF
-56,Black/African American,Other,7.0,GEF
-57,Black/African American,Law,1.0,GEF
-58,Black/African American,Business,1.0,GEF
-59,European/Caucasian-American,intelligence,13.0,GEC
-60,European/Caucasian-American,sincere,52.0,GEC
-61,European/Caucasian-American,funny,12.0,GEC
-62,European/Caucasian-American,attractive,19.0,GEC
-63,European/Caucasian-American,ambition,4.0,GEC
-64,Other ethnicity,intelligence,1.0,GEC
-65,Other ethnicity,sincere,9.0,GEC
-66,Other ethnicity,funny,1.0,GEC
-67,Other ethnicity,attractive,2.0,GEC
-68,Other ethnicity,ambition,1.0,GEC
-69,Asian/Pacific Islander/Asian-American,intelligence,4.0,GEC
-70,Asian/Pacific Islander/Asian-American,sincere,28.0,GEC
-71,Asian/Pacific Islander/Asian-American,funny,6.0,GEC
-72,Asian/Pacific Islander/Asian-American,attractive,9.0,GEC
-73,Asian/Pacific Islander/Asian-American,ambition,4.0,GEC
-74,Latino/Hispanic American,intelligence,1.0,GEC
-75,Latino/Hispanic American,sincere,12.0,GEC
-76,Latino/Hispanic American,attractive,4.0,GEC
-77,Latino/Hispanic American,ambition,4.0,GEC
-78,Black/African American,intelligence,3.0,GEC
-79,Black/African American,sincere,5.0,GEC
-80,Black/African American,attractive,2.0,GEC
-81,European/Caucasian-American,intelligence,19.0,GEC
-82,European/Caucasian-American,sincere,46.0,GEC
-83,European/Caucasian-American,funny,33.0,GEC
-84,European/Caucasian-American,attractive,15.0,GEC
-85,European/Caucasian-American,ambition,5.0,GEC
-86,Other ethnicity,intelligence,3.0,GEC
-87,Other ethnicity,sincere,7.0,GEC
-88,Other ethnicity,funny,2.0,GEC
-89,Other ethnicity,attractive,2.0,GEC
-90,Other ethnicity,ambition,2.0,GEC
-91,Asian/Pacific Islander/Asian-American,intelligence,6.0,GEC
-92,Asian/Pacific Islander/Asian-American,sincere,28.0,GEC
-93,Asian/Pacific Islander/Asian-American,funny,9.0,GEC
-94,Asian/Pacific Islander/Asian-American,attractive,4.0,GEC
-95,Asian/Pacific Islander/Asian-American,ambition,4.0,GEC
-96,Latino/Hispanic American,intelligence,3.0,GEC
-97,Latino/Hispanic American,sincere,5.0,GEC
-98,Latino/Hispanic American,funny,4.0,GEC
-99,Latino/Hispanic American,attractive,2.0,GEC
-100,Black/African American,intelligence,2.0,GEC
-101,Black/African American,sincere,4.0,GEC
-102,Black/African American,funny,1.0,GEC
-103,Black/African American,attractive,1.0,GEC
-104,Black/African American,ambition,1.0,GEC
-105,Other,intelligence,19.0,GFC
-106,Other,sincere,87.0,GFC
-107,Other,funny,15.0,GFC
-108,Other,attractive,27.0,GFC
-109,Other,ambition,12.0,GFC
-110,Law,intelligence,3.0,GFC
-111,Law,sincere,4.0,GFC
-112,Law,funny,2.0,GFC
-113,Law,attractive,1.0,GFC
-114,Business,sincere,2.0,GFC
-115,Business,attractive,2.0,GFC
-116,Social Work,sincere,13.0,GFC
-117,Social Work,funny,2.0,GFC
-118,Social Work,attractive,6.0,GFC
-119,Social Work,ambition,1.0,GFC
-120,Other,intelligence,26.0,GFC
-121,Other,sincere,80.0,GFC
-122,Other,funny,36.0,GFC
-123,Other,attractive,19.0,GFC
-124,Other,ambition,8.0,GFC
-125,Law,intelligence,3.0,GFC
-126,Law,sincere,4.0,GFC
-127,Law,funny,9.0,GFC
-128,Law,attractive,2.0,GFC
-129,Business,intelligence,4.0,GFC
-130,Business,sincere,6.0,GFC
-131,Business,funny,4.0,GFC
-132,Business,attractive,2.0,GFC
-133,Business,ambition,4.0,GFC
-134,Social Work,attractive,1.0,GFC
-135,Other,intelligence,11.0,GEFC
-136,Other,sincere,40.0,GEFC
-137,Other,funny,10.0,GEFC
-138,Other,attractive,16.0,GEFC
-139,Other,ambition,4.0,GEFC
-140,Law,intelligence,2.0,GEFC
-141,Law,sincere,1.0,GEFC
-142,Law,funny,1.0,GEFC
-143,Social Work,sincere,11.0,GEFC
-144,Social Work,funny,1.0,GEFC
-145,Social Work,attractive,3.0,GEFC
-146,Other,intelligence,1.0,GEFC
-147,Other,sincere,8.0,GEFC
-148,Other,attractive,1.0,GEFC
-149,Other,ambition,1.0,GEFC
-150,Law,funny,1.0,GEFC
-151,Social Work,sincere,1.0,GEFC
-152,Social Work,attractive,1.0,GEFC
-153,Other,intelligence,3.0,GEFC
-154,Other,sincere,26.0,GEFC
-155,Other,funny,5.0,GEFC
-156,Other,attractive,6.0,GEFC
-157,Other,ambition,4.0,GEFC
-158,Law,intelligence,1.0,GEFC
-159,Law,sincere,1.0,GEFC
-160,Business,sincere,1.0,GEFC
-161,Business,attractive,2.0,GEFC
-162,Social Work,funny,1.0,GEFC
-163,Social Work,attractive,1.0,GEFC
-164,Other,intelligence,1.0,GEFC
-165,Other,sincere,9.0,GEFC
-166,Other,attractive,3.0,GEFC
-167,Other,ambition,3.0,GEFC
-168,Law,sincere,1.0,GEFC
-169,Business,sincere,1.0,GEFC
-170,Social Work,sincere,1.0,GEFC
-171,Social Work,attractive,1.0,GEFC
-172,Social Work,ambition,1.0,GEFC
-173,Other,intelligence,3.0,GEFC
-174,Other,sincere,4.0,GEFC
-175,Other,attractive,1.0,GEFC
-176,Law,sincere,1.0,GEFC
-177,Law,attractive,1.0,GEFC
-178,Other,intelligence,14.0,GEFC
-179,Other,sincere,42.0,GEFC
-180,Other,funny,24.0,GEFC
-181,Other,attractive,10.0,GEFC
-182,Other,ambition,2.0,GEFC
-183,Law,intelligence,2.0,GEFC
-184,Law,sincere,1.0,GEFC
-185,Law,funny,6.0,GEFC
-186,Law,attractive,2.0,GEFC
-187,Business,intelligence,3.0,GEFC
-188,Business,sincere,3.0,GEFC
-189,Business,funny,3.0,GEFC
-190,Business,attractive,2.0,GEFC
-191,Business,ambition,3.0,GEFC
-192,Social Work,attractive,1.0,GEFC
-193,Other,intelligence,2.0,GEFC
-194,Other,sincere,4.0,GEFC
-195,Other,funny,1.0,GEFC
-196,Other,attractive,2.0,GEFC
-197,Other,ambition,2.0,GEFC
-198,Law,sincere,3.0,GEFC
-199,Business,intelligence,1.0,GEFC
-200,Business,funny,1.0,GEFC
-201,Other,intelligence,5.0,GEFC
-202,Other,sincere,26.0,GEFC
-203,Other,funny,9.0,GEFC
-204,Other,attractive,4.0,GEFC
-205,Other,ambition,3.0,GEFC
-206,Law,intelligence,1.0,GEFC
-207,Business,sincere,2.0,GEFC
-208,Business,ambition,1.0,GEFC
-209,Other,intelligence,3.0,GEFC
-210,Other,sincere,5.0,GEFC
-211,Other,funny,2.0,GEFC
-212,Other,attractive,2.0,GEFC
-213,Law,funny,2.0,GEFC
-214,Other,intelligence,2.0,GEFC
-215,Other,sincere,3.0,GEFC
-216,Other,attractive,1.0,GEFC
-217,Other,ambition,1.0,GEFC
-218,Law,funny,1.0,GEFC
-219,Business,sincere,1.0,GEFC
-220,female,date,14.872448979591837,GD
-221,male,date,14.326923076923077,GD
-222,European/Caucasian-American,date,14.97,GED
-223,Other ethnicity,date,14.857142857142858,GED
-224,Asian/Pacific Islander/Asian-American,date,14.705882352941176,GED
-225,Latino/Hispanic American,date,15.476190476190476,GED
-226,Black/African American,date,13.5,GED
-227,European/Caucasian-American,date,14.661016949152541,GED
-228,Other ethnicity,date,12.0,GED
-229,Asian/Pacific Islander/Asian-American,date,13.666666666666666,GED
-230,Latino/Hispanic American,date,14.928571428571429,GED
-231,Black/African American,date,16.88888888888889,GED
-232,intelligence,date,14.136363636363637,GCD
-233,sincere,date,14.70754716981132,GCD
-234,funny,date,15.631578947368421,GCD
-235,attractive,date,15.305555555555555,GCD
-236,ambition,date,15.153846153846153,GCD
-237,intelligence,date,13.363636363636363,GCD
-238,sincere,date,15.0,GCD
-239,funny,date,13.612244897959183,GCD
-240,attractive,date,15.291666666666666,GCD
-241,ambition,date,12.916666666666666,GCD
-242,intelligence,date,14.076923076923077,GECD
-243,sincere,date,14.51923076923077,GECD
-244,funny,date,17.083333333333332,GECD
-245,attractive,date,15.263157894736842,GECD
-246,ambition,date,16.0,GECD
-247,intelligence,date,10.0,GECD
-248,sincere,date,15.11111111111111,GECD
-249,funny,date,18.0,GECD
-250,attractive,date,17.5,GECD
-251,ambition,date,9.0,GECD
-252,intelligence,date,13.75,GECD
-253,sincere,date,15.714285714285714,GECD
-254,funny,date,12.333333333333334,GECD
-255,attractive,date,13.777777777777779,GECD
-256,ambition,date,14.25,GECD
-257,intelligence,date,16.0,GECD
-258,sincere,date,14.583333333333334,GECD
-259,funny,date,,GECD
-260,attractive,date,16.75,GECD
-261,ambition,date,16.75,GECD
-262,intelligence,date,15.666666666666666,GECD
-263,sincere,date,10.6,GECD
-264,funny,date,,GECD
-265,attractive,date,17.5,GECD
-266,ambition,date,,GECD
-267,intelligence,date,13.526315789473685,GECD
-268,sincere,date,15.195652173913043,GECD
-269,funny,date,14.06060606060606,GECD
-270,attractive,date,16.066666666666666,GECD
-271,ambition,date,13.8,GECD
-272,intelligence,date,7.666666666666667,GECD
-273,sincere,date,13.285714285714286,GECD
-274,funny,date,13.5,GECD
-275,attractive,date,12.0,GECD
-276,ambition,date,12.5,GECD
-277,intelligence,date,13.0,GECD
-278,sincere,date,14.892857142857142,GECD
-279,funny,date,11.777777777777779,GECD
-280,attractive,date,14.0,GECD
-281,ambition,date,10.0,GECD
-282,intelligence,date,16.333333333333332,GECD
-283,sincere,date,14.8,GECD
-284,funny,date,13.75,GECD
-285,attractive,date,15.5,GECD
-286,ambition,date,,GECD
-287,intelligence,date,17.0,GECD
-288,sincere,date,16.75,GECD
-289,funny,date,15.0,GECD
-290,attractive,date,15.0,GECD
-291,ambition,date,21.0,GECD
-292,female,match,2.545918367346939,GM
-293,male,match,2.4711538461538463,GM
-294,European/Caucasian-American,match,2.54,GEM
-295,Other ethnicity,match,3.2142857142857144,GEM
-296,Asian/Pacific Islander/Asian-American,match,2.3333333333333335,GEM
-297,Latino/Hispanic American,match,2.761904761904762,GEM
-298,Black/African American,match,2.3,GEM
-299,European/Caucasian-American,match,2.73728813559322,GEM
-300,Other ethnicity,match,2.8125,GEM
-301,Asian/Pacific Islander/Asian-American,match,1.5490196078431373,GEM
-302,Latino/Hispanic American,match,2.7142857142857144,GEM
-303,Black/African American,match,3.2222222222222223,GEM
-304,intelligence,match,2.727272727272727,GCM
-305,sincere,match,2.452830188679245,GCM
-306,funny,match,2.789473684210526,GCM
-307,attractive,match,2.7777777777777777,GCM
-308,ambition,match,2.0,GCM
-309,intelligence,match,2.6363636363636362,GCM
-310,sincere,match,2.3333333333333335,GCM
-311,funny,match,1.6938775510204083,GCM
-312,attractive,match,3.875,GCM
-313,ambition,match,3.4166666666666665,GCM
-314,intelligence,match,3.076923076923077,GECM
-315,sincere,match,2.2115384615384617,GECM
-316,funny,match,3.0,GECM
-317,attractive,match,3.0,GECM
-318,ambition,match,1.5,GECM
-319,intelligence,match,7.0,GECM
-320,sincere,match,3.111111111111111,GECM
-321,funny,match,8.0,GECM
-322,attractive,match,1.0,GECM
-323,ambition,match,0.0,GECM
-324,intelligence,match,1.25,GECM
-325,sincere,match,2.7857142857142856,GECM
-326,funny,match,1.5,GECM
-327,attractive,match,2.111111111111111,GECM
-328,ambition,match,2.0,GECM
-329,intelligence,match,2.0,GECM
-330,sincere,match,2.5,GECM
-331,funny,match,,GECM
-332,attractive,match,3.5,GECM
-333,ambition,match,3.0,GECM
-334,intelligence,match,2.0,GECM
-335,sincere,match,1.8,GECM
-336,funny,match,,GECM
-337,attractive,match,4.0,GECM
-338,ambition,match,,GECM
-339,intelligence,match,2.473684210526316,GECM
-340,sincere,match,2.760869565217391,GECM
-341,funny,match,1.7575757575757576,GECM
-342,attractive,match,4.466666666666667,GECM
-343,ambition,match,4.8,GECM
-344,intelligence,match,1.6666666666666667,GECM
-345,sincere,match,3.142857142857143,GECM
-346,funny,match,1.0,GECM
-347,attractive,match,6.0,GECM
-348,ambition,match,2.0,GECM
-349,intelligence,match,2.0,GECM
-350,sincere,match,1.7142857142857142,GECM
-351,funny,match,0.8888888888888888,GECM
-352,attractive,match,1.25,GECM
-353,ambition,match,1.5,GECM
-354,intelligence,match,5.0,GECM
-355,sincere,match,0.8,GECM
-356,funny,match,3.0,GECM
-357,attractive,match,3.5,GECM
-358,ambition,match,,GECM
-359,intelligence,match,4.0,GECM
-360,sincere,match,2.25,GECM
-361,funny,match,3.0,GECM
-362,attractive,match,2.0,GECM
-363,ambition,match,7.0,GECM
-364,European/Caucasian-American,match,2.646788990825688,EM
-365,Other ethnicity,match,3.0,EM
-366,Asian/Pacific Islander/Asian-American,match,1.9411764705882353,EM
-367,Latino/Hispanic American,match,2.742857142857143,EM
-368,Black/African American,match,2.736842105263158,EM
-369,intelligence,match,2.672727272727273,CM
-370,sincere,match,2.3979591836734695,CM
-371,funny,match,2.0,CM
-372,attractive,match,3.216666666666667,CM
-373,ambition,match,2.68,CM
-374,European/Caucasian-American,intelligence,32.0,EC
-375,European/Caucasian-American,sincere,98.0,EC
-376,European/Caucasian-American,funny,45.0,EC
-377,European/Caucasian-American,attractive,34.0,EC
-378,European/Caucasian-American,ambition,9.0,EC
-379,Other ethnicity,intelligence,4.0,EC
-380,Other ethnicity,sincere,16.0,EC
-381,Other ethnicity,funny,3.0,EC
-382,Other ethnicity,attractive,4.0,EC
-383,Other ethnicity,ambition,3.0,EC
-384,Asian/Pacific Islander/Asian-American,intelligence,10.0,EC
-385,Asian/Pacific Islander/Asian-American,sincere,56.0,EC
-386,Asian/Pacific Islander/Asian-American,funny,15.0,EC
-387,Asian/Pacific Islander/Asian-American,attractive,13.0,EC
-388,Asian/Pacific Islander/Asian-American,ambition,8.0,EC
-389,Latino/Hispanic American,intelligence,4.0,EC
-390,Latino/Hispanic American,sincere,17.0,EC
-391,Latino/Hispanic American,funny,4.0,EC
-392,Latino/Hispanic American,attractive,6.0,EC
-393,Latino/Hispanic American,ambition,4.0,EC
-394,Black/African American,intelligence,5.0,EC
-395,Black/African American,sincere,9.0,EC
-396,Black/African American,funny,1.0,EC
-397,Black/African American,attractive,3.0,EC
-398,Black/African American,ambition,1.0,EC
-399,intelligence,match,2.71875,ECM
-400,sincere,match,2.4693877551020407,ECM
-401,funny,match,2.088888888888889,ECM
-402,attractive,match,3.6470588235294117,ECM
-403,ambition,match,3.3333333333333335,ECM
-404,intelligence,match,3.0,ECM
-405,sincere,match,3.125,ECM
-406,funny,match,3.3333333333333335,ECM
-407,attractive,match,3.5,ECM
-408,ambition,match,1.3333333333333333,ECM
-409,intelligence,match,1.7,ECM
-410,sincere,match,2.25,ECM
-411,funny,match,1.1333333333333333,ECM
-412,attractive,match,1.8461538461538463,ECM
-413,ambition,match,1.75,ECM
-414,intelligence,match,4.25,ECM
-415,sincere,match,2.0,ECM
-416,funny,match,3.0,ECM
-417,attractive,match,3.5,ECM
-418,ambition,match,3.0,ECM
-419,intelligence,match,2.8,ECM
-420,sincere,match,2.0,ECM
-421,funny,match,3.0,ECM
-422,attractive,match,3.3333333333333335,ECM
-423,ambition,match,7.0,ECM
-424,European/Caucasian-American,date,14.802752293577981,ED
-425,Other ethnicity,date,13.333333333333334,ED
-426,Asian/Pacific Islander/Asian-American,date,14.186274509803921,ED
-427,Latino/Hispanic American,date,15.257142857142858,ED
-428,Black/African American,date,15.105263157894736,ED
-429,intelligence,date,13.672727272727272,CD
-430,sincere,date,14.841836734693878,CD
-431,funny,date,14.176470588235293,CD
-432,attractive,date,15.3,CD
-433,ambition,date,14.08,CD
-434,intelligence,date,13.75,ECD
-435,sincere,date,14.83673469387755,ECD
-436,funny,date,14.866666666666667,ECD
-437,attractive,date,15.617647058823529,ECD
-438,ambition,date,14.777777777777779,ECD
-439,intelligence,date,8.25,ECD
-440,sincere,date,14.3125,ECD
-441,funny,date,15.0,ECD
-442,attractive,date,14.75,ECD
-443,ambition,date,11.333333333333334,ECD
-444,intelligence,date,13.3,ECD
-445,sincere,date,15.303571428571429,ECD
-446,funny,date,12.0,ECD
-447,attractive,date,13.846153846153847,ECD
-448,ambition,date,12.125,ECD
-449,intelligence,date,16.25,ECD
-450,sincere,date,14.647058823529411,ECD
-451,funny,date,13.75,ECD
-452,attractive,date,16.333333333333332,ECD
-453,ambition,date,16.75,ECD
-454,intelligence,date,16.2,ECD
-455,sincere,date,13.333333333333334,ECD
-456,funny,date,15.0,ECD
-457,attractive,date,16.666666666666668,ECD
-458,ambition,date,21.0,ECD
+,source,target,check,value
+0,Asian/Pacific Islander/Asian-American,Business,GEF,6.0
+1,Asian/Pacific Islander/Asian-American,Law,GEF,3.0
+2,Asian/Pacific Islander/Asian-American,Other,GEF,91.0
+3,Asian/Pacific Islander/Asian-American,Social Work,GEF,2.0
+4,Asian/Pacific Islander/Asian-American,ambition,EC,8.0
+5,Asian/Pacific Islander/Asian-American,ambition,GEC,8.0
+6,Asian/Pacific Islander/Asian-American,attractive,EC,13.0
+7,Asian/Pacific Islander/Asian-American,attractive,GEC,13.0
+8,Asian/Pacific Islander/Asian-American,date,ED,14.18627450980392
+9,Asian/Pacific Islander/Asian-American,date,GED,28.372549019607842
+10,Asian/Pacific Islander/Asian-American,funny,EC,15.0
+11,Asian/Pacific Islander/Asian-American,funny,GEC,15.0
+12,Asian/Pacific Islander/Asian-American,intelligence,EC,10.0
+13,Asian/Pacific Islander/Asian-American,intelligence,GEC,10.0
+14,Asian/Pacific Islander/Asian-American,match,EM,1.9411764705882355
+15,Asian/Pacific Islander/Asian-American,match,GEM,3.88235294117647
+16,Asian/Pacific Islander/Asian-American,sincere,EC,56.0
+17,Asian/Pacific Islander/Asian-American,sincere,GEC,56.0
+18,Black/African American,Business,GEF,1.0
+19,Black/African American,Law,GEF,3.0
+20,Black/African American,Other,GEF,15.0
+21,Black/African American,ambition,EC,1.0
+22,Black/African American,ambition,GEC,1.0
+23,Black/African American,attractive,EC,3.0
+24,Black/African American,attractive,GEC,3.0
+25,Black/African American,date,ED,15.105263157894736
+26,Black/African American,date,GED,30.38888888888889
+27,Black/African American,funny,EC,1.0
+28,Black/African American,funny,GEC,1.0
+29,Black/African American,intelligence,EC,5.0
+30,Black/African American,intelligence,GEC,5.0
+31,Black/African American,match,EM,2.736842105263158
+32,Black/African American,match,GEM,5.522222222222222
+33,Black/African American,sincere,EC,9.0
+34,Black/African American,sincere,GEC,9.0
+35,Business,ambition,GEFC,4.0
+36,Business,ambition,GFC,4.0
+37,Business,attractive,GEFC,4.0
+38,Business,attractive,GFC,4.0
+39,Business,funny,GEFC,4.0
+40,Business,funny,GFC,4.0
+41,Business,intelligence,GEFC,4.0
+42,Business,intelligence,GFC,4.0
+43,Business,sincere,GEFC,8.0
+44,Business,sincere,GFC,8.0
+45,European/Caucasian-American,Business,GEF,14.0
+46,European/Caucasian-American,Law,GEF,15.0
+47,European/Caucasian-American,Other,GEF,173.0
+48,European/Caucasian-American,Social Work,GEF,16.0
+49,European/Caucasian-American,ambition,EC,9.0
+50,European/Caucasian-American,ambition,GEC,9.0
+51,European/Caucasian-American,attractive,EC,34.0
+52,European/Caucasian-American,attractive,GEC,34.0
+53,European/Caucasian-American,date,ED,14.80275229357798
+54,European/Caucasian-American,date,GED,29.63101694915254
+55,European/Caucasian-American,funny,EC,45.0
+56,European/Caucasian-American,funny,GEC,45.0
+57,European/Caucasian-American,intelligence,EC,32.0
+58,European/Caucasian-American,intelligence,GEC,32.0
+59,European/Caucasian-American,match,EM,2.646788990825688
+60,European/Caucasian-American,match,GEM,5.277288135593221
+61,European/Caucasian-American,sincere,EC,98.0
+62,European/Caucasian-American,sincere,GEC,98.0
+63,Latino/Hispanic American,Business,GEF,1.0
+64,Latino/Hispanic American,Law,GEF,3.0
+65,Latino/Hispanic American,Other,GEF,28.0
+66,Latino/Hispanic American,Social Work,GEF,3.0
+67,Latino/Hispanic American,ambition,EC,4.0
+68,Latino/Hispanic American,ambition,GEC,4.0
+69,Latino/Hispanic American,attractive,EC,6.0
+70,Latino/Hispanic American,attractive,GEC,6.0
+71,Latino/Hispanic American,date,ED,15.257142857142858
+72,Latino/Hispanic American,date,GED,30.404761904761905
+73,Latino/Hispanic American,funny,EC,4.0
+74,Latino/Hispanic American,funny,GEC,4.0
+75,Latino/Hispanic American,intelligence,EC,4.0
+76,Latino/Hispanic American,intelligence,GEC,4.0
+77,Latino/Hispanic American,match,EM,2.742857142857143
+78,Latino/Hispanic American,match,GEM,5.476190476190476
+79,Latino/Hispanic American,sincere,EC,17.0
+80,Latino/Hispanic American,sincere,GEC,17.0
+81,Law,attractive,GEFC,3.0
+82,Law,attractive,GFC,3.0
+83,Law,funny,GEFC,11.0
+84,Law,funny,GFC,11.0
+85,Law,intelligence,GEFC,6.0
+86,Law,intelligence,GFC,6.0
+87,Law,sincere,GEFC,8.0
+88,Law,sincere,GFC,8.0
+89,Other,ambition,GEFC,20.0
+90,Other,ambition,GFC,20.0
+91,Other,attractive,GEFC,46.0
+92,Other,attractive,GFC,46.0
+93,Other,funny,GEFC,51.0
+94,Other,funny,GFC,51.0
+95,Other,intelligence,GEFC,45.0
+96,Other,intelligence,GFC,45.0
+97,Other,sincere,GEFC,167.0
+98,Other,sincere,GFC,167.0
+99,Other ethnicity,Business,GEF,2.0
+100,Other ethnicity,Law,GEF,4.0
+101,Other ethnicity,Other,GEF,22.0
+102,Other ethnicity,Social Work,GEF,2.0
+103,Other ethnicity,ambition,EC,3.0
+104,Other ethnicity,ambition,GEC,3.0
+105,Other ethnicity,attractive,EC,4.0
+106,Other ethnicity,attractive,GEC,4.0
+107,Other ethnicity,date,ED,13.333333333333334
+108,Other ethnicity,date,GED,26.857142857142858
+109,Other ethnicity,funny,EC,3.0
+110,Other ethnicity,funny,GEC,3.0
+111,Other ethnicity,intelligence,EC,4.0
+112,Other ethnicity,intelligence,GEC,4.0
+113,Other ethnicity,match,EM,3.0
+114,Other ethnicity,match,GEM,6.026785714285714
+115,Other ethnicity,sincere,EC,16.0
+116,Other ethnicity,sincere,GEC,16.0
+117,Social Work,ambition,GEFC,1.0
+118,Social Work,ambition,GFC,1.0
+119,Social Work,attractive,GEFC,7.0
+120,Social Work,attractive,GFC,7.0
+121,Social Work,funny,GEFC,2.0
+122,Social Work,funny,GFC,2.0
+123,Social Work,sincere,GEFC,13.0
+124,Social Work,sincere,GFC,13.0
+125,ambition,date,CD,14.08
+126,ambition,date,ECD,75.98611111111111
+127,ambition,date,GCD,28.070512820512818
+128,ambition,date,GECD,113.3
+129,ambition,match,CM,2.68
+130,ambition,match,ECM,16.416666666666664
+131,ambition,match,GCM,5.416666666666666
+132,ambition,match,GECM,21.8
+133,attractive,date,CD,15.3
+134,attractive,date,ECD,77.21380090497738
+135,attractive,date,GCD,30.59722222222222
+136,attractive,date,GECD,153.35760233918128
+137,attractive,match,CM,3.216666666666667
+138,attractive,match,ECM,15.826546003016592
+139,attractive,match,GCM,6.652777777777778
+140,attractive,match,GECM,30.827777777777776
+141,female,Asian/Pacific Islander/Asian-American,GE,51.0
+142,female,Black/African American,GE,10.0
+143,female,Business,GF,4.0
+144,female,European/Caucasian-American,GE,100.0
+145,female,Latino/Hispanic American,GE,21.0
+146,female,Law,GF,10.0
+147,female,Other,GF,160.0
+148,female,Other ethnicity,GE,14.0
+149,female,Social Work,GF,22.0
+150,female,ambition,GC,13.0
+151,female,attractive,GC,36.0
+152,female,date,GD,14.872448979591836
+153,female,funny,GC,19.0
+154,female,intelligence,GC,22.0
+155,female,match,GM,2.545918367346939
+156,female,sincere,GC,106.0
+157,funny,date,CD,14.176470588235292
+158,funny,date,ECD,70.61666666666667
+159,funny,date,GCD,29.243823845327604
+160,funny,date,GECD,115.5050505050505
+161,funny,match,CM,2.0
+162,funny,match,ECM,12.555555555555555
+163,funny,match,GCM,4.483351235230934
+164,funny,match,GECM,22.146464646464647
+165,intelligence,date,CD,13.672727272727272
+166,intelligence,date,ECD,67.75
+167,intelligence,date,GCD,27.5
+168,intelligence,date,GECD,137.01990553306342
+169,intelligence,match,CM,2.672727272727273
+170,intelligence,match,ECM,14.46875
+171,intelligence,match,GCM,5.363636363636363
+172,intelligence,match,GECM,30.46727395411606
+173,male,Asian/Pacific Islander/Asian-American,GE,51.0
+174,male,Black/African American,GE,9.0
+175,male,Business,GF,20.0
+176,male,European/Caucasian-American,GE,118.0
+177,male,Latino/Hispanic American,GE,14.0
+178,male,Law,GF,18.0
+179,male,Other,GF,169.0
+180,male,Other ethnicity,GE,16.0
+181,male,Social Work,GF,1.0
+182,male,ambition,GC,12.0
+183,male,attractive,GC,24.0
+184,male,date,GD,14.326923076923077
+185,male,funny,GC,49.0
+186,male,intelligence,GC,33.0
+187,male,match,GM,2.4711538461538463
+188,male,sincere,GC,90.0
+189,sincere,date,CD,14.841836734693878
+190,sincere,date,ECD,72.43319827931172
+191,sincere,date,GCD,29.70754716981132
+192,sincere,date,GECD,145.4521845304454
+193,sincere,match,CM,2.397959183673469
+194,sincere,match,ECM,11.84438775510204
+195,sincere,match,GCM,4.786163522012578
+196,sincere,match,GECM,23.076376280724105

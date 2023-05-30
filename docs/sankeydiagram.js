@@ -15,12 +15,12 @@ var formatNumber = d3.format(",.0f"), // zero decimal places
 
 // Define the pastel color scale
 color = d3.scaleOrdinal()
-    .range(["#85C1E9", "#3498DB", "#2874A6", "#1B4F72", "#FFC4DD", "#FF85A8", "#FF527D", "#FF1B47"]);
+    .range(["#85C1E9","#FFC4DD", "#3498DB", "#2874A6", "#1B4F72", "#FF85A8", "#FF527D", "#FF1B47"]);
 //.range(["#fbb4ae", "#b3cde3", "#ccebc5", "#decbe4", "#fed9a6", "#ffffcc", "#e5d8bd", "#fddaec", "#f2f2f2", "#bdbdbd"]);
 //.range(["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]);
 
 function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
-    svg.selectAll(".node").remove();
+    svg.selectAll(".node2").remove();
     svg.selectAll(".link").remove();
 
     var dataa = data.filter(function(el){
@@ -115,10 +115,10 @@ function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
                     name_map[d.target.name] + "\n" + format(d.value); });
 
     // add in the nodes
-    var node = svg.append("g").selectAll(".node")
+    var node2 = svg.append("g").selectAll(".node2")
         .data(graph.nodes)
         .enter().append("g")
-        .attr("class", "node")
+        .attr("class", "node2")
         .call(
         d3
             .drag()
@@ -132,7 +132,7 @@ function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
         );
 
     // add the rectangles for the nodes
-    node.append("rect")
+    node2.append("rect")
         .attr("x", function(d) { return d.x0; })
         .attr("y", function(d) { return d.y0; })
         .attr("height", function(d) {
@@ -143,14 +143,13 @@ function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
         .style("fill", function(d) { 
                 return d.color = color(d.name.replace(/ .*/, "")); })
         .style("stroke", function(d) { 
-            // return d3.rgb(d.color).darker(2); 
             return d3.rgb(d.color).darker(5);})
         .append("title")
         .text(function(d) { 
             return name_map[d.name] + "\n" + format(d.value); });
 
     // add in the title for the nodes
-    node.append("text")
+    node2.append("text")
         .attr("x", function(d) { return d.x0 - 6; })
         .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
         .attr("dy", "0.35em")
