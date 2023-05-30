@@ -78,18 +78,18 @@
             </svg>
 
             <!-- options -->
-            <div id="gender-check" style="transform: translate(20px, -150px)">
-                <input type="checkbox" id="women-check" name="Women" style="accent-color: deeppink;  margin: 0px 30px; outline: white" checked>
+            <div id="gender-check" style="transform: translate(-30px, -100px)">
+                <input type="checkbox" id="women-check" name="Women" style="accent-color: deeppink;  margin: 0px 0px; outline: white" checked>
                 <label for="women-check" style="color:deeppink;
-             font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Women</label>
+             font-weight:bold; font-family:var(--ff-secondary); margin-left: -75px">Women</label>
 
-                <input type="checkbox" id="men-check" name="Men" style="accent-color: blue; margin: 0px 30px" checked>
+                <input type="checkbox" id="men-check" name="Men" style="accent-color: blue; margin: 0px 0px" checked>
                 <label for="men-check" style="color:blue;
-             font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Men</label>
+             font-weight:bold; font-family:var(--ff-secondary); margin-left: -75px">Men</label>
 
-                <input type="checkbox" id="all-check" name="Everyone" style="accent-color: darkorange; margin: 0px 30px" checked>
+                <input type="checkbox" id="all-check" name="Everyone" style="accent-color: darkorange; margin: 0px 0px" checked>
                 <label for="all-check" style="color:darkorange;
-             font-weight:bold; font-family:var(--ff-secondary); margin-left: -20px">Everyone</label>
+             font-weight:bold; font-family:var(--ff-secondary); margin-left: -75px">Everyone</label>
             </div>
 
             <!-- <span style="display:inline-block;width:20px;height:20px;background-color:${color};margin-right:5px;margin-left:24px;"></span>${colors[color]}&nbsp;&nbsp; -->
@@ -244,6 +244,50 @@
                         </select>
                     </div>
 
+                    <!-- age -->
+                    <div>
+                      <div>
+                          <label for="age">&hearts; Age</label>
+                          <input name="age" id="age">
+                      </div>
+                    </div>
+
+                </div>
+
+                <div class="profilePreferences">
+                  <div>
+                      <input type="input" id="att" name="att" value=16.6 size="5">
+                      <label for="att"> Attractiveness</label>
+                  </div>
+
+                  <div>
+                      <input type="input" id="sinc" name="sinc" value=16.6 size="5">
+                      <label for="sinc"> Sincerity</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="intell" name="intell" value=16.6 size="5">
+                      <label for="intell"> Intelligence</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="fun" name="fun" value=16.6 size="5">
+                      <label for="fun"> Humour</label>
+                  </div>
+
+                  <div>
+                      <input type="input" id="ambit" name="ambit" value=16.6 size="5">
+                      <label for="ambit"> Ambition</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="shared" name="shared" value=16.6 size="5">
+                      <label for="scale"> Shared Interests</label>
+
+                  </div>
                 </div>
 
                 <div class="profileInterests">
@@ -320,7 +364,7 @@
 
             <!-- prediction -->
             <div id="prediction">
-                <button id="predict-button">
+                <button type="button" id="predict-button">
                     Predict
                 </button>
             </div>
@@ -360,6 +404,51 @@
                             <option value="woman">&#9792; Woman</option>
                         </select>
                     </div>
+
+                    <!-- age -->
+                    <div>
+                      <div>
+                          <label for="age_o">&hearts; Age</label>
+                          <input name="age_o" id="age_o">
+                      </div>
+                    </div>
+                </div>
+
+                <div class="profilePreferences">
+                  <div>
+                      <input type="input" id="att_o" name="att_" value=16.6 size="5">
+                      <label for="att_o"> Attractiveness</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="sinc_o" name="sinc_o" value=16.6 size="5">
+                      <label for="sinc_o"> Sincerity</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="intell_o" name="intell_o" value=16.6 size="5">
+                      <label for="intell_o"> Intelligence</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="fun_o" name="fun_o" value=16.6 size="5">
+                      <label for="fun_o"> Humour</label>
+                  </div>
+
+                  <div>
+                      <input type="input" id="ambit_o" name="ambit_o" value=16.6 size="5">
+                      <label for="ambit_o"> Ambition</label>
+                  </div>
+
+                  <div>
+
+                      <input type="input" id="shared_o" name="shared_o" value=16.6 size="5">
+                      <label for="scale_o"> Shared Interests</label>
+
+                  </div>
                 </div>
 
                 <div class="profileInterests">
@@ -476,6 +565,7 @@
 <script src="docs/bubblechart.js"></script>
 <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
 <script src="docs/sankeydiagram.js"></script>
+<script src="docs/matchpredictor.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
 </body>
 </html>

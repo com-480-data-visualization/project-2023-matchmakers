@@ -724,7 +724,7 @@ input[type="radio"]:checked::before {
 .node text {
   pointer-events: none;
   font-weight:bold;
-  font-family:var(--ff-secondary); 
+  font-family:var(--ff-secondary);
   width: 1px;
   text-shadow: 0 1px 0 white;}
 
@@ -863,6 +863,29 @@ MATCHING PREDICTOR RELATED
 
 .profileInterests div {
   width: 90px;}
+
+/* Preferences */
+
+.profilePreferences {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 270px;}
+
+.profilePreferences input {
+  accent-color: deeppink;
+  width: auto;
+  size: 5;
+}
+
+.profilePreferences label {
+  color: deeppink;
+  font-weight:bold;
+  font-size: 12px;
+  font-family:var(--ff-secondary);}
+
+.profilePreferences div {
+  width: 270px;}
 
 #prediction {
   background-image: url('cables_test.jpg');

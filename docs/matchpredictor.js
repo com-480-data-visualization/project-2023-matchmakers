@@ -1,8 +1,9 @@
-const colors_map = {"female":"deeppink", "male":"blue", "all":"darkorange"};
-const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
+// const colors_map = {"female":"deeppink", "male":"blue", "all":"darkorange"};
+// const labels_map = {"female":"Women", "male":"Men", "all":"Everyone"};
 
 
 const button = document.getElementById("predict-button");
+console.log(button);
 
 button.addEventListener("click", async() => {
   const model = await tfdf.loadTFDFModel('https://com-480-data-visualization.github.io/project-2023-matchmakers/matchmodel_current_js/model.json');
@@ -11,8 +12,8 @@ button.addEventListener("click", async() => {
 
   // Input to model directly from website (users input the values, pass them to the model directly):
 
-  let age = 23;
-  let age_o = 30;//parseFloat(document.getElementById("age_o").value);
+  let age = parseFloat(document.getElementById("age").value);
+  let age_o = parseFloat(document.getElementById("age_o").value);
 
   let att = 22;//parseFloat(document.getElementById("att").value);
   let sincere = 44;//parseFloat(document.getElementById("sincere").value);
@@ -38,10 +39,10 @@ button.addEventListener("click", async() => {
   let lat = race=="latinx" ? 1 : 0;
   let asian = race=="asian" ? 1 : 0;
 
-  let wh_o = race=="white" ? 1 : 0;
-  let bl_o = race=="black" ? 1 : 0;
-  let lat_o = race=="latinx" ? 1 : 0;
-  let o_o = race=="asian" ? 1 : 0;
+  let wh_o = race_o=="white" ? 1 : 0;
+  let bl_o = race_o=="black" ? 1 : 0;
+  let lat_o = race_o=="latinx" ? 1 : 0;
+  let o_o = race_o=="asian" ? 1 : 0;
 
   // interests: model takes the correlation between the two peoples' interests,
   // not the actual scores for each separate thing
@@ -51,18 +52,22 @@ button.addEventListener("click", async() => {
        'gaming', 'clubbing', 'reading', 'tv', 'theater', 'movies', 'concerts',
        'shopping', 'music', 'yoga'];
 
+  const interests_o = interests.map(i => i+'_o');
+  console.log(interests_o);
+
+
   // collect my scores (Person 1) for each possible interest into a dictionary:
 
   let my_interests_map = {};
   interests.forEach((item, i) => {
-    my_interests_map[item] = i*10;
+    my_interests_map[item] = (+ document.getElementById(item).checked) * 10 ;
   });
 
   // collect Person 2's scores for each possible interest into a dictionary:
 
   let their_interests_map = {};
   interests.forEach((item, i) => {
-    their_interests_map[item] = i*10;
+    their_interests_map[item] = (+ document.getElementById(item+'_o').checked) * 10;
   });
 
   // make a list in the format necessary to calculate the correlation:
@@ -82,6 +87,8 @@ button.addEventListener("click", async() => {
 
   var stats = new Statistics(int_map, interestsVars);
   var interests_corr = stats.correlationCoefficient('me', 'partner').correlationCoefficient;
+  console.log("interests correlation:");
+  console.log(interests_corr);
 
   // construct input tensor :
 
@@ -98,5 +105,13 @@ button.addEventListener("click", async() => {
   let matchproba = await model.executeAsync(inp);
 
   console.log(matchproba.arraySync()[0][0]);
+  let pred = matchproba.arraySync()[0][0];
+  if (pred < 0.25){
+    console.log("low match probability :(");
+  } else if (pred < 0.3) {
+    console.log("medium match probability :/");
+  } else {
+    console.log("good match probability :)");
+  }
 
 })
