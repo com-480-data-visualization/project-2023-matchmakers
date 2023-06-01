@@ -182,6 +182,7 @@ p {
 /* section */
 .section {
   padding-bottom: 5rem;
+  max-height: 1000px;
 }
 
 .section-center {
@@ -365,6 +366,22 @@ header {
 
 .title span {
   color: var(--clr-secondary);}
+
+#intro {
+  height: 1000px;
+  background: var(--clr-white);
+  position: relative;
+}
+
+#intro p {
+  color: black;
+  max-width: 55rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 32px;
+  margin-bottom: 1.25rem;
+}
 
 #viz,
 #matching {
@@ -706,7 +723,7 @@ form {
 
 .node:hover {
   stroke-width: 3px !important;
-  stroke: deeppink !important; 
+  stroke: deeppink !important;
   opacity: 1 !important;}
 
 #typeButton {
