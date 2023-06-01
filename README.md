@@ -39,6 +39,8 @@ The Milestone contains:
 **80% of the final grade**
 
 
+
+
 ## Late policy
 
 - < 24h: 80% of the grade for the milestone
