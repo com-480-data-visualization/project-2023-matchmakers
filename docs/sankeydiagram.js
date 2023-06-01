@@ -3,64 +3,78 @@ var margin = {top: 0, right: 10, bottom: 10, left: 85},
     width2 = 1100 - margin.left - margin.right,
     height2 = 370 - margin.top - margin.bottom;  
 
-var name_map = {"male": "Male", "female": "Female", "European/Caucasian-American": "White/Caucasian", "Other ethnicity": "Other", 
+var name_map = {"male": "Men", "female": "Women", "European/Caucasian-American": "White/Caucasian", "Other ethnicity": "Other", 
             "Asian/Pacific Islander/Asian-American": "Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American": "Black/African American",
             "intelligence": "Intelligence", "sincere":"Sincerity", "attractive": "Attractiveness", 
-            "funny": "Sense of humour", "ambition": "Ambition", "date": "Average of Dates", "match": "Average of Matches"}
+            "funny": "Sense of humour", "ambition": "Ambition", "fail date": "Failed dates", "success date": "Successful dates"}
 
 // format variables
 var formatNumber = d3.format(",.0f"), // zero decimal places
-    format = function(d) { return formatNumber(d); },
-    //color = d3.scaleOrdinal(d3.schemeCategory10);
+    format = function(d) { return formatNumber(d); }
 
 // Define the pastel color scale
 color = d3.scaleOrdinal()
     .range(["#FF85A8", "#85C1E9", "#1B4F72", "#fc607e", "#2874A6", "#3498DB", "#e66383", "#f59ac1", "#256a99"]);
 
-function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
+function sankeyPlot(svg, data, gender, race, char, checkgender, checkrace, checkchar) {
     svg.selectAll(".node2").remove();
     svg.selectAll(".link").remove();
 
-    var dataa = data.filter(function(el){
-        if (btn === "match") {
-            if (gender && ethnicity && charact) {
-                return (el.check === "GE") ||(el.check === "GEC") || (el.check === "GECM");
-            } else if (gender && ethnicity) {
-                return (el.check === "GE") || (el.check === "GEM");
-            } else if (gender && charact) {
-                return (el.check === "GC") || (el.check === "GCM");
-            } else if (ethnicity && charact) {
-                return (el.check === "EC") || (el.check === "ECM");
-            } else if (gender) {
-                return (el.check === "GM");
-            } else if (ethnicity) {
-                return (el.check === "EM");
-            } else if (charact) {
-                return (el.check === "CM");
-            } else {
-                return;
-            }
+    var date = ["fail date", "success date"];
 
+    // filtering the data
+    var filterData = data.filter(function(el){
+        var steps = JSON.parse(el.steps.replace(/'/g, '"')); // To convert steps into array
+
+        if (checkgender && checkrace && checkchar) {
+            return (gender.includes(el.source) && race.includes(el.target) && gender.includes(steps[0]) && race.includes(steps[1])) 
+            || (race.includes(el.source) && char.includes(el.target) && gender.includes(steps[0]) && race.includes(steps[1]) && char.includes(steps[2])) 
+            || (char.includes(el.source) && date.includes(el.target) && gender.includes(steps[0]) && race.includes(steps[1]) && char.includes(steps[2]));
+        } else if (checkgender && checkrace) {
+            return (gender.includes(el.source) && race.includes(el.target) && gender.includes(steps[0]) && race.includes(steps[1])) 
+            || (race.includes(el.source) && date.includes(el.target) && gender.includes(steps[0]) && race.includes(steps[1]));
+        } else if (checkgender && checkchar) {
+            return (gender.includes(el.source) && char.includes(el.target) && gender.includes(steps[0]) && char.includes(steps[1])) 
+            || (char.includes(el.source) && date.includes(el.target) && gender.includes(steps[0]) && char.includes(steps[1]));
+        } else if (checkrace && checkchar) {
+            return (race.includes(el.source) && char.includes(el.target) && race.includes(steps[0]) && char.includes(steps[1])) 
+            || (char.includes(el.source) && date.includes(el.target) && race.includes(steps[0]) && char.includes(steps[1]));
+        } else if (checkgender) {
+            return (gender.includes(el.source) && date.includes(el.target) && gender.includes(steps[0]));
+        } else if (checkrace) {
+            return (race.includes(el.source) && date.includes(el.target) && race.includes(steps[0]));
+        } else if (checkchar) {
+            return (char.includes(el.source) && date.includes(el.target) && char.includes(steps[0]));
         } else {
-            if (gender && ethnicity && charact) {
-                return (el.check === "GE") ||(el.check === "GEC") || (el.check === "GECD");
-            } else if (gender && ethnicity) {
-                return (el.check === "GE") || (el.check === "GED");
-            } else if (gender && charact) {
-                return (el.check === "GC") || (el.check === "GCD");
-            } else if (ethnicity && charact) {
-                return (el.check === "EC") || (el.check === "ECD");
-            } else if (gender) {
-                return (el.check === "GD");
-            } else if (ethnicity) {
-                return (el.check === "ED");
-            } else if (charact) {
-                return (el.check === "CD");
-            } else {
-                return;
-            }
+            return false;
         }
     });
+
+    console.log("the filtered Data : ")
+    console.log(filterData)
+
+    var uniqueData = {};
+
+    // Iterate over each object in filterData to group the source and target 
+    filterData.forEach((obj) => {
+        const { source, target, value } = obj;
+
+        const key = `${source}#${target}`;
+        if (uniqueData.hasOwnProperty(key)) {
+            uniqueData[key] += parseFloat(format(value));
+        } else {
+            uniqueData[key] = parseFloat(format(value));
+        }
+    });
+
+    // convert the object into an array of objects
+    var dataa = Object.entries(uniqueData).map(([key, value]) => {
+        const [source, target] = key.split('#');
+        return { source, target, value };
+    });
+
+    console.log("result array ")
+    console.log(dataa)
 
     //set up graph in same style as original example but empty
     sankeydata = {"nodes" : [], "links" : []};
@@ -179,44 +193,69 @@ function sankeyPlot(svg, data, gender, ethnicity, charact, btn) {
       };
 };
 
-function updateSankey() {
-    var btn = getSelectedRadioValue();
-    sankeyPlot(svg2, dataa, checkboxes2["gender"].checked,  checkboxes2["race"].checked, checkboxes2["charact"].checked, btn)
-};
-
 let checkboxes2 = {
-    "gender": document.getElementById("gen-check"),
-    "race": document.getElementById("race-check"),
-    "charact": document.getElementById("chara-check")
+    "women": document.getElementById("female-check"),
+    "men": document.getElementById("male-check"),
+    "white": document.getElementById("white-check"),
+    "asian": document.getElementById("asian-check"),
+    "latino": document.getElementById("latino-check"),
+    "black": document.getElementById("black-check"),
+    "other": document.getElementById("other-check"),
+    "attractive": document.getElementById("attractive-check"),
+    "ambition": document.getElementById("ambition-check"),
+    "intelligence": document.getElementById("intelligence-check"),
+    "humour": document.getElementById("humour-check"),
+    "sincerity": document.getElementById("sincerity-check"),
   };
 
-checkboxes2["gender"].addEventListener("change", function () {
-    updateSankey();
-});
+var checkboxGroups = {
+    gender: ["women", "men"],
+    race: ["white", "asian", "latino", "black", "other"],
+    char: ["attractive", "ambition", "intelligence", "sincerity", "humour"]
+  };
   
-checkboxes2["race"].addEventListener("change", function () {
-    updateSankey();
+Object.keys(checkboxGroups).forEach(function(group) {
+    checkboxGroups[group].forEach(function(checkbox) {
+        checkboxes2[checkbox].addEventListener("change", updateSankey);
+    });
 });
 
-checkboxes2["charact"].addEventListener("change", function () {
-    updateSankey();
-});
+var raceName = ["European/Caucasian-American", "Asian/Pacific Islander/Asian-American", "Latino/Hispanic American", "Black/African American", "Other ethnicity"];
+var genderName = ["female", "male"];
+var charName = ["attractive", "ambition", "intelligence", "sincere", "funny"];
 
-function getSelectedRadioValue() {
-    var radioButtons = document.getElementsByName("displayButton");
-    for (var i = 0; i < radioButtons.length; i++) {
-      if (radioButtons[i].checked) {
-        var selectedValue = radioButtons[i].value;
-        console.log(selectedValue);
-        return selectedValue;
-      }
+function updateSankey() {
+    let race = [];
+    let gender = [];
+    let char = [];
+
+    var bool_gender = [checkboxes2["women"].checked, checkboxes2["men"].checked];
+    var bool_race = [checkboxes2["white"].checked, checkboxes2["asian"].checked, checkboxes2["latino"].checked, checkboxes2["black"].checked, checkboxes2["other"].checked];
+    var bool_char = [checkboxes2["attractive"].checked, checkboxes2["ambition"].checked, checkboxes2["intelligence"].checked, checkboxes2["sincerity"].checked, checkboxes2["humour"].checked];
+
+    for (var i = 0; i < bool_gender.length; i++) {
+        if (bool_gender[i]) {
+            gender.push(genderName[i]);
+        }
     }
-};
 
-  // Add event listener to the radio buttons
-var radioButtons = document.getElementsByName("displayButton");
-for (var i = 0; i < radioButtons.length; i++) {
-  radioButtons[i].addEventListener("change", updateSankey);
+    for (var i = 0; i < bool_race.length; i++) {
+        if (bool_race[i]) {
+            race.push(raceName[i]);
+        }
+    }
+
+    for (var i = 0; i < bool_char.length; i++) {
+        if (bool_char[i]) {
+            char.push(charName[i]);
+        }
+    }
+
+    var checkGender = checkboxes2["women"].checked || checkboxes2["men"].checked;
+    var checkRace = checkboxes2["white"].checked || checkboxes2["asian"].checked || checkboxes2["latino"].checked || checkboxes2["black"].checked || checkboxes2["other"].checked;
+    var checkChar = checkboxes2["attractive"].checked || checkboxes2["ambition"].checked || checkboxes2["intelligence"].checked || checkboxes2["sincerity"].checked || checkboxes2["humour"].checked;
+
+    sankeyPlot(svg2, maindata, gender, race, char, checkGender, checkRace, checkChar);
 };
 
 // append the svg object to the body of the page
@@ -235,10 +274,8 @@ var sankey = d3.sankey()
 
 var path = sankey.links();
 
-var initialBtn = getSelectedRadioValue();
-
 // load the data and inital sankey diagram
 d3.csv("data/people_sankey.csv").then(function(data) {
-    dataa = data; 
-    sankeyPlot(svg2, dataa, checkboxes2["gender"].checked, checkboxes2["race"].checked, checkboxes2["charact"].checked, initialBtn);
+    maindata = data;
+    updateSankey();
 });
