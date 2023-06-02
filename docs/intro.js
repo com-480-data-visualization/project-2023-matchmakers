@@ -40,7 +40,7 @@ function updateDonut() {
       datasets: [{
         label: 'Gender',
         data: [196, 208],
-        backgroundColor: ['rgb(255, 20, 147)', 'rgb(0, 204, 255)'],
+        backgroundColor: ['rgb(255, 20, 147)', 'rgb(0, 0, 255)'],
         hoverOffset: 4
       }],
     };
@@ -76,7 +76,7 @@ function updateDonut() {
       datasets: [{
         label: 'Race',
         data: [102, 19, 218, 35, 30],
-        backgroundColor: ['rgb(204, 255, 153)', 'rgb(102, 255, 102)', 'rgb(0, 204, 0)', 'rgb(51, 153, 51)', 'rgb(0, 102, 0)'],
+        backgroundColor: ['rgb(77, 0, 41)', 'rgb(153, 0, 82)', 'rgb(255, 20, 147)', 'rgb(255, 153, 206)', 'rgb(255, 230, 243)'],
         hoverOffset: 4
       }],
     };
@@ -104,7 +104,7 @@ function updateDonut() {
       datasets: [{
         label: 'Field',
         data: [316, 79, 9],
-        backgroundColor: ['rgb(204, 51, 0)', 'rgb(255, 204, 153)', 'rgb(255, 204, 102)'],
+        backgroundColor: ['rgb(0, 0, 255)', 'rgb(128, 128, 255)', 'rgb(230, 230, 255)'],
         hoverOffset: 4
       }],
     };
