@@ -78,9 +78,28 @@
   <p>
     Before delving into more detailed information, presented here is some basic information about the students who attended the events.
   </p>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <div id="donut-div" class="chart-container" style="height:100px" >
+    <canvas style="font-family: var(--ff-secondary);" id="myChart"></canvas>
+  </div>
+
+  <div id="basic-infos" style="
+                  font-family: system-ui, sans-serif; font-size: medium;
+                  margin-left: 215px;
+                  font-weight: bold;
+                  line-height: 1.1;
+                  display: grid;
+                  grid-template-columns: 1em auto;
+                  gap: 0.5em;">
+      <input type="radio" name="basic-infos" value="gender" checked> Gender <br>
+      <input type="radio" name="basic-infos" value="race"> Ethnicity <br>
+      <input type="radio" name="basic-infos" value="level"> Education Level <br>
+  </div>
 </section>
 
-<!-- SECTION: Visualizations -->
+<!-- SECTION: Visualizations  style="height: 100px" -->
 <section id="viz" class="section">
 
     <div class="slideshow-container">
@@ -89,7 +108,7 @@
         <div class="plotSlides fade justify-content-between align-items-center">
 
             <div class="title">
-                <h2>What are people <span>looking for ?</span></h2>
+                <h2>What are people <span>looking for ? </span></h2>
             </div>
 
             <p>
@@ -671,7 +690,9 @@
 
 <!-- javascript -->
 <script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
 <script src="docs/app.js"></script>
+<script src="docs/intro.js"></script>
 <script src="docs/slideshow.js"></script>
 <script src="docs/spiderchart2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.5.0/dist/tf.min.js"></script>
