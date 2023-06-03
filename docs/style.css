@@ -112,6 +112,7 @@ h4 {
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);}
 
+
 h1 {
   font-size: 3rem;}
 
@@ -548,7 +549,7 @@ footer p {
   to {opacity: 1}}
 
 /* age range */
-
+/*
 .age-slider {
   width: 100%;}
 
@@ -559,35 +560,45 @@ footer p {
 
 .age-slider.relative {
   position: relative;}
-
+*/
 .slider {
   -webkit-appearance: none;
   border-radius: 10px;
   appearance: none;
   width: 15%;
-  height: 20px;
-  background: #d3d3d3;
+  height:10px;
+  background: White;/*#d3d3d3; */
   outline: none;
-  opacity: 0.7;
+  opacity: 1;
   -webkit-transition: .2;
   transition: opacity .2s;}
 
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */}
+/*.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over }*/
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: transparent url("../docs/pink-heart.svg") 50% 50% no-repeat; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+/*.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+/*  appearance: none;
   width: 35px; /* Set a specific slider handle width */
-  height: 35px; /* Slider handle height */
-  background: url("../docs/heart.png"); /* Green background */
-  background-position: center;
+/*  height: 35px; /* Slider handle height */
+/*  background: url("../docs/heart.png"); /* Green background */
+/*  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 /*  background-color: pink; */
-  background-origin: content-box;
+/*  background-origin: content-box;
   cursor: pointer; /* Cursor on hover */
-  z-index: 1;}
+/*  z-index: 1;}
 
 /*
 .slider::-moz-range-thumb {

@@ -5,6 +5,20 @@
 const button = document.getElementById("predict-button");
 console.log(button);
 
+const sliders_list = ["att_o", "sinc_o", "intell_o", "fun_o", "ambit_o", "shared_o",
+                      "att", "sinc", "intell", "fun", "ambit", "shared"];
+const labels = ["att_o_label", "sinc_o_label", "intell_o_label", "fun_o_label", "ambit_o_label", "shared_o_label",
+                "att_label", "sinc_label", "intell_label", "fun_label", "ambit_label", "shared_label"];
+
+sliders_list.forEach((item, i) => {
+  let sl = document.getElementById(item);
+  let sl_label = document.getElementById(labels[i]);
+  sl.addEventListener("input", function(){
+    sl_label.innerHTML = sl.value;
+  })
+});
+
+
 button.addEventListener("click", async() => {
   const model = await tfdf.loadTFDFModel('https://com-480-data-visualization.github.io/project-2023-matchmakers/matchmodel_current_js/model.json');
   console.log(model);
@@ -15,19 +29,19 @@ button.addEventListener("click", async() => {
   let age = parseFloat(document.getElementById("age").value);
   let age_o = parseFloat(document.getElementById("age_o").value);
 
-  let att = parseFloat(document.getElementById("att").value);
-  let sincere = parseFloat(document.getElementById("sinc").value);
-  let intell = parseFloat(document.getElementById("intell").value);
-  let fun = parseFloat(document.getElementById("fun").value);
-  let ambit = parseFloat(document.getElementById("ambit").value);
-  let shared = parseFloat(document.getElementById("shared").value);
+  let att = parseFloat(document.getElementById("att").value)*10;
+  let sincere = parseFloat(document.getElementById("sinc").value)*10;
+  let intell = parseFloat(document.getElementById("intell").value)*10;
+  let fun = parseFloat(document.getElementById("fun").value)*10;
+  let ambit = parseFloat(document.getElementById("ambit").value)*10;
+  let shared = parseFloat(document.getElementById("shared").value)*10;
 
-  let att_o = parseFloat(document.getElementById("att_o").value);
-  let sincere_o = parseFloat(document.getElementById("sinc_o").value);
-  let intell_o = parseFloat(document.getElementById("intell_o").value);
-  let fun_o = parseFloat(document.getElementById("fun_o").value);
-  let ambit_o = parseFloat(document.getElementById("ambit_o").value);
-  let shared_o = parseFloat(document.getElementById("shared_o").value);
+  let att_o = parseFloat(document.getElementById("att_o").value)*10;
+  let sincere_o = parseFloat(document.getElementById("sinc_o").value)*10;
+  let intell_o = parseFloat(document.getElementById("intell_o").value)*10;
+  let fun_o = parseFloat(document.getElementById("fun_o").value)*10;
+  let ambit_o = parseFloat(document.getElementById("ambit_o").value)*10;
+  let shared_o = parseFloat(document.getElementById("shared_o").value)*10;
 
   // race: has to preprocessed (1-hot encoded for the model):
 
@@ -108,7 +122,7 @@ button.addEventListener("click", async() => {
   let pred = matchproba.arraySync()[0][0];
   if (pred < 0.25){
     console.log("low match probability :(");
-  } else if (pred < 0.3) {
+  } else if (pred < 0.35) {
     console.log("medium match probability :/");
   } else {
     console.log("good match probability :)");

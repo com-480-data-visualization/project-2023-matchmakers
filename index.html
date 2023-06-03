@@ -219,7 +219,7 @@
 
             <p>
                 To determine the individuals who match the most, we present a sankey diagram with four columns: gender, ethnicity, highest characteristic, and failed/successful date.
-                Note that, a successful date corresponds to a mutual match. 
+                Note that, a successful date corresponds to a mutual match.
                 hover over the links shows the number of sources that are associated to the corresponding target.
                 To enhance clarity and view proportions more distinctly, you can uncheck certain categories to remove them from the sankey diagram.
                 One intriguing finding is that a significant proportion of individuals prioritize sincerity as their highest characteristic.
@@ -390,39 +390,45 @@
                 </div>
 
                 <div class="profilePreferences">
+                  <h4 style="font-family: var(--ff-secondary)"> Preferences </h4>
+
                   <div>
-                      <input type="input" id="att" name="att" value=16.6 size="5">
-                      <label for="att"> Attractiveness</label>
+                    <label for="att" style="text-align:left; display: grid"> Attractiveness </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="att">
+                    <label id="att_label" for="att" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-                      <input type="input" id="sinc" name="sinc" value=16.6 size="5">
-                      <label for="sinc"> Sincerity</label>
+                    <label for="sinc" style="text-align:left; display: grid"> Sincerity </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="sinc">
+                    <label id="sinc_label" for="sinc" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-
-                      <input type="input" id="intell" name="intell" value=16.6 size="5">
-                      <label for="intell"> Intelligence</label>
+                    <label for="intell" style="text-align:left; display: grid"> Intelligence </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="intell">
+                    <label id="intell_label" for="intell" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
+                    <label for="fun" style="text-align:left; display: grid"> Sense of humour </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="fun">
+                    <label id="fun_label" for="fun" style="text-align:right; display:inline-block; "> 1 </label>
+                  </div>
 
-                      <input type="input" id="fun" name="fun" value=16.6 size="5">
-                      <label for="fun"> Humour</label>
+
+                  <div>
+                    <label for="ambit" style="text-align:left; display: grid"> Ambition </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="ambit">
+                    <label id="ambit_label" for="ambit" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-                      <input type="input" id="ambit" name="ambit" value=16.6 size="5">
-                      <label for="ambit"> Ambition</label>
+                    <label for="shared" style="text-align:left; display: grid"> Shared interests </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="shared">
+                    <label id="shared_label" for="shared" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
-                  <div>
-
-                      <input type="input" id="shared" name="shared" value=16.6 size="5">
-                      <label for="scale"> Shared Interests</label>
-
-                  </div>
                 </div>
 
                 <div class="profileInterests">
@@ -550,40 +556,45 @@
                 </div>
 
                 <div class="profilePreferences">
+                  <h4 style="font-family: var(--ff-secondary)"> Preferences </h4>
+
                   <div>
-                      <input type="input" id="att_o" name="att_" value=16.6 size="5">
-                      <label for="att_o"> Attractiveness</label>
+                    <label for="att_o" style="text-align:left; display: grid"> Attractiveness </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="att_o">
+                    <label id="att_o_label" for="att_o" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-
-                      <input type="input" id="sinc_o" name="sinc_o" value=16.6 size="5">
-                      <label for="sinc_o"> Sincerity</label>
+                    <label for="sinc_o" style="text-align:left; display: grid"> Sincerity </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="sinc_o">
+                    <label id="sinc_o_label" for="sinc_o" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-
-                      <input type="input" id="intell_o" name="intell_o" value=16.6 size="5">
-                      <label for="intell_o"> Intelligence</label>
+                    <label for="intell_o" style="text-align:left; display: grid"> Intelligence </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="intell_o">
+                    <label id="intell_o_label" for="intell_o" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
+                    <label for="fun_o" style="text-align:left; display: grid"> Sense of humour </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="fun_o">
+                    <label id="fun_o_label" for="fun_o" style="text-align:right; display:inline-block; "> 1 </label>
+                  </div>
 
-                      <input type="input" id="fun_o" name="fun_o" value=16.6 size="5">
-                      <label for="fun_o"> Humour</label>
+
+                  <div>
+                    <label for="ambit_o" style="text-align:left; display: grid"> Ambition </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="ambit_o">
+                    <label id="ambit_o_label" for="ambit_o" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
                   <div>
-                      <input type="input" id="ambit_o" name="ambit_o" value=16.6 size="5">
-                      <label for="ambit_o"> Ambition</label>
+                    <label for="shared_o" style="text-align:left; display: grid"> Shared interests </label>
+                    <input type="range" min="0" max="10" value="1" class="slider" id="shared_o">
+                    <label id="shared_o_label" for="shared_o" style="text-align:right; display:inline-block; "> 1 </label>
                   </div>
 
-                  <div>
-
-                      <input type="input" id="shared_o" name="shared_o" value=16.6 size="5">
-                      <label for="scale_o"> Shared Interests</label>
-
-                  </div>
                 </div>
 
                 <div class="profileInterests">
