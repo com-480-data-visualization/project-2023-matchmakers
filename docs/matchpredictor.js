@@ -122,7 +122,7 @@ button.addEventListener("click", async() => {
   let pred = matchproba.arraySync()[0][0];
   if (pred < 0.25){
     console.log("low match probability :(");
-  } else if (pred < 0.35) {
+  } else if (pred < 0.40) {
     console.log("medium match probability :/");
   } else {
     console.log("good match probability :)");

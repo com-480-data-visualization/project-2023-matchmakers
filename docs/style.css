@@ -919,6 +919,13 @@ MATCHING PREDICTOR RELATED
 .profilePreferences div {
   width: 270px;}
 
+#reset-button {
+  background-size: cover;
+  flex-grow: 3;
+  display: flex;
+/*  position: relative; */
+}
+
 #prediction {
   background-image: url('cables_test.jpg');
   background-size: cover;

@@ -25,11 +25,11 @@ const colorScale = generateRangeColors();
 
  const labels_race = {"European/Caucasian-American":"White/Caucasian", "Asian/Pacific Islander/Asian-American":"Asian", "Latino/Hispanic American": "Latino/Hispanic", "Black/African American":"Black"};
 
- const labels_field = {"Law":"Law", "Social Work":"Social Science", "Business": "Business"};
+ const labels_field = {"STEM":"STEM", "Social Sciences":"Social Science", "Business": "Business"};
 
  const genders = ["female", "male"];
  const race = ["European/Caucasian-American", "Asian/Pacific Islander/Asian-American", "Latino/Hispanic American", "Black/African American"];
- const field = ["Law", "Social Work", "Business"];
+ const field = ["STEM", "Social Sciences", "Business"];
 
  const colors_race = {
     "European/Caucasian-American": colorScale(),
@@ -39,15 +39,15 @@ const colorScale = generateRangeColors();
   };
 
   const colors_field = {
-    "Law": colorScale(),
-    "Social Work": colorScale(),
+    "STEM": colorScale(),
+    "Social Sciences": colorScale(),
     "Business": colorScale()
   };
 
 const label_type = {"gender": "white", "race": "white", "field": "white"}
 
  const cxs_gender = {"female":cx, "male":cx+350};
- const cxs_field = {"Law":cx-150, "Social Work":cx+200, "Business":cx+550};
+ const cxs_field = {"STEM":cx-150, "Social Sciences":cx+200, "Business":cx+550};
  const cxs_race = {"European/Caucasian-American":cx-250, "Asian/Pacific Islander/Asian-American":cx+20, "Latino/Hispanic American": cx+310, "Black/African American":cx+610};
 
  const interests = ["sports", "museums", "tvsports", "exercise", "dining", "art", "hiking", "gaming", "clubbing", "reading", "tv", "theater", "movies", "concerts", "shopping", "music", "yoga"];
@@ -113,7 +113,7 @@ function chartplot(svg, data, tab, type, colors, labels, cxs, young, middle, old
             .style("position", "absolute")
             .style("opacity", 0.3)
             .attr("class", "tooltip")
-            .style("background-color", "deeppink")
+            .style("background-color", color)
             .style("border-width", "5px")
             .style("border-radius", "9px")
             .style("padding", "5px")
@@ -248,7 +248,7 @@ var svg = d3.select("#bubblechart")
 
 // Initial chart setup
 var initialType = getSelectedRadioValue1();
-var dpath = "data/people.csv";
+var dpath = "data/people_general_field.csv";
 
 d3.csv(dpath, {
 delimiter: ",",
