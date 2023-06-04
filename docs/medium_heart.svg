@@ -4,13 +4,11 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 849.3 795.1"
 	 style="enable-background:new 0 0 849.3 795.1;" xml:space="preserve">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_00000153694247696138811430000015992883041060688808_);}
+	.st0{clip-path:url(#SVGID_00000155830340380715470700000008415193649329163958_);}
 	.st1{fill-rule:evenodd;clip-rule:evenodd;}
-	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#ED5571;}
-	.st3{display:none;}
-	.st4{display:inline;}
-	.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#E8264B;}
-	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:#F1839D;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#E86C58;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#E23A29;}
+	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#ED8F85;}
 </style>
 <g>
 	<g id="id2">
@@ -26,10 +24,10 @@
 			<defs>
 				<rect id="SVGID_1_" x="0" y="0" width="849.3" height="795.1"/>
 			</defs>
-			<clipPath id="SVGID_00000036967905196488631820000003274549942808375728_">
+			<clipPath id="SVGID_00000111897964961529246870000013320246781785262221_">
 				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 			</clipPath>
-			<g id="id1" style="clip-path:url(#SVGID_00000036967905196488631820000003274549942808375728_);">
+			<g id="id1" style="clip-path:url(#SVGID_00000111897964961529246870000013320246781785262221_);">
 				<g>
 					<g>
 						<g id="id3">
@@ -128,17 +126,17 @@
 								c27.2-35,62.6-68.5,103.7-82.5c28-10.7,57.9-15.4,87.6-16.2C669.5,0.1,715.3,18.3,754.6,50.4z"/>
 						</g>
 					</g>
-					<g class="st3">
-						<g id="id22" class="st4">
-							<path class="st5" d="M322.3,116.9c23.5,7.6,45.1,20.5,64.8,35.8c13.3,10.5,26,22.9,37.3,34.1c17.1-19.2,36.5-36.4,57.7-48.4
+					<g>
+						<g id="id22">
+							<path class="st3" d="M322.3,116.9c23.5,7.6,45.1,20.5,64.8,35.8c13.3,10.5,26,22.9,37.3,34.1c17.1-19.2,36.5-36.4,57.7-48.4
 								c51.1-32.6,120.7-38.2,173.9-6.9c34.7,19.1,61.3,54.4,71.1,91.7c12.7,59.6-1.2,121.2-20,174.2
 								c-20.8,45.4-48.8,89.1-86.3,125.2c-22.9,21.1-44.9,43.7-70,62.4c-39.6,34.2-79.9,67.1-118.9,102.2
 								c-51.1-36.2-98.7-76.1-144.9-118c-83.1-85.3-186-186.8-167-318.4C128.5,156.6,230.1,78.8,322.3,116.9z"/>
 						</g>
 					</g>
-					<g class="st3">
-						<g id="id23" class="st4">
-							<path class="st6" d="M422.4,259.1c31.9-19.1,63.9-48.5,104.7-50.3c49.8-2,94.1,37.9,101.6,86.3c6.6,38.1-6.5,71.7-21.2,102.9
+					<g>
+						<g id="id23">
+							<path class="st4" d="M422.4,259.1c31.9-19.1,63.9-48.5,104.7-50.3c49.8-2,94.1,37.9,101.6,86.3c6.6,38.1-6.5,71.7-21.2,102.9
 								c-21.2,44.8-56.4,87.3-94.9,119.2c-28.6,25.4-57.9,46-87.4,68c-44.1-31.7-83.6-70.5-123.9-107.3
 								c-50.3-47.5-87.7-105.8-81.9-178.1c4.5-52,51.8-96.6,104.1-94.1C362.6,209.1,395.6,231.4,422.4,259.1z"/>
 						</g>
