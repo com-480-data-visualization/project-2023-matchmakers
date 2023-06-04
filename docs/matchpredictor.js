@@ -121,11 +121,14 @@ button.addEventListener("click", async() => {
   console.log(matchproba.arraySync()[0][0]);
   let pred = matchproba.arraySync()[0][0];
   if (pred < 0.25){
-    console.log("low match probability :(");
+    window.alert("low match probability :(");
+    //console.log("low match probability :(");
   } else if (pred < 0.40) {
-    console.log("medium match probability :/");
+    window.alert("medium match probability :/");
+    //console.log("medium match probability :/");
   } else {
-    console.log("good match probability :)");
+    window.alert("good match probability :)");
+    //console.log("good match probability :)");
   }
 
 })

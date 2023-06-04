@@ -184,7 +184,6 @@ p {
 .section {
   padding-top: 1rem;
   padding-bottom: 5rem;
-  min-height: 100vh;
 }
 
 .section-center {
@@ -409,6 +408,7 @@ canvas{
 
 #intro {
   height: 1000px;
+  min-height: 100vh;
   background: var(--clr-white);
   position: relative;
 }
@@ -426,14 +426,14 @@ canvas{
 
 #viz,
 #matching {
-  height: 150vh;}
+  height: fit-content;
+  min-height: 100vh;}
 
 #team {
   height: 30vh;}
 
 #matching {
   background: var(--clr-white);
-  height: 150vh;
   position: relative;}
 
 #viz p {
