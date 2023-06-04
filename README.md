@@ -6,7 +6,7 @@
 | Ajkuna Seipi| 296870|
 | Hongyi Shi| 299694|
 
-[Milestone 1](./Milestones/Mileston1.pdf) • [Milestone 2](./Milestones/Milestone2.pdf) • [Milestone 3]([#milestone-3-4th-June-5pm](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf))
+[Milestone 1](./Milestones/Mileston1.pdf) • [Milestone 2](./Milestones/Milestone2.pdf) • [Milestone 3]([#milestone-3-4th-June-5pm](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
 
 ## Milestone 1 (7th April, 5pm)
 
