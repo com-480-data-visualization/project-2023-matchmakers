@@ -40,22 +40,28 @@ button.addEventListener("click", async() => {
 
   // Input to model directly from website (users input the values, pass them to the model directly):
 
-  let age = parseFloat(document.getElementById("age").value);
-  let age_o = parseFloat(document.getElementById("age_o").value);
+  const prefs = ["att", "sinc", "intell", "fun", "ambit", "shared"];
+  const prefs_o = ["att_o", "sinc_o", "intell_o", "fun_o", "ambit_o", "shared_o"];
+  let pref_vals = [];
+  let pref_o_vals = [];
+  let sum = 0;
+  let sum_o = 0;
 
-  let att = parseFloat(document.getElementById("att").value)*10;
-  let sincere = parseFloat(document.getElementById("sinc").value)*10;
-  let intell = parseFloat(document.getElementById("intell").value)*10;
-  let fun = parseFloat(document.getElementById("fun").value)*10;
-  let ambit = parseFloat(document.getElementById("ambit").value)*10;
-  let shared = parseFloat(document.getElementById("shared").value)*10;
+  prefs.forEach((item, i) => {
+    let pref_val = parseFloat(document.getElementById(item).value);
+    let pref_o_val = parseFloat(document.getElementById(item+'_o').value);
+    sum = sum + pref_val;
+    sum_o = sum_o + pref_o_val;
+    pref_vals.push(pref_val);
+    pref_o_vals.push(pref_o_val);
+  });
 
-  let att_o = parseFloat(document.getElementById("att_o").value)*10;
-  let sincere_o = parseFloat(document.getElementById("sinc_o").value)*10;
-  let intell_o = parseFloat(document.getElementById("intell_o").value)*10;
-  let fun_o = parseFloat(document.getElementById("fun_o").value)*10;
-  let ambit_o = parseFloat(document.getElementById("ambit_o").value)*10;
-  let shared_o = parseFloat(document.getElementById("shared_o").value)*10;
+  // normalize to sum to 100
+
+  pref_vals.forEach((item, i) => {
+    pref_vals[i] = item*100/sum;
+    pref_o_vals[i] = pref_o_vals[i]*100/sum_o;
+  });
 
   // race: has to preprocessed (1-hot encoded for the model):
 
@@ -122,8 +128,8 @@ button.addEventListener("click", async() => {
 
   let inp = tf.tensor([[
     age, age_o, interests_corr,
-    att_o, sincere_o, intell_o, fun_o, ambit_o, shared_o,
-    att, sincere, intell, fun, ambit, shared,
+    pref_o_vals[0], pref_o_vals[1], pref_o_vals[2], pref_o_vals[3], pref_o_vals[4], pref_o_vals[5],
+    pref_vals[0], pref_vals[1], pref_vals[2], pref_vals[3], pref_vals[4], pref_vals[5],
     wh, bl, lat, asian,
     wh_o, bl_o, lat_o, o_o
   ]]);
@@ -134,7 +140,7 @@ button.addEventListener("click", async() => {
 
   console.log(matchproba.arraySync()[0][0]);
   let pred = matchproba.arraySync()[0][0];
-  if (pred < 0.25){
+  if (pred < 0.3){
     button.className = "predict-low";
     button.innerHTML = "low match probability :(";
     //console.log("low match probability :(");
@@ -149,5 +155,3 @@ button.addEventListener("click", async() => {
   }
 
 })
-
-
