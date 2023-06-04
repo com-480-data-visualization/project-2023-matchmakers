@@ -912,10 +912,17 @@ MATCHING PREDICTOR RELATED
   font-family:var(--ff-secondary);}
 
 .profileId label {
-  width: 100px;}
+  width: 110px;}
 
 .profileId select, input {
   width: 180px;}
+
+.profileInfo > select, input {
+  border-radius: 10px;
+  padding-left: 2%;}
+
+.profileInfo > input {
+  border: 1px solid grey;}
 
 /* Interests */
 
@@ -945,7 +952,7 @@ MATCHING PREDICTOR RELATED
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
-  width: 270px;}
+  width: 280px;}
 
 .profilePreferences input {
   accent-color: deeppink;
@@ -960,7 +967,7 @@ MATCHING PREDICTOR RELATED
   font-family:var(--ff-secondary);}
 
 .profilePreferences > div {
-  width: 270px;
+  width: 280px;
   display: flex;
   flex-direction: row;
   align-items: center;
