@@ -18,10 +18,18 @@ sliders_list.forEach((item, i) => {
   })
 });
 
+count = 2;
+
 
 button.addEventListener("click", async() => {
-  if (button.className != "predict-button"){
-    button.className = "predict-button";
+  count = count-1;
+  if (count == 0) {
+    count = 2;
+    return;
+  }
+
+  if (button.className != "predict-button-default"){
+    button.className = "predict-button-default";
     button.innerHTML = "Predict";
     return;
   }
@@ -141,3 +149,5 @@ button.addEventListener("click", async() => {
   }
 
 })
+
+

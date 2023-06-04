@@ -992,7 +992,7 @@ MATCHING PREDICTOR RELATED
 }
 
 
-.predict-button {
+.predict-button-default {
   background: transparent url('fancy_heart.svg') no-repeat center;
   background-size: contain;
   width: 75%;
