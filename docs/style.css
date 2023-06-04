@@ -186,6 +186,9 @@ p {
   padding-bottom: 5rem;
 }
 
+.section p {
+  font-size: 10pt;}
+
 .section-center {
   width: 100vw;
   margin: 0 auto;}
@@ -421,7 +424,6 @@ canvas{
   margin: 0 auto;
   margin-top: 32px;
   margin-bottom: 1.25rem;
-  font-size: 10pt;
 }
 
 #viz,
