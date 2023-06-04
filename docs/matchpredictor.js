@@ -128,15 +128,15 @@ button.addEventListener("click", async() => {
   let pred = matchproba.arraySync()[0][0];
   if (pred < 0.25){
     button.className = "predict-low";
-    button.innerHTML = "low match probability :(";
+    button.innerHTML = "Low match probability &#128533";
     //console.log("low match probability :(");
   } else if (pred < 0.40) {
     button.className = "predict-medium";
-    button.innerHTML = "medium match probability :/";
+    button.innerHTML = "Medium match probability &#128522";
     //console.log("medium match probability :/");
   } else {
     button.className = "predict-good";
-    button.innerHTML = "good match probability :) :(";
+    button.innerHTML = "Good match probability &#128525";
     //console.log("good match probability :)");
   }
 

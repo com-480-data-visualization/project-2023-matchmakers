@@ -50,9 +50,6 @@ function sankeyPlot(svg, data, gender, race, char, checkgender, checkrace, check
         }
     });
 
-    console.log("the filtered Data : ")
-    console.log(filterData)
-
     var uniqueData = {};
 
     // Iterate over each object in filterData to group the source and target 
@@ -72,9 +69,6 @@ function sankeyPlot(svg, data, gender, race, char, checkgender, checkrace, check
         const [source, target] = key.split('#');
         return { source, target, value };
     });
-
-    console.log("result array ")
-    console.log(dataa)
 
     //set up graph in same style as original example but empty
     sankeydata = {"nodes" : [], "links" : []};
