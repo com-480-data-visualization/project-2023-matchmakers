@@ -866,6 +866,7 @@ MATCHING PREDICTOR RELATED
   flex-shrink: 1;
   flex-shrink: 1;
   padding: 15px 15px 15px 15px;
+  border-radius: 20px;
 }
 
 .profile h4 {
@@ -897,7 +898,8 @@ MATCHING PREDICTOR RELATED
 .profileId {
   display: flex;
   gap: 5px;
-  flex-direction: column;}
+  flex-direction: column;
+}
 
 .profileId div {
   display: flex;
@@ -1025,6 +1027,7 @@ MATCHING PREDICTOR RELATED
   padding-bottom: 3%;
   cursor: pointer;
   transition: text-shadow 1s;
+  font-family: var(--ff-secondary);
 }
 
 .predict-medium {
@@ -1041,6 +1044,7 @@ MATCHING PREDICTOR RELATED
   padding-bottom: 3%;
   cursor: pointer;
   transition: text-shadow 1s;
+  font-family: var(--ff-secondary);
 }
 
 .predict-good {
@@ -1057,6 +1061,7 @@ MATCHING PREDICTOR RELATED
   padding-bottom: 3%;
   cursor: pointer;
   transition: text-shadow 1s;
+  font-family: var(--ff-secondary);
 }
 
 #predict-button:hover {
