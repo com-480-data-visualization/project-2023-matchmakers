@@ -8,7 +8,7 @@ var cx = width1 / 2 - 200
 var cy = height1 / 2
 
 function generateRangeColors() {
-    const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#1B4F72", "#f59ac1", "#3498DB", "#FF527D"];
+    const colors = ["#85C1E9", "#fc607e", "#FF85A8", "#2874A6", "#3d83b3", "#f59ac1", "#3498DB", "#FF527D"];
     let index = 0;
 
     return function () {
