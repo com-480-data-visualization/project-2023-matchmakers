@@ -144,7 +144,7 @@ button.addEventListener("click", async() => {
     //console.log("medium match probability :/");
   } else {
     button.className = "predict-good";
-    button.innerHTML = "good match probability :) :(";
+    button.innerHTML = "good match probability :)";
     //console.log("good match probability :)");
   }
 

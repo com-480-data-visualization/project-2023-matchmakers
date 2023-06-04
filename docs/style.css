@@ -1016,7 +1016,7 @@ MATCHING PREDICTOR RELATED
 .predict-low {
   background: transparent url('low_heart.svg') no-repeat center;
   background-size: contain;
-  width: 85%;
+  width: 80%;
   aspect-ratio: 1;
   padding: 0px 50px 0px 50px;
   margin: auto;
@@ -1050,7 +1050,7 @@ MATCHING PREDICTOR RELATED
 .predict-good {
   background: transparent url('good_heart.svg') no-repeat center;
   background-size: contain;
-  width: 85%;
+  width: 90%;
   aspect-ratio: 1;
   padding: 0px 50px 0px 50px;
   margin: auto;
