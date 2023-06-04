@@ -432,7 +432,7 @@ canvas{
   min-height: 100vh;}
 
 #team {
-  height: 30vh;}
+  height: fit-content;}
 
 #matching {
   background: var(--clr-white);
