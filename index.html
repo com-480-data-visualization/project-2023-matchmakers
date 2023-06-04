@@ -25,6 +25,12 @@
                 gatherings.
                 Here, we examine who attended, their expectations, and the overall success of these events.
             </p>
+
+            <div class="banner_nav">
+                <a href="#intro" class="scroll-link">the dataset</a>
+                <a href="#viz" class="scroll-link">visualization</a>
+                <a href="#matching" class="scroll-link">match predictor</a>
+            </div>
         </div>
     </div>
 </header>
@@ -32,6 +38,13 @@
 <!-- navbar -->
 <nav id="nav">
     <div class="nav-center">
+        <div class="links-container">
+            <ul class="links">
+                <li>
+                    <a href="#home" class="scroll-link">home</a>
+                </li>
+            </ul>
+        </div>
         <!-- nav header -->
         <div class="nav-header">
             <button class="nav-toggle">
@@ -41,9 +54,6 @@
         <!-- links -->
         <div class="links-container">
             <ul class="links">
-                <li>
-                    <a href="#home" class="scroll-link">home</a>
-                </li>
                 <li>
                     <a href="#viz" class="scroll-link">visualizations</a>
                 </li>
@@ -329,6 +339,7 @@
 <!-- SECTION: matching predictor -->
 <!-- services viewBox="-10 -10 1200 1200" -->
 <section id="matching" class="section">
+
     <div class="title">
         <h2>Will it be <span>a match?</span></h2>
     </div>
@@ -389,49 +400,49 @@
 
                 </div>
 
+                <h4> Preferences</h4>
+
                 <div class="profilePreferences">
-                  <h4 style="font-family: var(--ff-secondary); color: White"> Preferences: </h4>
 
                   <div>
-                    <label for="att" style="text-align:left; display: grid"> Attractiveness </label>
+                    <label for="att" class="preferenceCatTitle"> Attractiveness </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="att">
-                    <label id="att_label" for="att" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="att_label" for="att"  class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="sinc" style="text-align:left; display: grid"> Sincerity </label>
+                    <label for="sinc" class="preferenceCatTitle"> Sincerity </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="sinc">
-                    <label id="sinc_label" for="sinc" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="sinc_label" for="sinc"  class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="intell" style="text-align:left; display: grid"> Intelligence </label>
+                    <label for="intell" class="preferenceCatTitle"> Intelligence </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="intell">
-                    <label id="intell_label" for="intell" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="intell_label" for="intell"  class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="fun" style="text-align:left; display: grid"> Sense of humour </label>
+                    <label for="fun" class="preferenceCatTitle"> Sense of humour </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="fun">
-                    <label id="fun_label" for="fun" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="fun_label" for="fun"  class="preferenceCatInd"> 1 </label>
                   </div>
 
-
                   <div>
-                    <label for="ambit" style="text-align:left; display: grid"> Ambition </label>
+                    <label for="ambit" class="preferenceCatTitle"> Ambition </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="ambit">
-                    <label id="ambit_label" for="ambit" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="ambit_label" for="ambit"  class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="shared" style="text-align:left; display: grid"> Shared interests </label>
+                    <label for="shared" class="preferenceCatTitle"> Shared interests </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="shared">
-                    <label id="shared_label" for="shared" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="shared_label" for="shared"  class="preferenceCatInd"> 1 </label>
                   </div>
 
                 </div>
 
-                <h4 style="font-family: var(--ff-secondary); color: White"> Interests: </h4>
+                <h4> Interests</h4>
 
                 <div class="profileInterests">
                     <div>
@@ -557,49 +568,49 @@
                     </div>
                 </div>
 
+                <h4> Preferences</h4>
+
                 <div class="profilePreferences">
-                  <h4 style="font-family: var(--ff-secondary)"> Preferences: </h4>
 
                   <div>
-                    <label for="att_o" style="text-align:left; display: grid"> Attractiveness </label>
+                    <label for="att_o" class="preferenceCatTitle"> Attractiveness </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="att_o">
-                    <label id="att_o_label" for="att_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="att_o_label" for="att_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="sinc_o" style="text-align:left; display: grid"> Sincerity </label>
+                    <label for="sinc_o" class="preferenceCatTitle"> Sincerity </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="sinc_o">
-                    <label id="sinc_o_label" for="sinc_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="sinc_o_label" for="sinc_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="intell_o" style="text-align:left; display: grid"> Intelligence </label>
+                    <label for="intell_o" class="preferenceCatTitle"> Intelligence </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="intell_o">
-                    <label id="intell_o_label" for="intell_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="intell_o_label" for="intell_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="fun_o" style="text-align:left; display: grid"> Sense of humour </label>
+                    <label for="fun_o" class="preferenceCatTitle"> Sense of humour </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="fun_o">
-                    <label id="fun_o_label" for="fun_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="fun_o_label" for="fun_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
-
                   <div>
-                    <label for="ambit_o" style="text-align:left; display: grid"> Ambition </label>
+                    <label for="ambit_o" class="preferenceCatTitle"> Ambition </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="ambit_o">
-                    <label id="ambit_o_label" for="ambit_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="ambit_o_label" for="ambit_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
                   <div>
-                    <label for="shared_o" style="text-align:left; display: grid"> Shared interests </label>
+                    <label for="shared_o" class="preferenceCatTitle"> Shared interests </label>
                     <input type="range" min="0" max="10" value="1" class="slider" id="shared_o">
-                    <label id="shared_o_label" for="shared_o" style="text-align:right; display:inline-block; "> 1 </label>
+                    <label id="shared_o_label" for="shared_o" class="preferenceCatInd"> 1 </label>
                   </div>
 
                 </div>
 
-                <h4 style="font-family: var(--ff-secondary);"> Interests: </h4>
+                <h4> Interests</h4>
 
                 <div class="profileInterests">
                     <div>

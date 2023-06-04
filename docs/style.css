@@ -182,14 +182,14 @@ p {
 
 /* section */
 .section {
+  padding-top: 1rem;
   padding-bottom: 5rem;
-  max-height: 1000px;
+  min-height: 100vh;
 }
 
 .section-center {
   width: 100vw;
-  margin: 0 auto;
-  max-width: 1170px;}
+  margin: 0 auto;}
 
 @media screen and (min-width: 992px) {
   .section-center {
@@ -295,7 +295,10 @@ nav {
     display: none;}
 
   .links-container {
-    height: auto !important;}
+    height: auto !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;}
 
   .links {
     display: flex;}
@@ -344,6 +347,33 @@ header {
     color:deeppink;
     font-style: italic;}
 
+.banner_nav {
+  display: flex;
+  flex-direction: row;
+  gap: 8%;
+  margin: auto;
+  width: fit-content;
+  padding-top: 3%;}
+
+.banner_nav > a {
+  background: white;
+  width: 18vw;
+  font-size: 8pt;
+  font-family: Arial;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  transition: 0.6s ease;
+  cursor: pointer;
+  font-style: italic;
+  height: fit-content;
+  color: black;}
+
+.banner_nav > a:hover {
+  background: deeppink;
+  color: white;}
+
 .svg-container {
   display: flex;
   justify-content: center;
@@ -391,6 +421,7 @@ canvas{
   margin: 0 auto;
   margin-top: 32px;
   margin-bottom: 1.25rem;
+  font-size: 10pt;
 }
 
 #viz,
@@ -837,6 +868,13 @@ MATCHING PREDICTOR RELATED
   padding: 15px 15px 15px 15px;
 }
 
+.profile h4 {
+  font-family: var(--ff-secondary);
+  color: White;
+  line-height: 0;
+  margin-bottom: 0;
+  margin-top: 0.5rem;}
+
 .profileHeader {
   display: flex;
   flex-direction: row;
@@ -877,6 +915,8 @@ MATCHING PREDICTOR RELATED
 .profileId select, input {
   width: 180px;}
 
+/* Interests */
+
 .profileInterests {
   display: flex;
   flex-direction: row;
@@ -902,6 +942,7 @@ MATCHING PREDICTOR RELATED
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 10px;
   width: 270px;}
 
 .profilePreferences input {
@@ -916,8 +957,22 @@ MATCHING PREDICTOR RELATED
   font-size: 12px;
   font-family:var(--ff-secondary);}
 
-.profilePreferences div {
-  width: 270px;}
+.profilePreferences > div {
+  width: 270px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;}
+
+.preferenceCatTitle {
+  text-align: left;
+  width: 45%;
+  display: block;}
+
+.preferenceCatInd {
+  text-align: right;
+  display: block;
+  width: 6%;}
 
 #reset-button {
   background-size: cover;
