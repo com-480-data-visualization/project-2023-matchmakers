@@ -20,6 +20,12 @@ sliders_list.forEach((item, i) => {
 
 
 button.addEventListener("click", async() => {
+  if (button.className != "predict-button"){
+    button.className = "predict-button";
+    button.innerHTML = "Predict";
+    return;
+  }
+
   const model = await tfdf.loadTFDFModel('https://com-480-data-visualization.github.io/project-2023-matchmakers/matchmodel_current_js/model.json');
   console.log(model);
   //const model = await tfdf.loadTFDFModel('http://127.0.0.1:8080/project-2023-matchmakers/matchmodel_current_js/model.json');
@@ -121,13 +127,16 @@ button.addEventListener("click", async() => {
   console.log(matchproba.arraySync()[0][0]);
   let pred = matchproba.arraySync()[0][0];
   if (pred < 0.25){
-    window.alert("low match probability :(");
+    button.className = "predict-low";
+    button.innerHTML = "low match probability :(";
     //console.log("low match probability :(");
   } else if (pred < 0.40) {
-    window.alert("medium match probability :/");
+    button.className = "predict-medium";
+    button.innerHTML = "medium match probability :/";
     //console.log("medium match probability :/");
   } else {
-    window.alert("good match probability :)");
+    button.className = "predict-good";
+    button.innerHTML = "good match probability :) :(";
     //console.log("good match probability :)");
   }
 
