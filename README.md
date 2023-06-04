@@ -37,7 +37,9 @@ The Milestone contains:
 ## Milestone 3 (4th June, 5pm)
 
 [Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
+
 [Process Book](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
+
 [Screencast]
 
 
