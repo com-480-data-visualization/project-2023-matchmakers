@@ -50,18 +50,22 @@ function updateDonut() {
       data: data,
 
       options: {
-
+        size: 34,
         legend: {
                 display: true,
                 labels: {
                     fontSize: 25,
-                    fontFamily: 'sans-serif'
+                    fontFamily: "Georgia",
+                    fontColor: "black",
+                    fontWeight: "bold"
                 }
             },
 
           plugins: {
             tooltip: {
-              titleFontSize: 25
+              fontFamily: "Georgia",
+              titleFontSize: 25,
+              fontColor: "white"
             }
           }
       }
@@ -86,11 +90,14 @@ function updateDonut() {
       data: data,
 
       options: {
-
+        size: 34,
         legend: {
                 display: true,
                 labels: {
-                    fontSize: 25
+                    fontSize: 25,
+                    fontFamily: "Georgia",
+                    fontColor: "black",
+                    fontWeight: "bold"
                 }
             }
       }
@@ -114,11 +121,14 @@ function updateDonut() {
       data: data,
 
       options: {
-
+        size: 5,
         legend: {
                 display: true,
                 labels: {
-                    fontSize: 25
+                    fontSize: 25,
+                    fontFamily: "Georgia",
+                    fontColor: "black",
+                    fontWeight: "bold"
                 }
             }
       }
