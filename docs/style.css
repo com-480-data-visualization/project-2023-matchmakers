@@ -921,8 +921,8 @@ MATCHING PREDICTOR RELATED
   border-radius: 15px;
   padding-left: 2%;}
 
-.profileInfo > input {
-  border: 1px solid grey;}
+.profileInfo > select, input {
+  border: 0px solid grey;}
 
 /* Interests */
 
