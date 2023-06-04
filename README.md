@@ -6,7 +6,7 @@
 | Ajkuna Seipi| 296870|
 | Hongyi Shi| 299694|
 
-[Milestone 1](#milestone-1) • [Milestone 2](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/Milestone2.pdf) • [Milestone 3](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
+[Milestone 1](./Milestones/Mileston1.pdf) • [Milestone 2](./Milestones/Milestone2.pdf) • [Milestone 3](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
 
 ## Milestone 1 (7th April, 5pm)
 
@@ -29,19 +29,18 @@ The Milestone contains:
 
 ## Milestone 2 (7th May, 5pm)
 
-[Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
+* [Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
 
-[Link to Milestone 2](./Milestones/Milestone2.pdf)
+* [Link to Milestone 2](./Milestones/Milestone2.pdf)
 
 
 ## Milestone 3 (4th June, 5pm)
 
-[Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
+* [Website](https://com-480-data-visualization.github.io/project-2023-matchmakers/)
 
-[Process Book](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
+* [Process Book](https://github.com/com-480-data-visualization/project-2023-matchmakers/blob/master/Milestones/process_book.pdf)
 
-[Screencast](https://www.youtube.com/watch?v=vn4a1ecuenk)
-
+* [Screencast](https://www.youtube.com/watch?v=vn4a1ecuenk)
 
 
 
